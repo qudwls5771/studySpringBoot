@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 상세</title>
+</head>
+<body th:align="center">
+<h1>게시글 상세</h1>
+<form th:action="@{updateBoard}" method="Post">
+    <!--name이 있으면 실행이 되지 않음 / name으로 지정한 키값을 기준으로 실행!-->
+    <input type="hidden" name="seq" th:value="${seq}"/>
+    <table th:align="center" border="1" th:cellpadding="0" th:cellspacing="0">
+        <tr>
+            <td bgcolor="orange" th:text="제목" width="80">
+            </th>
+            <!--
+                [서버]에서 java의 데이터를 [클라이언트]html문서에 값을 할당해주는 문법${title}
+            -->
+            <th><input name="title" type="text" th:value="${title}"></th>
+        </tr>
+        <tr>
+            <td bgcolor="orange" th:text="작성자">
+            </th>
+            <td th:text="${writer}"></td>
+        </tr>
+        <tr>
+            <td bgcolor="orange" th:text="내용"></td>
+            <td><textarea name="content" th:text="${content}" cols="40" rows="10"></textarea></td>
+        </tr>
+        <tr>
+            <td bgcolor="orange" th:text="등록일"></td>
+            <td th:text="${createDate}"></td>
+        </tr>
+        <tr>
+            <td bgcolor="orange" th:text="조회수"></td>
+            <td th:text="${cnt}"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div style="text-align: center;">
+                    <input type="submit" value="수정"/>
+                </div>
+            </td>
+        </tr>
+    </table>
+</form>
+<!--@ = 링크 연결-->
+<!--$ = Value값 가져온다.-->
+<form th:action="insertComment" method="Post">
+    <input type="hidden" name="seq" th:value="${seq}"/>
+    <table th:align="center" border="1" th:cellpadding="0" th:cellspacing="0">
+    <tr>
+        <td bgcolor="orange" th:text="댓글"></td>
+        <td><textarea name="comments" cols="40" th:text="${comments}" rows="10"></textarea>
+        </td>
+    </tr>
+        <tr>
+            <td><input align="center" type="submit" value="등록"/></td>
+        </tr>
+    </table>
+</form>
+<br>
+
+<form>
+    <table th:align="center" border="1" th:cellpadding="0" th:cellspacing="0">
+        <tr>
+            <th colspan="2" bgcolor="aqua" width="200">댓글내용</th>
+        </tr>
+        <tr th:each="Comment :${comments}">
+            <td><textarea name="comments" cols="40" th:text="${comments}" rows="10"></textarea>
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+<a th:href="@{/getBoardList}">글목록</a>
+<a th:href="@{/deleteBoard(seq=${seq})}">글삭제</a>
+</body>
+</html>

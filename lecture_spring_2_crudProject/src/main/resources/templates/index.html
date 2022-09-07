@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/ico/impact_logo_20200301_icon_ver2.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/default.css">
+    <title>Title</title>
+</head>
+<body>
+    <a href="/account/getAccountList">회원목록 연결</a>
+    </br>
+    <a href="/board/getBoardList">게시판 연결</a>
+    </br>
+    <hr>
+    <a href="/board/insertComment">comments 입력</a>
+    <a href="/board/getCommentstList?seq=1">comments 조회</a>
+    <a href="/board/insertBoard">게시글 입력</a>
+    <a href="/account/insertAccount">회원 입력</a>
+    <hr>
+    <h1>회원가입 index page test</h1>
+    <p th:text="${msg}"></p>
+    <form method="POST" action="/index">
+        <!------input태그의 id1변수이름으로 데이터를 서버에 전달하고------>
+        <!------서버 model에서 받아온 id2변수이름으로 데이터를 html에 출력------>
+        <input type="text" name="id1" th:value="${id2}" />
+        <input type="submit" value="Click" />
+    </form>
+    <hr>
+    <!----------------->
+    <h1>API Server test</h1>
+    <a href="/slimeLand?input_data=junseokSlime">slimeLand API data!</a>
+</body>
+</html>

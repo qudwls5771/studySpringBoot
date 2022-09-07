@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>(일반) 회원가입</title>
+</head>
+<body>
+<script>
+    function idOverlap(){
+
+    }
+</script>
+<div>회원 가입(사업자)</div>
+<form th:action="@{/businessMember/bm_Join/bm_Join}" method="post" modelAttribute="business_member">
+    <div>
+        <input type="text" name="id" th:value="${business_member.id}" placeholder="ID를 입력해주세요.">
+        <span th:text="${valid_id}"></span>
+    </div>
+    <div>
+        <input type="password" name="password" th:value="${business_member.password}" placeholder="비밀번호는 8~16자 영문 대 소문자, 숫자를 포함한 특수문자를 사용하세요.">
+        <span th:text="${valid_password}"></span>
+    </div>
+    <div>
+        <input type="text" name="business_Number" th:value="${business_member.business_Number}" placeholder="사업자등록번호를 입력해주세요.">
+        <span th:text="${valid_business_Number}"></span>
+    </div>
+    <div>
+        <input type="text" name="phone_number" th:value="${business_member.phone_number}" placeholder="(사업자 회원)전화번호를 입력해주세요.">
+        <span th:text="${valid_phone_number}"></span>
+    </div>
+    <div>
+        <input type="text" name="store_number" th:value="${business_member.store_number}" placeholder="가게 전화번호를 입력해주세요.">
+        <span th:text="${valid_store_number}"></span>
+    </div>
+    <div>
+        <input type="text" name="store_Name" th:value="${business_member.store_Name}" placeholder="가게이름을 입력해주세요.">
+        <span th:text="${valid_store_Name}"></span>
+    </div>
+    <div>
+        <input type="text" name="address" th:value="${business_member.address}" placeholder="가게주소를 입력해주세요.">
+        <span th:text="${valid_address}"></span>
+    </div>
+    <input type="submit" value="회원등록">
+</form>
+
+</body>
+</html>
