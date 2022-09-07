@@ -52,6 +52,14 @@ public class business_MemberController {
         System.out.printf("----사업자_가입-----");
         System.out.println("---check---");
         System.out.println("---PostMapping 실제로 여기서 값이 들어감---");
+        System.out.println("아이디 : " + business_member.getId());
+        System.out.println("비밀번호 : " + business_member.getPassword());
+        System.out.println("사업자 등록번호 : " + business_member.getBusiness_Number());
+        System.out.println("사업자 핸드폰 번호 : " + business_member.getPhone_number());
+        System.out.println("가게 전화번호 : " + business_member.getStore_number());
+        System.out.println("가게 이름 : " + business_member.getStore_Name());
+        System.out.println("가게 주소 : " + business_member.getAddress());
+        System.out.println("가입생태 : " + business_member.getJoin_M());
         //@Valid : 클라이언트 입력 데이터가 dto클래스로 캡슐화되어 넘어올 때, 유효성을 체크하라는 어노테이션
         //business_Member 에서 작성한 어노테이션을 기준으로 유효성 체크
         //여기서 Errors객체는 business_Member 필드 유효성 검사 오류에 대한 정보를 저장하고 노출한다.
@@ -63,15 +71,6 @@ public class business_MemberController {
             //business_Insert(business_Member business_member) 함수에 파라미터를 정의해준 이유입니다.
             //Validation 관점에서는 필요없는 부분이지만, UX 측면에서 구현해주는 것이 좋다.
             //물론, thymeleaf에서도 코드가 들어가야 한다.
-            System.out.println("아이디 : " + business_member.getId());
-            System.out.println("비밀번호 : " + business_member.getPassword());
-            System.out.println("사업자 등록번호 : " + business_member.getBusiness_Number());
-            System.out.println("사업자 핸드폰 번호 : " + business_member.getPhone_number());
-            System.out.println("가게 전화번호 : " + business_member.getStore_number());
-            System.out.println("가게 이름 : " + business_member.getStore_Name());
-            System.out.println("가게 주소 : " + business_member.getAddress());
-            System.out.println("가입생태 : " + business_member.getJoin_M());
-
             //유효성을 통과 못한 필드와 메세지를 핸들링
             Map<String, String> business_Member_Availability = business_Memberservice.business_Member_Availability(errors);
             for(String key : business_Member_Availability.keySet()){
