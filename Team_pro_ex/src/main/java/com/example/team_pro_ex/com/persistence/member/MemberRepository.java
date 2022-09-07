@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 //DAO
-public interface MemberRepository extends JpaRepository<Member, String> {
+public interface MemberRepository extends JpaRepository<Member, Long> {
     //아이디 찾기?
     @Query(value = "select m from Member m where m.id = :id_1")
     Member findMemberByEmailOrId(String id_1);
