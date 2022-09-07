@@ -49,8 +49,6 @@ public class memberController {
         model.addAttribute("member", member_1);
         return "Member/mJoin/Join";
     }
-
-
     @PostMapping("/mJoin/Join")
     public String insertMember(@Valid Member member, Errors errors, Model model){
         System.out.println("---check---");
