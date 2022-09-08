@@ -86,7 +86,7 @@ public class memberController {
         memberService.insertMember(member);
         return "redirect:/index";
     }
-    @GetMapping("/mUpdate/Update")
+    @GetMapping("/mUpdate/Update") //마이 페이지 수정폼
     public String myPage(Member member, Model model){
         System.out.println("get mapping account !!");
         System.out.println("get방식으로 인한 Join페이지 = 우리가 처음 join페이지를 들어갈 떄는 null값이 뜰 수 밖에없다.");
@@ -112,7 +112,7 @@ public class memberController {
     }
 
 
-    @PostMapping("/mUpdate/Update")
+    @PostMapping("/mUpdate/Update") // 실제로 수정 되는 메소드
     public String updateM(@Valid Member member, Errors errors, Model model){
         System.out.println("---회원 정보 수정이 이루어 진다.---");
         System.out.println("---check---");
