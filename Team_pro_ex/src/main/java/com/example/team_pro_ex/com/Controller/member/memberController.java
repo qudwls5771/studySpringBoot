@@ -92,8 +92,16 @@ public class memberController {
     public String updateMember(Member member){
         System.out.println("------update--------");
         System.out.println("--되는건가??--");
+        System.out.println(member.getPassword());
+        System.out.println(member.getPhoneNumber());
+        System.out.println(member.getAddress());
+        System.out.println(member.getPetT());
+        System.out.println(member.getPetS());
+        System.out.println(member.getPetD());
+        System.out.println(member.getPetW());
+        System.out.println("--수정완료!!!--");
         memberService.updateMember(member);
-        return "redirect:Member/mUpdate/Update";
+        return "redirect:/Member/mUpdate/Update?member_Number_Seq=" + member.getMember_Number_Seq();
     }
 
     //회원을 삭제하는게 아니라 수정한다. ID, Name, Join_m 및 날짜 테이블의 join_O을 제외한 값 전부 Null
@@ -101,7 +109,7 @@ public class memberController {
     public String deleteUpdateMember(Member member){
         System.out.println("-------delete-------");
         memberService.deleteUpdateMember(member);
-        return "redirect:Member/mDelete/upDelete";
+        return "redirect:/Member/mDelete/upDelete";
     }
 
 }

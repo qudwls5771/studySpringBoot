@@ -35,19 +35,26 @@ public class memberServiceImpl implements memberService{
     //회원정보 업데이트
     @Override
     public void updateMember(Member member) {
-        Member findMember = memberRepo.findById(member.getId()).get();
+        Member findMember = memberRepo.findById(member.getMember_Number_Seq()).get();
+
+        findMember.setPassword(member.getPassword());
+        findMember.setPhoneNumber(member.getPhoneNumber());
+        findMember.setAddress(member.getAddress());
+        findMember.setPetT(member.getPetT());
+        findMember.setPetS(member.getPetS());
+        findMember.setPetD(member.getPetD());
+        findMember.setPetW(member.getPetW());
+
         System.out.println("--------회원정보 수정---------");
-        System.out.println(member.getId());
         System.out.println(member.getPassword());
-        System.out.println(member.getName());
         System.out.println(member.getPhoneNumber());
         System.out.println(member.getAddress());
         System.out.println(member.getPetT());
         System.out.println(member.getPetS());
         System.out.println(member.getPetD());
         System.out.println(member.getPetW());
-        System.out.println(member.getJoinM());
         System.out.println("--------회원정보 수정---------");
+
         memberRepo.save(findMember);
     }
 

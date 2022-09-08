@@ -20,19 +20,19 @@ class TeamProExApplicationTests {
     @Test
     @DisplayName("회원, 잘들어감?")
     void memberJoin() { //회원 회원가입
-        Member member = new Member();
-        member.setId("qudwls3771");
-        member.setPassword("11111");
-        member.setName("김병진");
-        member.setPhone_number("0103");
-        member.setAddress("집");
-        member.setYear("12");
-        member.setPet_D("12");
-        member.setPet_S("M");
-        member.setPet_T("개");
-        member.setPet_W(65);
-        member.setJoin_M("Y");
-        memberrepository.save(member);
+//        Member member = new Member();
+//        member.setId("qudwls3771");
+//        member.setPassword("11111");
+//        member.setName("김병진");
+//        member.setPhone_number("0103");
+//        member.setAddress("집");
+//        member.setYear("12");
+//        member.setPet_D("12");
+//        member.setPet_S("M");
+//        member.setPet_T("개");
+//        member.setPet_W(65);
+//        member.setJoin_M("Y");
+//        memberrepository.save(member);
 //        System.out.println(member);
     }
     @Test
