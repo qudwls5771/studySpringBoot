@@ -30,6 +30,11 @@ public class memberServiceImpl implements memberService{
         System.out.println("--------회원목록---------");
         return (List<Member>) memberRepo.findAll();
     }
+    //myPage => 회원정보 수정?
+    @Override
+    public Member getMember(Member member) {
+        return memberRepo.findById(member.getMember_Number_Seq()).get();
+    }
 
 
     //회원정보 업데이트
@@ -86,6 +91,7 @@ public class memberServiceImpl implements memberService{
         }
         return availability_ID;
     }
+
     //회원가입
     @Override
     public void insertMember(Member member) {

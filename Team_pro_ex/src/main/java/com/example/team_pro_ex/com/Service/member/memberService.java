@@ -11,6 +11,12 @@ public interface memberService {
     
     //회원 목록
     List<Member> getMemberList(Member member);
+
+
+    //myPage => 회원정보 수정?
+    public Member getMember(Member member);
+
+
     //회원가입
     void insertMember(Member member);
     //회원정보 수정

@@ -6,38 +6,44 @@
 </head>
 <body>
 <form th:action="@{/Member/mUpdate/Update}" method="post">
-    <input name="member_Number_Seq" type="hidden" th:text="member.member_Number_Seq">
+    <input name="member_Number_Seq" type="hidden" th:value="${member.member_Number_Seq}">
     <div>
-        <input type="text" name="id" th:text="${member.id}">
+        <input type="text" name="id" th:text="${member.id}" >
     </div>
     <div>
         <input type="password" name="password" th:value="${member.password}" placeholder="비밀번호는 8~16자 영문 대 소문자, 숫자를 포함한 특수문자를 사용하세요.">
+        <span th:text="${valid_password}"></span>
     </div>
     <div>
-        <input type="text" name="name" th:text="${member.name}">
+        <input type="text" name="name" th:text="${member.name}" >
     </div>
     <div>
-        <input type="text" name="year" th:text="${member.year}">
+        <input type="text" name="year" th:text="${member.year}" >
     </div>
     <div>
         <input type="text" name="phoneNumber" th:value="${member.phoneNumber}" placeholder="핸드폰번호를 입력해주세요.">
+        <span th:text="${valid_phoneNumber}"></span>
     </div>
     <div>
         <input type="text" name="address" th:value="${member.address}" placeholder="(회원)주소를 입력해주세요.">
+        <span th:text="${valid_address}"></span>
     </div>
     <div>
         <input type="text" name="petT" th:value="${member.petT}" placeholder="애견,애묘의 종류 입력해주세요.">
+        <span th:text="${valid_petT}"></span>
     </div>
     <div>
         <input type="text" name="petS" th:value="${member.petS}" placeholder="애견, 애묘의 성별을 입력해주세요.">
+        <span th:text="${valid_mpetS}"></span>
     </div>
     <div>
         <input type="text" name="petD" th:value="${member.petD}" placeholder="애견, 애묘의 생년월일을 입력해주세요.">
+        <span th:text="${valid_petD}"></span>
     </div>
     <div>
         <input type="text" name="petW" th:value="${member.petW}" placeholder="애견, 애묘의 무게를 입력해주세요.">
+        <span th:text="${valid_petW}"></span>
     </div>
-    <input type="submit" value="수정하기">
 </form>
 <a th:href="@{index}">메인 홈페이지</a>
 
