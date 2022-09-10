@@ -8,6 +8,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 
 import javax.transaction.Transactional;
+import java.lang.reflect.Member;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,6 +41,8 @@ public class memberServiceImpl implements memberService{
     //회원정보 업데이트
     @Override
     public void updateMember(Member member) {
+
+    '
         Member findMember = memberRepo.findById(member.getMember_Number_Seq()).get();
 
         findMember.setPassword(member.getPassword());
