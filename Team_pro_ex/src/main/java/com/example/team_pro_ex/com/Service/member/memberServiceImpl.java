@@ -41,8 +41,6 @@ public class memberServiceImpl implements memberService{
     //회원정보 업데이트
     @Override
     public void updateMember(Member member) {
-
-    '
         Member findMember = memberRepo.findById(member.getMember_Number_Seq()).get();
 
         findMember.setPassword(member.getPassword());
