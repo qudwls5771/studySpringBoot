@@ -20,6 +20,9 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
             "m.petT = 'null', m.petW = 'null', m.joinM = 'N' where m.id = :memberID")
     Member updateDelete(String memberID);
 
+    //중복가입
+    boolean existsById(String id);
+
 
 
 

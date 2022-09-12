@@ -8,17 +8,17 @@
 <form th:action="@{/Member/mUpdate/Update}" method="post">
     <input name="member_Number_Seq" type="hidden" th:value="${member.member_Number_Seq}">
     <div>
-        <input type="text" name="id" th:text="${member.id}" >
+        <input type="text" th:text="${member.id}" >
     </div>
     <div>
         <input type="password" name="password" th:value="${member.password}" placeholder="비밀번호는 8~16자 영문 대 소문자, 숫자를 포함한 특수문자를 사용하세요.">
         <span th:text="${valid_password}"></span>
     </div>
     <div>
-        <input type="text" name="name" th:text="${member.name}" >
+        <input type="text" th:text="${member.name}" >
     </div>
     <div>
-        <input type="text" name="year" th:text="${member.year}" >
+        <input type="text" th:text="${member.year}" >
     </div>
     <div>
         <input type="text" name="phoneNumber" th:value="${member.phoneNumber}" placeholder="핸드폰번호를 입력해주세요.">

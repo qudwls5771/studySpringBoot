@@ -93,7 +93,7 @@ public class memberController {
         System.out.println("왜냐!!?!? 값이 없으니까!");
         System.out.println(member.getName());
         System.out.println(member.getPetW());
-        Member member_1 = new Member(
+        Member member_1 = new Member( // null값이라서 값을 받아올 수가 없다....
                 member.getMember_Number_Seq(), // 회원등록 번호 : PK
                 member.getId(), //아이디
                 member.getPassword(), //비밀번호

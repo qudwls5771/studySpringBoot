@@ -8,7 +8,6 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 
 import javax.transaction.Transactional;
-import java.lang.reflect.Member;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -93,12 +92,23 @@ public class memberServiceImpl implements memberService{
         return availability_ID;
     }
 
+
+
+
     //회원가입
     @Override
     public void insertMember(Member member) {
         System.out.println("--------회원가입---------");
         memberRepo.save(member);
     }
+
+    @Override
+    public HashMap<String, Object> memberIDcheck(String id) {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("result", memberRepo.existsById(id));
+        return map;
+    }
+
 
 
 }

@@ -5,6 +5,8 @@ import org.springframework.validation.Errors;
 
 import javax.transaction.Transactional;
 import com.example.team_pro_ex.com.Entity.member.Member;
+
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -31,5 +33,10 @@ public interface memberService {
     void deleteUpdateMember(Member member);
 
     public Map<String, String> member_Availability(Errors errors);
+
+
+    //증복가입
+    public HashMap<String, Object> memberIDcheck(String id);
+
 
 }
