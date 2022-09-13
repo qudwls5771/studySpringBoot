@@ -1,46 +1,68 @@
 package com.example.team_pro_ex.com.Service.member;
 
 import com.example.team_pro_ex.com.Entity.member.Member;
+import com.example.team_pro_ex.com.encrypt.EncryptAES256;
 import com.example.team_pro_ex.com.persistence.member.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 
-import javax.transaction.Transactional;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class memberServiceImpl implements memberService{
 
     //persistence.account_info => MemberRepository에 있는 CrudRepository<Member, Long> 사용
-    @Autowired
-    private MemberRepository memberRepo;
+    private final MemberRepository memberRepo;
+
+    private final EncryptAES256 encrptAES256;
 
     @Autowired
-    protected memberServiceImpl(MemberRepository memberRepo){
+    protected memberServiceImpl(MemberRepository memberRepo,  EncryptAES256 encrptAES256){
         this.memberRepo = memberRepo;
+        this.encrptAES256 = encrptAES256;
     }
 
     //회원 전체조회
     @Override
-    public List<Member> getMemberList(Member member) {
+    public List<Member> getMemberList() {
         System.out.println("--------회원목록---------");
         return (List<Member>) memberRepo.findAll();
     }
+
+    @Override
+    public List<Member> getMemberListEncodingByMemberList(List<Member> memberList) {
+
+        for(Member member : memberList){
+            try{
+                member.setPassword(encrptAES256.encrypt(member.getPassword()));
+            } catch (Exception e){
+                throw new RuntimeException(e);
+            }
+        }
+
+        return memberList;
+    }
+
     //myPage => 회원정보 수정?
     @Override
     public Member getMember(Member member) {
-        return memberRepo.findById(member.getMember_Number_Seq()).get();
+        // 특정회원을 검색하여 리턴하고, 만약 검색 결과에 없으면 null을 리턴한다.
+        Optional<Member> findMember = memberRepo.findById(member.getId());
+        if(findMember.isPresent())
+            return memberRepo.findById(member.getId()).get();
+            else return null;
     }
 
 
     //회원정보 업데이트
     @Override
     public void updateMember(Member member) {
-        Member findMember = memberRepo.findById(member.getMember_Number_Seq()).get();
+        Member findMember = memberRepo.findById(member.getId()).get();
 
         findMember.setPassword(member.getPassword());
         findMember.setPhoneNumber(member.getPhoneNumber());
@@ -93,8 +115,6 @@ public class memberServiceImpl implements memberService{
     }
 
 
-
-
     //회원가입
     @Override
     public void insertMember(Member member) {
@@ -102,12 +122,7 @@ public class memberServiceImpl implements memberService{
         memberRepo.save(member);
     }
 
-    @Override
-    public HashMap<String, Object> memberIDcheck(String id) {
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("result", memberRepo.existsById(id));
-        return map;
-    }
+
 
 
 

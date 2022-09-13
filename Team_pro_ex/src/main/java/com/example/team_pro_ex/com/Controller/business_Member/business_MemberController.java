@@ -41,7 +41,8 @@ public class business_MemberController {
                     business_member.getStore_number(), //가게 전화번호
                     business_member.getStore_Name(), // 가게이름
                     business_member.getAddress(), // 가게주소
-                    business_member.getJoin_M() //가입상태
+                    business_member.getJoin_M(), //가입상태
+                    business_member.getRole()
         );
         model.addAttribute("business_member", business_member_1);
         return "/businessMember/bm_Join/bm_Join";
@@ -60,6 +61,7 @@ public class business_MemberController {
         System.out.println("가게 이름 : " + business_member.getStore_Name());
         System.out.println("가게 주소 : " + business_member.getAddress());
         System.out.println("가입생태 : " + business_member.getJoin_M());
+        System.out.println("권한 : " + business_member.getRole());
         //@Valid : 클라이언트 입력 데이터가 dto클래스로 캡슐화되어 넘어올 때, 유효성을 체크하라는 어노테이션
         //business_Member 에서 작성한 어노테이션을 기준으로 유효성 체크
         //여기서 Errors객체는 business_Member 필드 유효성 검사 오류에 대한 정보를 저장하고 노출한다.

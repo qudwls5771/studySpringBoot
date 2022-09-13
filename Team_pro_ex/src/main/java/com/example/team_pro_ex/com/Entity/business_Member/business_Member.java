@@ -17,10 +17,11 @@ import javax.validation.constraints.Pattern;
 @Builder
 public class business_Member extends member_BaseEntity {
 
-        @Id
+
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long business_Number_Seq;
 
+        @Id
         @Column(name = "member_id", length = 20, nullable = false)
         @Pattern(regexp = "(?=.*[0-9])(?=.*[a-z]).{8,16}", message = "아이디는 8~16자 영문 소문자, 숫자를 사용하세요.")
         private String id;  // 아이디
@@ -49,5 +50,7 @@ public class business_Member extends member_BaseEntity {
 
         @Column(name = "member_join_M", length = 1, nullable = false)
         private String join_M = "Y"; //--가입상태
+
+        private String Role = "ROLE_ADMIN";
 
 }

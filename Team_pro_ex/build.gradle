@@ -70,6 +70,9 @@ dependencies {
     implementation 'com.oracle.database.security:oraclepki'
     implementation 'com.oracle.database.security:osdt_core'
     implementation 'com.oracle.database.security:osdt_cert'
+
+    // 스프링부트 시큐리
+    implementation 'org.springframework.boot:spring-boot-starter-security'
 }
 
 //테스트 라이브러리 정보

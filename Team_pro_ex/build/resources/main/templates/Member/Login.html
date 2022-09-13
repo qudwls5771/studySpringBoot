@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+</head>
+<body>
+<form th:action="@{/Member/Login}" method="post">
+    <div>
+        <input name="id" type="text">
+    </div>
+    <div>
+        <input name="password" type="password">
+    </div>
+    <div>
+        <input type="submit" value="로그인">
+    </div>
+
+</form>
+</body>
+</html>

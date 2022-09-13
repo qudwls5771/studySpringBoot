@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 //DAO
-public interface MemberRepository extends JpaRepository<Member, Long> {
+public interface MemberRepository extends JpaRepository<Member, String> {
     //아이디 찾기?
     @Query(value = "select m from Member m where m.id = :id_1")
     Member findMemberByEmailOrId(String id_1);
@@ -20,8 +20,7 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
             "m.petT = 'null', m.petW = 'null', m.joinM = 'N' where m.id = :memberID")
     Member updateDelete(String memberID);
 
-    //중복가입
-    boolean existsById(String id);
+
 
 
 

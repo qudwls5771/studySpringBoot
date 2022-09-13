@@ -6,15 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 
 import javax.validation.Valid;
 import java.util.Map;
 
 @Controller
+// 세션에 상태 정보를 저장할 때 사용하는데, @SessionAttributes 뒤에 ("member") 라고 설정했기 때문에
+// "member" 라는 이름으로 저장된 데이터를 자동으로 세션으로 등록
+@SessionAttributes("member")
 @RequestMapping(path = "/Member")
 public class memberController {
 
@@ -25,6 +26,15 @@ public class memberController {
         this.memberService = memberservice;
     }
 
+
+    @GetMapping("/memberList/members")
+    public String membrerList(Model model){
+        model.addAttribute("member", memberService.getMemberListEncodingByMemberList(
+                memberService.getMemberList()));
+        return  "/Member/memberList/members";
+    }
+
+
     @GetMapping("/mJoin/Join")
     public String insertMember(Member member, Model model){
         System.out.println("get mapping account !!");
@@ -33,8 +43,8 @@ public class memberController {
         System.out.println(member.getName());
         System.out.println(member.getPetW());
         Member member_1 = new Member(
-                member.getMember_Number_Seq(), // 회원등록 번호 : PK
-                member.getId(), //아이디
+                member.getMember_Number_Seq(), // 회원인원 몇명인지!
+                member.getId(), //아이디, 회원등록 번호 : PK
                 member.getPassword(), //비밀번호
                 member.getName(), //이름
                 member.getYear(), //(회원) 생년월일
@@ -44,8 +54,9 @@ public class memberController {
                 member.getPetS(), // 애견, 애묘 : 성별
                 member.getPetD(), // 애견, 애묘 : 생년월일
                 member.getPetW(), // 애견, 애묘 : 몸무게
+                member.getRole(), // 권한 : 관리자, 사업자, 회원
                 member.getJoinM());// Y는 현재 가입상태 => 모든 회원은 처음 가입할 떄 가입상태 Y로 시작을 한다. /
-                    // 탈퇴할 경우는 update로 N으로 수정된다.
+        // 탈퇴할 경우는 update로 N으로 수정된다.
         model.addAttribute("member", member_1);
         return "Member/mJoin/Join";
     }
@@ -62,6 +73,7 @@ public class memberController {
         System.out.println("펫 성별 : "+ member.getPetS());
         System.out.println("펫 생년 : "+ member.getPetD());
         System.out.println("펫 몸무게 :" +member.getPetW());
+        System.out.println("권한 : " + member.getRole());
         System.out.println("가입상태 : " +member.getJoinM());
         //@Valid : 클라이언트 입력 데이터가 dto클래스로 캡슐화되어 넘어올 때, 유효성을 체크하라는 어노테이션
         //Member에서 작성한 어노테이션을 기준으로 유효성 체크
@@ -84,7 +96,7 @@ public class memberController {
             return "/Member/mJoin/Join";
         }
         memberService.insertMember(member);
-        return "redirect:/index";
+        return "redirect:/Login";
     }
     @GetMapping("/mUpdate/Update") //마이 페이지 수정폼
     public String myPage(Member member, Model model){
@@ -94,8 +106,8 @@ public class memberController {
         System.out.println(member.getName());
         System.out.println(member.getPetW());
         Member member_1 = new Member( // null값이라서 값을 받아올 수가 없다....
-                member.getMember_Number_Seq(), // 회원등록 번호 : PK
-                member.getId(), //아이디
+                member.getMember_Number_Seq(), // 회원인원 몇명인지!
+                member.getId(), //아이디, 회원등록 번호 : PK
                 member.getPassword(), //비밀번호
                 member.getName(), //이름
                 member.getYear(), //(회원) 생년월일
@@ -105,6 +117,7 @@ public class memberController {
                 member.getPetS(), // 애견, 애묘 : 성별
                 member.getPetD(), // 애견, 애묘 : 생년월일
                 member.getPetW(), // 애견, 애묘 : 몸무게
+                member.getRole(), // 권한 : 관리자, 사업자, 회원
                 member.getJoinM());// Y는 현재 가입상태 => 모든 회원은 처음 가입할 떄 가입상태 Y로 시작을 한다. /
         // 탈퇴할 경우는 update로 N으로 수정된다.
         model.addAttribute("member", member_1);;
@@ -126,6 +139,7 @@ public class memberController {
         System.out.println("펫 성별 : "+ member.getPetS());
         System.out.println("펫 생년 : "+ member.getPetD());
         System.out.println("펫 몸무게 :" +member.getPetW());
+        System.out.println("권한 : " + member.getRole());
         System.out.println("가입상태 : " +member.getJoinM());
         //@Valid : 클라이언트 입력 데이터가 dto클래스로 캡슐화되어 넘어올 때, 유효성을 체크하라는 어노테이션
         //Member에서 작성한 어노테이션을 기준으로 유효성 체크
@@ -152,11 +166,6 @@ public class memberController {
         return "redirect:/Member/mUpdate/Update";
     }
 
-
-
-
-
-
     //회원을 삭제하는게 아니라 수정한다. ID, Name, Join_m 및 날짜 테이블의 join_O을 제외한 값 전부 Null
     @PostMapping("/mDelete/upDelete")
     public String deleteUpdateMember(Member member){
@@ -164,5 +173,33 @@ public class memberController {
         memberService.deleteUpdateMember(member);
         return "redirect:/Member/mDelete/upDelete";
     }
+
+    //로그인
+    @GetMapping("/Login")
+    public void loginView(){
+
+    }
+    //로그인
+    @PostMapping("/Login")
+    public String login(Member member, Model model){
+        Member findMember = memberService.getMember(member);
+        System.out.println("로그인 됐습니다!");
+        if(findMember != null
+                && findMember.getPassword().equals(member.getPassword())){
+            model.addAttribute("member", findMember);
+            return "redirect:/index";
+        }else {
+            return "redirect:/Member/Login";
+        }
+    }
+
+    //로그아웃
+    @GetMapping("/logout")
+    public String logout(SessionStatus status){
+        status.setComplete();
+        return "redirect:index";
+    }
+
+
 
 }

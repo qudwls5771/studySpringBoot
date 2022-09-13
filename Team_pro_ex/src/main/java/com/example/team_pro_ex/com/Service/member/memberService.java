@@ -3,17 +3,17 @@ package com.example.team_pro_ex.com.Service.member;
 
 import org.springframework.validation.Errors;
 
-import javax.transaction.Transactional;
 import com.example.team_pro_ex.com.Entity.member.Member;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public interface memberService {
     
     //회원 목록
-    List<Member> getMemberList(Member member);
+    List<Member> getMemberList();
+
+    List<Member> getMemberListEncodingByMemberList(List<Member> memberList);
 
 
     //myPage => 회원정보 수정?
@@ -35,8 +35,10 @@ public interface memberService {
     public Map<String, String> member_Availability(Errors errors);
 
 
-    //증복가입
-    public HashMap<String, Object> memberIDcheck(String id);
+
+
+
+
 
 
 }
