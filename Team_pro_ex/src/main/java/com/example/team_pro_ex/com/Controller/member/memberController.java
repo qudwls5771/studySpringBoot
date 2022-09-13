@@ -27,6 +27,11 @@ public class memberController {
     }
 
 
+    @GetMapping("index")
+    public String index(){
+        return "index";
+    }
+
     @GetMapping("/memberList/members")
     public String membrerList(Model model){
         model.addAttribute("member", memberService.getMemberListEncodingByMemberList(
@@ -197,6 +202,7 @@ public class memberController {
     @GetMapping("/logout")
     public String logout(SessionStatus status){
         status.setComplete();
+        System.out.println("로그아웃");
         return "redirect:index";
     }
 
