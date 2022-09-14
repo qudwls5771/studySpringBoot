@@ -101,7 +101,7 @@ public class memberController {
             return "/Member/mJoin/Join";
         }
         memberService.insertMember(member);
-        return "redirect:/Login";
+        return "redirect:/Member/Login";
     }
     @GetMapping("/mUpdate/Update") //마이 페이지 수정폼
     public String myPage(Member member, Model model){
@@ -182,21 +182,27 @@ public class memberController {
     //로그인
     @GetMapping("/Login")
     public void loginView(){
-
     }
     //로그인
     @PostMapping("/Login")
     public String login(Member member, Model model){
         Member findMember = memberService.getMember(member);
-        System.out.println("로그인 됐습니다!");
+
         if(findMember != null
                 && findMember.getPassword().equals(member.getPassword())){
             model.addAttribute("member", findMember);
-            return "redirect:/index";
+            System.out.println("로그인 됐습니다!");
+            return "redirect:/Member/memberLogin";
         }else {
+            System.out.println("아이디를 다시 입력해주세요!");
             return "redirect:/Member/Login";
         }
     }
+    @GetMapping("/memberLogin")
+    public void securityPage(){
+
+    }
+
 
     //로그아웃
     @GetMapping("/logout")

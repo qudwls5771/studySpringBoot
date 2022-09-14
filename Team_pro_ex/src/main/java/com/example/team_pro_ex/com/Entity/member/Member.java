@@ -33,14 +33,15 @@ public class Member extends member_BaseEntity {
     //나 이외의 다른 팀원이 실행할 경우 나는 어느 부분에서 null이 생겨날지 느낄 수 있지만
     //다른 팀원들은 잘 알 수가 없기 떄문이다.
 
-
+    //Entity의 튜플의 순서에 따라 들어가는 값이 달라진다.
 
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true)
     private Long member_Number_Seq;
 
     @Id
-    @Column(name = "member_id", length = 20, nullable = false, unique = true)
+    @Column(name = "member_id", length = 20, nullable = false)
     @Pattern(regexp = "(?=.*[0-9])(?=.*[a-z]).{8,16}", message = "아이디는 8~16자 영문 소문자, 숫자를 사용하세요.")
     private String id;  // 아이디
 
@@ -76,7 +77,7 @@ public class Member extends member_BaseEntity {
     private Integer petW; //--펫 몸무게
 
     //권한에 대해 부여하기 위해서 변수를 만듬 : 관리자, 회원, 사업자를 나누기 위해서
-    private String role = "ROLE_USER";
+    private String role;
 
     @Column(name = "member_join_M", length = 1, nullable = false)
     private String joinM = "Y"; //--가입상태

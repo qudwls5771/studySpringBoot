@@ -13,6 +13,11 @@ public class SecurityController {
         return "index";
     }
 
+    @GetMapping("Member/memberLogin")
+    public void memberLogin(){
+        System.out.println("MemberLogin");
+    }
+
     @GetMapping("/member")
     public void forMember(){
         System.out.println("Member 요청입니다.");
