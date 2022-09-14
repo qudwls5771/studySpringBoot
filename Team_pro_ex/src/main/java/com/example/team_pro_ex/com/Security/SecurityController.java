@@ -12,6 +12,12 @@ public class SecurityController {
         System.out.println("index 요청합니다.");
         return "index";
     }
+    @GetMapping("/Member/Login")
+        public void login(){
+
+        }
+
+
 
     @GetMapping("Member/memberLogin")
     public void memberLogin(){
