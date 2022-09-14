@@ -164,19 +164,11 @@ public class memberController {
             for(String key : member_Availability.keySet()){
                 model.addAttribute(key, member_Availability.get(key));
             }
-            return "/Member/mJoin/Join";
+            return "redirect:/Member/mUpdate/Update"; //로그안 페이지로 왜 안돌아가는지 모르겠다.
         }
-        memberService.insertMember(member);
+        memberService.updateMember(member);
 
-        return "redirect:/Member/mUpdate/Update";
-    }
-
-    //회원을 삭제하는게 아니라 수정한다. ID, Name, Join_m 및 날짜 테이블의 join_O을 제외한 값 전부 Null
-    @PostMapping("/mDelete/upDelete")
-    public String deleteUpdateMember(Member member){
-        System.out.println("-------delete-------");
-        memberService.deleteUpdateMember(member);
-        return "redirect:/Member/mDelete/upDelete";
+        return "redirect:/Member/loginPage";
     }
 
     //로그인
@@ -192,24 +184,31 @@ public class memberController {
                 && findMember.getPassword().equals(member.getPassword())){
             model.addAttribute("member", findMember);
             System.out.println("로그인 됐습니다!");
-            return "redirect:/Member/memberLogin";
+            return "redirect:/Member/loginPage";
         }else {
             System.out.println("아이디를 다시 입력해주세요!");
             return "redirect:/Member/Login";
         }
     }
-    @GetMapping("/memberLogin")
-    public void securityPage(){
-
-    }
-
-
     //로그아웃
     @GetMapping("/logout")
     public String logout(SessionStatus status){
         status.setComplete();
         System.out.println("로그아웃");
         return "redirect:index";
+    }
+
+    @GetMapping("/loginPage")
+        public void loginPage(){
+    }
+
+
+    //회원을 삭제하는게 아니라 수정한다. ID, Name, Join_m 및 날짜 테이블의 join_O을 제외한 값 전부 Null
+    @PostMapping("/mDelete/upDelete")
+    public String deleteUpdateMember(Member member){
+        System.out.println("-------delete-------");
+        memberService.deleteUpdateMember(member);
+        return "redirect:/Member/loginPage";
     }
 
 

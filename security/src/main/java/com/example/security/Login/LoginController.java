@@ -18,23 +18,31 @@ public class LoginController {
     private MemberService memberService;
 
     @GetMapping("/login")
-    public void loginView(){
+    public void login(){
+
+    }
+
+    @GetMapping("/loginSuccess")
+    public void loginSuccess(){
 
     }
 
     @PostMapping("/login")
     public String login(Member member, Model model){
         Member findMember = memberService.getMember(member);
-
-
         if(findMember != null && findMember.getPassword().equals(member.getPassword())){
             model.addAttribute("member", findMember);
-            return "forward:/getBoardList";
+            return "redirect:/loginSuccess";
         }else{
-            return "redirect:/member";
+            return "redirect:/login";
         }
-
     }
+
+
+
+
+
+
     @GetMapping("/insert")
     public String insert(){
         return "/insert";

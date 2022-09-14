@@ -17,5 +17,6 @@ public class SecueityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin").hasRole("ADMIN");
 
         security.csrf().disable();
+        security.formLogin().loginPage("/login").defaultSuccessUrl("/loginSuccess", true);
     }
 }

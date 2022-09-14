@@ -1,7 +1,6 @@
 package com.example.team_pro_ex.com.Service.member;
 
 import com.example.team_pro_ex.com.Entity.member.Member;
-import com.example.team_pro_ex.com.encrypt.EncryptAES256;
 import com.example.team_pro_ex.com.persistence.member.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,12 +18,9 @@ public class memberServiceImpl implements memberService{
     //persistence.account_info => MemberRepository에 있는 CrudRepository<Member, Long> 사용
     private final MemberRepository memberRepo;
 
-    private final EncryptAES256 encrptAES256;
-
     @Autowired
-    protected memberServiceImpl(MemberRepository memberRepo,  EncryptAES256 encrptAES256){
+    protected memberServiceImpl(MemberRepository memberRepo){
         this.memberRepo = memberRepo;
-        this.encrptAES256 = encrptAES256;
     }
 
     //회원 전체조회
@@ -36,15 +32,6 @@ public class memberServiceImpl implements memberService{
 
     @Override
     public List<Member> getMemberListEncodingByMemberList(List<Member> memberList) {
-
-        for(Member member : memberList){
-            try{
-                member.setPassword(encrptAES256.encrypt(member.getPassword()));
-            } catch (Exception e){
-                throw new RuntimeException(e);
-            }
-        }
-
         return memberList;
     }
 
