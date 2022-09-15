@@ -7,10 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.time.LocalDateTime;
+import java.util.*;
 
 @Service
 public class memberServiceImpl implements memberService{
@@ -39,9 +37,9 @@ public class memberServiceImpl implements memberService{
     @Override
     public Member getMember(Member member) {
         // 특정회원을 검색하여 리턴하고, 만약 검색 결과에 없으면 null을 리턴한다.
-        Optional<Member> findMember = memberRepo.findById(member.getId());
+        Optional<Member> findMember = memberRepo.findById(member.getMember_Number_Seq());
         if(findMember.isPresent())
-            return memberRepo.findById(member.getId()).get();
+            return memberRepo.findById(member.getMember_Number_Seq()).get();
             else return null;
     }
 
@@ -49,7 +47,7 @@ public class memberServiceImpl implements memberService{
     //회원정보 업데이트
     @Override
     public void updateMember(Member member) {
-        Member findMember = memberRepo.findById(member.getId()).get();
+        Member findMember = memberRepo.findById(member.getMember_Number_Seq()).get();
 
         findMember.setPassword(member.getPassword());
         findMember.setPhoneNumber(member.getPhoneNumber());
@@ -78,7 +76,7 @@ public class memberServiceImpl implements memberService{
     @Override
     public void deleteUpdateMember(Member member) {
         System.out.println("--------회원탈퇴---------");
-        memberRepo.updateDelete(member.getId());
+        memberRepo.updateDelete(member.getMember_Number_Seq());
     }
 
 

@@ -179,14 +179,15 @@ public class memberController {
     @PostMapping("/Login")
     public String login(Member member, Model model){
         Member findMember = memberService.getMember(member);
-
+        //아이디, 비번 알치해야지 로그인 가능
         if(findMember != null
-                && findMember.getPassword().equals(member.getPassword())){
+                && findMember.getPassword().equals(member.getPassword())
+                && findMember.getId().equals(member.getId())){
             model.addAttribute("member", findMember);
             System.out.println("로그인 됐습니다!");
             return "redirect:/Member/loginPage";
         }else {
-            System.out.println("아이디를 다시 입력해주세요!");
+            System.out.println("아이디, 비밀번호 다시 입력해주세요!");
             return "redirect:/Member/Login";
         }
     }

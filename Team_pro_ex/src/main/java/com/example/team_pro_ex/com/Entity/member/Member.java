@@ -35,13 +35,12 @@ public class Member extends member_BaseEntity {
 
     //Entity의 튜플의 순서에 따라 들어가는 값이 달라진다.
 
-
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true)
     private Long member_Number_Seq;
 
-    @Id
-    @Column(name = "member_id", length = 20, nullable = false)
+
+    @Column(name = "member_id", length = 20, nullable = false, unique = true)
     @Pattern(regexp = "(?=.*[0-9])(?=.*[a-z]).{8,16}", message = "아이디는 8~16자 영문 소문자, 숫자를 사용하세요.")
     private String id;  // 아이디
 
@@ -86,3 +85,4 @@ public class Member extends member_BaseEntity {
 
 
 }
+

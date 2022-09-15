@@ -38,9 +38,6 @@ public class business_MemberController {
                     business_member.getPassword(), // 비밀번호
                     business_member.getBusiness_Number(), // 사업자 등록번호
                     business_member.getPhone_number(), // 사업자 핸드폰 번호
-                    business_member.getStore_number(), //가게 전화번호
-                    business_member.getStore_Name(), // 가게이름
-                    business_member.getAddress(), // 가게주소
                     business_member.getJoin_M(), //가입상태
                     business_member.getRole()
         );
@@ -57,9 +54,7 @@ public class business_MemberController {
         System.out.println("비밀번호 : " + business_member.getPassword());
         System.out.println("사업자 등록번호 : " + business_member.getBusiness_Number());
         System.out.println("사업자 핸드폰 번호 : " + business_member.getPhone_number());
-        System.out.println("가게 전화번호 : " + business_member.getStore_number());
-        System.out.println("가게 이름 : " + business_member.getStore_Name());
-        System.out.println("가게 주소 : " + business_member.getAddress());
+
         System.out.println("가입생태 : " + business_member.getJoin_M());
         System.out.println("권한 : " + business_member.getRole());
         //@Valid : 클라이언트 입력 데이터가 dto클래스로 캡슐화되어 넘어올 때, 유효성을 체크하라는 어노테이션
