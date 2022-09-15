@@ -98,6 +98,14 @@ public class memberServiceImpl implements memberService{
         }
         return availability_ID;
     }
+    // 아이디 찾기
+    @Override
+    public boolean booleanSearchUserById(Member member) {
+        for(Member member1 : memberRepo.findByIdContains(member.getId())) {
+            System.out.println(member1.getId());
+        }
+        return false;
+    }
 
 
     //회원가입

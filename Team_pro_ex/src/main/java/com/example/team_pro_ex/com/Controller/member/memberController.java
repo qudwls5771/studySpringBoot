@@ -212,6 +212,26 @@ public class memberController {
         return "redirect:/Member/loginPage";
     }
 
+    //아이디 찾기 = 핸드폰 번호
+    @GetMapping("/selectMember/select")
+    public String selectAccount() {
+        return "/Member/selectMember/select";
+    }
+
+    @PostMapping("/selectMember/select")
+    public String resultAccount(Member member, Model model) {
+        System.out.println("------select account--------");
+        //System.out.println(memberService.booleanSearchUserByEmail(member));
+        System.out.println("------select account--------");
+       // System.out.println(memberService.booleanSearchUserById(member));
+        System.out.println("------select account--------");
+       // System.out.println(memberService.booleanSearchUserByPassword(member));
+
+      //  model.addAttribute("member",
+      //          memberService.getMemberWhereIdOrEmail(member.getEmail(), member.getId()));
+        return "redirect:/Member/selectMember/select";
+    }
+
 
 
 }
