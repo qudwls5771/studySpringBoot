@@ -106,8 +106,6 @@ public class memberServiceImpl implements memberService{
         }
         return false;
     }
-
-
     //회원가입
     @Override
     public void insertMember(Member member) {
