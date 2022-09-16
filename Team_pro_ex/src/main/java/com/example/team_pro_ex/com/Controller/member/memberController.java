@@ -223,11 +223,10 @@ public class memberController {
         System.out.println("------select account--------");
         //System.out.println(memberService.booleanSearchUserByEmail(member));
         System.out.println("------select account--------");
-       // System.out.println(memberService.booleanSearchUserById(member));
+       System.out.println(memberService.booleanSearchUserById(member));
         System.out.println("------select account--------");
        // System.out.println(memberService.booleanSearchUserByPassword(member));
-      //  model.addAttribute("member",
-      //          memberService.getMemberWhereIdOrEmail(member.getEmail(), member.getId()));
+      //model.addAttribute("member", memberService.getMemberWhereIdOrEmail(member.getEmail(), member.getId()));
         return "redirect:/Member/selectMember/select";
     }
 
