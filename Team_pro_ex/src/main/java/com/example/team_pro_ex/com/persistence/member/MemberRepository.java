@@ -15,9 +15,10 @@ import java.util.List;
 
 //DAO
 public interface MemberRepository extends JpaRepository<Member, Long> {
-    //아이디 찾기?
+    //아이디 찾기? = 아이디가 완전히 일치해야 됨 = like로 해결가능
     @Query(value = "select m from Member m where m.id = :id_1")
-    Member findMemberByEmailOrId(String id_1);
+    Member findMemberById(String id_1);
+
 
     //고객의 데이터 정보는 돈이다!? 라는게 있어서 고객의 ID, 이름, 가입상태(Y=>N으로 변경)을 제외한 모든
     //데이터를 Null값으로 변경

@@ -39,7 +39,6 @@ public class memberController {
         return  "/Member/memberList/members";
     }
 
-
     @GetMapping("/mJoin/Join")
     public String insertMember(Member member, Model model){
         System.out.println("get mapping account !!");
@@ -180,7 +179,9 @@ public class memberController {
     @PostMapping("/Login")
     public String login(Member member, Model model){
         Member findMember = memberService.getMember(member);
-        //아이디, 비번 알치해야지 로그인 가능
+        // 아이디, 비번 알치해야지 로그인 가능
+        // 회원 로그인을 할 경우 아이디와 비밀번호가 일치하지 않으면 로그인 페이지로 되돌아 온다.
+        // 로그인 성공시 회원 페이지로 이동
         if(findMember != null
                 && findMember.getPassword().equals(member.getPassword())
                 && findMember.getId().equals(member.getId())){
@@ -213,23 +214,22 @@ public class memberController {
         return "redirect:/Member/loginPage";
     }
 
-    //아이디 찾기 = 핸드폰 번호
+    //아이디 찾기 = 핸드폰 번호로 찾기(from 화면만 보임)
     @GetMapping("/selectMember/select")
-    public String selectAccount() {
+    public String selectMember() {
         return "/Member/selectMember/select";
     }
 
+    //핸드폰으로 아이디찾기 => 결과값을 보여준다.
     @PostMapping("/selectMember/select")
-    public String resultAccount(Member member, Model model) {
-        System.out.println("------select account--------");
-        //System.out.println(memberService.booleanSearchUserByEmail(member));
-        System.out.println("------select account--------");
+    public String resultMember(Member member, Model model) {
+        System.out.println("------select ID--------");
        System.out.println(memberService.booleanSearchUserById(member));
-        System.out.println("------select account--------");
-       // System.out.println(memberService.booleanSearchUserByPassword(member));
-      //model.addAttribute("member", memberService.getMemberWhereIdOrEmail(member.getEmail(), member.getId()));
-        return "redirect:/Member/selectMember/select";
+      model.addAttribute("member", memberService.getMemberWhereId(member.getId()));
+        return "/Member/selectMember/result";
     }
+
+
 
 
 

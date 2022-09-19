@@ -98,14 +98,8 @@ public class memberServiceImpl implements memberService{
         }
         return availability_ID;
     }
-    // 아이디 찾기
-    @Override
-    public boolean booleanSearchUserById(Member member) {
-        for(Member member1 : memberRepo.findByIdContains(member.getId())) {
-            System.out.println(member1.getId());
-        }
-        return false;
-    }
+
+
     //회원가입
     @Override
     public void insertMember(Member member) {
@@ -114,6 +108,19 @@ public class memberServiceImpl implements memberService{
     }
 
 
+    // 아이디 찾기
+    @Override
+    public boolean booleanSearchUserById(Member member) {
+        for(Member member1 : memberRepo.findByIdContains(member.getId())) {
+            System.out.println("아이디 : " + member1.getId());
+        }
+        return false;
+    }
+
+    @Override
+    public Member getMemberWhereId(String id) {
+        return memberRepo.findMemberById(id);
+    }
 
 
 
