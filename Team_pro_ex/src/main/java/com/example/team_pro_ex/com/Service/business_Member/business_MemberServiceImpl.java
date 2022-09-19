@@ -38,9 +38,6 @@ public class business_MemberServiceImpl implements business_MemberService{
         System.out.println(findBusiness_member.getId());
         System.out.println(findBusiness_member.getPassword());
         System.out.println(findBusiness_member.getPhone_number());
-        System.out.println(findBusiness_member.getStore_number());
-        System.out.println(findBusiness_member.getStore_Name());
-        System.out.println(findBusiness_member.getAddress());
         System.out.println(findBusiness_member.getJoin_M());
         System.out.println("--------회원정보 수정---------");
         business_memberRepo.save(findBusiness_member);

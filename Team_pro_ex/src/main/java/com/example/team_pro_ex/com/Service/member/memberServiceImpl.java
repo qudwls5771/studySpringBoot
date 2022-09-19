@@ -7,17 +7,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 
-import javax.transaction.Transactional;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.time.LocalDateTime;
+import java.util.*;
 
 @Service
 public class memberServiceImpl implements memberService{
 
     //persistence.account_info => MemberRepository에 있는 CrudRepository<Member, Long> 사용
-    @Autowired
-    private MemberRepository memberRepo;
+    private final MemberRepository memberRepo;
 
     @Autowired
     protected memberServiceImpl(MemberRepository memberRepo){
@@ -26,28 +23,50 @@ public class memberServiceImpl implements memberService{
 
     //회원 전체조회
     @Override
-    public List<Member> getMemberList(Member member) {
+    public List<Member> getMemberList() {
         System.out.println("--------회원목록---------");
         return (List<Member>) memberRepo.findAll();
+    }
+
+    @Override
+    public List<Member> getMemberListEncodingByMemberList(List<Member> memberList) {
+        return memberList;
+    }
+
+    //myPage => 회원정보 수정?
+    @Override
+    public Member getMember(Member member) {
+        // 특정회원을 검색하여 리턴하고, 만약 검색 결과에 없으면 null을 리턴한다.
+        Optional<Member> findMember = memberRepo.findById(member.getMember_Number_Seq());
+        if(findMember.isPresent())
+            return memberRepo.findById(member.getMember_Number_Seq()).get();
+            else return null;
     }
 
 
     //회원정보 업데이트
     @Override
     public void updateMember(Member member) {
-        Member findMember = memberRepo.findById(member.getId()).get();
+        Member findMember = memberRepo.findById(member.getMember_Number_Seq()).get();
+
+        findMember.setPassword(member.getPassword());
+        findMember.setPhoneNumber(member.getPhoneNumber());
+        findMember.setAddress(member.getAddress());
+        findMember.setPetT(member.getPetT());
+        findMember.setPetS(member.getPetS());
+        findMember.setPetD(member.getPetD());
+        findMember.setPetW(member.getPetW());
+
         System.out.println("--------회원정보 수정---------");
-        System.out.println(member.getId());
-        System.out.println(member.getPassword());
-        System.out.println(member.getName());
-        System.out.println(member.getPhoneNumber());
-        System.out.println(member.getAddress());
-        System.out.println(member.getPetT());
-        System.out.println(member.getPetS());
-        System.out.println(member.getPetD());
-        System.out.println(member.getPetW());
-        System.out.println(member.getJoinM());
+        System.out.println(findMember.getPassword());
+        System.out.println(findMember.getPhoneNumber());
+        System.out.println(findMember.getAddress());
+        System.out.println(findMember.getPetT());
+        System.out.println(findMember.getPetS());
+        System.out.println(findMember.getPetD());
+        System.out.println(findMember.getPetW());
         System.out.println("--------회원정보 수정---------");
+
         memberRepo.save(findMember);
     }
 
@@ -57,7 +76,7 @@ public class memberServiceImpl implements memberService{
     @Override
     public void deleteUpdateMember(Member member) {
         System.out.println("--------회원탈퇴---------");
-        memberRepo.updateDelete(member.getId());
+        memberRepo.updateDelete(member.getMember_Number_Seq());
     }
 
 
@@ -79,12 +98,30 @@ public class memberServiceImpl implements memberService{
         }
         return availability_ID;
     }
+
+
     //회원가입
     @Override
     public void insertMember(Member member) {
         System.out.println("--------회원가입---------");
         memberRepo.save(member);
     }
+
+
+    // 아이디 찾기
+    @Override
+    public boolean booleanSearchUserById(Member member) {
+        for(Member member1 : memberRepo.findByIdContains(member.getId())) {
+            System.out.println("아이디 : " + member1.getId());
+        }
+        return false;
+    }
+
+    @Override
+    public Member getMemberWhereId(String id) {
+        return memberRepo.findMemberById(id);
+    }
+
 
 
 }

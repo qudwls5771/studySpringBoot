@@ -2,9 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82337900-089e-42e1-a3de-e09e91698e27" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../four_demo_Comment/src/main/java/com/example/demo/Entity/account_info/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/../four_demo_Comment/src/main/java/com/example/demo/Entity/account_info/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../four_demo_Comment/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../four_demo_Comment/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pet/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pet/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pet/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pet/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pet/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pet/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Team_pro_ex/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Team_pro_ex/.gradle/7.5/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Team_pro_ex/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Team_pro_ex/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Team_pro_ex/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Team_pro_ex/.gradle/7.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Team_pro_ex/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Team_pro_ex/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Team_pro_ex/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Team_pro_ex/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Team_pro_ex/build/classes/java/main/com/example/team_pro_ex/com/Service/member/memberService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Team_pro_ex/build/classes/java/main/com/example/team_pro_ex/com/Service/member/memberService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Team_pro_ex/build/resources/main/templates/Member/mUpdate/Update.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Team_pro_ex/build/resources/main/templates/Member/mUpdate/Update.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +35,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/StudySpring/four_demo_Comment"
+    "last_opened_file_path": "/Users/jeongseojin/studySpringBoot/20220822_lecture_spring_2_crudProject"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -37,6 +47,7 @@
       <option name="presentableId" value="Default" />
       <updated>1661149145646</updated>
       <workItem from="1661149147730" duration="1443000" />
+      <workItem from="1662624228192" duration="12000" />
     </task>
     <servers />
   </component>

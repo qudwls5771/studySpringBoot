@@ -1,16 +1,25 @@
 package com.example.team_pro_ex.com.Service.member;
 
-import com.example.team_pro_ex.com.Entity.member.Member;
+
 import org.springframework.validation.Errors;
 
-import javax.transaction.Transactional;
+import com.example.team_pro_ex.com.Entity.member.Member;
+
 import java.util.List;
 import java.util.Map;
 
 public interface memberService {
     
     //회원 목록
-    List<Member> getMemberList(Member member);
+    List<Member> getMemberList();
+
+    List<Member> getMemberListEncodingByMemberList(List<Member> memberList);
+
+
+    //myPage => 회원정보 수정?
+    public Member getMember(Member member);
+
+
     //회원가입
     void insertMember(Member member);
     //회원정보 수정
@@ -23,6 +32,22 @@ public interface memberService {
     //회원 탈퇴를 클릭할 시 = 아이디, 탈퇴날짜, 가입상태를 제외한 모든 컬럼이 null값으로 변경
     void deleteUpdateMember(Member member);
 
+    //회원가입 유효성 검사
     public Map<String, String> member_Availability(Errors errors);
+
+    //아이디 찾기
+    public boolean booleanSearchUserById(Member member);
+
+    //아이디 찾기 = 아이디를 입력해서 찾기 = 정확하게 아이디를 입력해야 한다.
+    Member getMemberWhereId(String id);
+
+
+
+
+
+
+
+
+
 
 }

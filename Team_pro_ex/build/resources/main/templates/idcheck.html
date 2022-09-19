@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="utf-8">
+    <title>회원가입</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link th:href="@{/css/signin.css}" rel="stylesheet">
+    <link th:href="@{/css/birth.css}" rel="stylesheet">
+
+    <!-- default header name is X-CSRF-TOKEN -->
+    <meta id="_csrf" name="_csrf" th:content="${_csrf.token}"/>
+    <meta id="_csrf_header" name="_csrf_header" th:content="${_csrf.headerName}"/>
+</head>
+<script>
+    function usernameCheck() {
+        const username = $("#username").val();
+        if (username == "") {
+            alert("아이디를 입력해주세요!. 필수항목입니다.");
+            $("#username").focus();
+            return false;
+        }
+        $.ajax({
+            type: "get",
+            url: "/api/overlap/usernameRegister",
+            data: {"username": username},
+            dataType: "JSON",
+
+            success: function (result) {
+                if (result.result == "0") {
+                    if (confirm("이 아이디는 사용 가능합니다. \n사용하시겠습니까?")) {
+                        usernameOverlapCheck = 1;
+                        $("#username").attr("readonly", true);
+                        $("#usernameOverlay").attr("disabled", true);
+                        $("#usernameOverlay").css("display", "none");
+                        $("#resetUsername").attr("disabled", false);
+                        $("#resetUsername").css("display", "inline-block");
+                    }
+                    return false;
+                } else if (result.result == "1") {
+                    alert("이미 사용중인 아이디입니다.");
+                    $("#username").focus();
+                } else {
+                    alert("success이지만 result 값이 undefined 잘못됨");
+                }
+            },
+            error: function (request, status,error) {
+                alert("ajax 실행 실패");
+                alert("code:" + request.status + "\n" + "error :" + error);
+            }
+        });
+
+    }
+</script>
+
+<body class="text-center">
+<form name="registerForm" class="form-signin" th:action="@{/idcheck}" method="post" th:object="${register}" onsubmit="return checkAll();">
+
+    <a th:href="@{/}"><img class="mb-4" th:src="@{/image/log_icon.png}" alt="로고" width="72" height="57"></a>
+    <h1 class="h3 mb-3 fw-normal">회원가입</h1>
+    <hr>
+
+    <label th:for="username" class="form-label">이메일(아이디)</label>
+    <div class="mb-3 abc">
+        <input type="email" class="form-control mx-1 overlap" id="username" name="username" placeholder="이메일을 입력해 주세요">
+        <input class="btn btn-outline-primary btn-sm idCheck mx-1" type="button" id="usernameOverlay" onclick="usernameCheck()" value="중복 체크"/>
+        <input class="btn btn-outline-success btn-sm reType" type="button" id="resetUsername" onclick="reUsername()" disabled value="다시입력"/>
+    </div>
+
+    <div class="mb-3">
+        <label th:for="password">패스워드</label>
+        <input onchange="pwSame()" type="password" class="form-control" th:field="*{password}" placeholder="비밀번호를 입력해 주세요">
+    </div>
+
+    <div class="mb-3">
+        <label for="password_check">패스워드 확인</label>
+        <input onkeyup="pwSame()" type="password" class="form-control" id="password_check" name="password_check" placeholder="비밀번호를 입력해 주세요">
+        <span id="pw_check_msg"></span>
+    </div>
+
+    <div class="mb-3">
+        <button class="w-100 btn btn-lg btn-primary" type="submit">회원가입</button>
+    </div>
+
+    <div class="mb-3">
+        <a type="button" style="color:white" class="w-100 btn btn-lg btn-secondary" onclick="window.history.back();">취소</a>
+    </div>
+
+</form>
+<!--<script src="https://code.jquery.com/jquery-3.6.0.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/register.js"></script>
+</body>
+</html>

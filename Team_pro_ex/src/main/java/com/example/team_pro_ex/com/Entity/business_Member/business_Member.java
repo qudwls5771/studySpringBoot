@@ -17,10 +17,11 @@ import javax.validation.constraints.Pattern;
 @Builder
 public class business_Member extends member_BaseEntity {
 
-        @Id
+
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long business_Number_Seq;
 
+        @Id
         @Column(name = "member_id", length = 20, nullable = false)
         @Pattern(regexp = "(?=.*[0-9])(?=.*[a-z]).{8,16}", message = "아이디는 8~16자 영문 소문자, 숫자를 사용하세요.")
         private String id;  // 아이디
@@ -37,17 +38,19 @@ public class business_Member extends member_BaseEntity {
         @Column(name = "business_member_phone_number")
         private String phone_number; // 핸드폰 번호
 
-    @Pattern(regexp = "(?=.*[0-9]).{10}", message = "핸드폰 번호는 예)041xxxxxxx")
-        @Column(name = "business_member_store_number")
-        private String store_number; // 가게번호 번호
-
-        @Column(name = "business_store_name", length = 30)
-        private String store_Name; // 가게이름
-
-        @Column(name = "business_member_address", length = 50)
-        private String address; // 주소
+//        @Pattern(regexp = "(?=.*[0-9]).{10}", message = "핸드폰 번호는 예)041xxxxxxx")
+//        @Column(name = "business_member_store_number")
+//        private String store_number; // 가게번호 번호
+//
+//        @Column(name = "business_store_name", length = 30)
+//        private String store_Name; // 가게이름
+//
+//        @Column(name = "business_member_address", length = 50)
+//        private String address; // 주소
 
         @Column(name = "member_join_M", length = 1, nullable = false)
         private String join_M = "Y"; //--가입상태
+
+        private String Role = "ROLE_ADMIN";
 
 }
