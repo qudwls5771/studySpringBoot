@@ -1,6 +1,6 @@
 package com.example.team_pro_ex.com.Service.business_Member;
 
-import com.example.team_pro_ex.com.Entity.business_Member.business_Member;
+import com.example.team_pro_ex.com.Entity.business_Member.businessMember;
 import com.example.team_pro_ex.com.persistence.business_Member.business_MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,6 +10,7 @@ import org.springframework.validation.FieldError;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class business_MemberServiceImpl implements business_MemberService{
@@ -23,32 +24,20 @@ public class business_MemberServiceImpl implements business_MemberService{
     }
 
     @Override
-    public List<business_Member> getbusiness_MemberList(business_Member business_member) {
+    public List<businessMember> getbusiness_MemberList(businessMember business_member) {
         System.out.println("--------사업자 회원 목록---------");
-        return (List<business_Member>) business_memberRepo.findAll();
+        return (List<businessMember>) business_memberRepo.findAll();
     }
 
 
 
+    //회원 => 아이디, 가입상태, 탈퇴날짜를 제외하고 모두 null처리
     @Override
-    public void updateBusiness_Member(business_Member business_member) {
-        business_Member findBusiness_member = new business_Member();
-        System.out.println("--------회원정보 수정---------");
-        System.out.println(findBusiness_member.getBusiness_Number());
-        System.out.println(findBusiness_member.getId());
-        System.out.println(findBusiness_member.getPassword());
-        System.out.println(findBusiness_member.getPhone_number());
-        System.out.println(findBusiness_member.getJoin_M());
-        System.out.println("--------회원정보 수정---------");
-        business_memberRepo.save(findBusiness_member);
-    }
-
-    @Override
-    public void deleteUpdateBusiness_Member(business_Member business_member) {
-        //business_memberRepo.(business_member);
+    public void deleteUpdateBusiness_Member(businessMember business_member) {
         System.out.println("--------사업자 회원 삭제(수정  = Null처리)---------");
+        business_memberRepo.updateDelete(business_member.getBusiness_Number_Seq());
     }
-
+    //회원가입, 회원 수정 유효성 검사
     @Override
     public Map<String, String> business_Member_Availability(Errors errors) {
         //유효성 검사에 실패한 필드들은 Map 자료구조를 통해 키값과 에러 메시지를 응답한다.
@@ -69,8 +58,33 @@ public class business_MemberServiceImpl implements business_MemberService{
     }
 
     @Override
-    public void insertBusiness_Member(business_Member business_member) {
+    public businessMember getMember(businessMember business_member) {
+        Optional<businessMember> findBusiness = business_memberRepo.findById(business_member.getBusiness_Number_Seq());
+        if(findBusiness.isPresent())
+            return business_memberRepo.findById(business_member.getBusiness_Number_Seq()).get();
+            else return null;
+    }
+
+    @Override
+    public void insertBusiness_Member(businessMember business_member) {
         System.out.println("--------사업자 회원 가입---------");
         business_memberRepo.save(business_member);
     }
+
+    @Override
+    public void updateBusiness_Member(businessMember business_member) {
+        businessMember findBusiness_member = new businessMember();
+        System.out.println("--------회원정보 수정---------");
+        System.out.println(findBusiness_member.getBusinessNumber());
+        System.out.println(findBusiness_member.getId());
+        System.out.println(findBusiness_member.getPassword());
+        System.out.println(findBusiness_member.getPhoneNumber());
+        System.out.println(findBusiness_member.getJoinM());
+        System.out.println("--------회원정보 수정---------");
+        business_memberRepo.save(findBusiness_member);
+    }
+
+
+
+
 }

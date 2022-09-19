@@ -33,8 +33,6 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     //Member_info_Update , join_O, join_D
 
 
-    //아이디 중복
-    boolean existsByID(String id);
 
 
 
