@@ -17,7 +17,7 @@ import javax.validation.Valid;
 import java.util.Map;
 
 @Controller
-@SessionAttributes("business")
+@SessionAttributes("businessMember")
 @RequestMapping(path = "/businessMember")
 public class businessMemberController {
 
@@ -53,7 +53,7 @@ public class businessMemberController {
     @PostMapping("/bmJoin/bm_Join")
     public String insertBusinessMember(@Valid businessMember businessMember, Errors errors, Model model){
         System.out.println("-------실질적으로 회원가입이 이루어진다.-------");
-        System.out.println("사업자 번호 : " + businessMember.getBusiness_Number_Seq());
+        System.out.println("사업자 seq번호 : " + businessMember.getBusiness_Number_Seq());
         System.out.println("아이디 : " + businessMember.getId());
         System.out.println("비밀번호 : " + businessMember.getPassword());
         System.out.println("사업자 번호 : " + businessMember.getBusinessNumber());
@@ -115,7 +115,7 @@ public class businessMemberController {
             return "redirect:/businessMember/bmUpdate/bm_Update";
         }
         businessMemberServiec.updateBusinessMember(businessMember);
-        return "redirect:/businessMember/bmUpdate/bm_Update";
+        return "redirect:/businessMember/bmLoginPage";
 
     }
 
@@ -123,6 +123,11 @@ public class businessMemberController {
     @GetMapping("/LoginBm")
     public void loginView(){
     }
+    @GetMapping("/bmLoginPage")
+    public void loginPageBMGo(){
+
+    }
+
     //로그인 페이지
     @PostMapping("/LoginBm")
     public String login(businessMember businessMember, Model model){

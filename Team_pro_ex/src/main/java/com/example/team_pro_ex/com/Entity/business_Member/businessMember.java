@@ -24,7 +24,6 @@ public class businessMember extends member_BaseEntity {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long business_Number_Seq;
 
-
         @Column(name = "business_member_id", length = 20, nullable = false, unique = true)
         @Pattern(regexp = "(?=.*[0-9])(?=.*[a-z]).{8,16}", message = "아이디는 8~16자 영문 소문자, 숫자를 사용하세요.")
         private String id;  // 아이디
@@ -35,7 +34,7 @@ public class businessMember extends member_BaseEntity {
         private String password; // 비밀번호
 
         @Column(name = "business_member_number", length = 20)
-        private Integer businessNumber; //사업자 번호
+        private String businessNumber; //사업자 번호
 
         @Pattern(regexp = "(?=.*[0-9]).{11}", message = "핸드폰 번호는 예)010xxxxxxxx")
         @Column(name = "business_member_phone_number")
