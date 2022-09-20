@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>사업자 아이디 입력</title>
+</head>
+<body>
+<form th:action="@{/businessMember/selectBusinessMember/selectBM}" method="post">
+    <td><input name="phoneNumber" type="text" th:placeholder="핸드폰 번호를 -없이 입력해주새요"></td>
+    <input type="submit" value="회원찾기">
+</form>
+
+</body>
+</html>
