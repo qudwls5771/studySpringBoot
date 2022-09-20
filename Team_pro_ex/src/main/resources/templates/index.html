@@ -12,15 +12,18 @@
 -->
     <a th:href="@{/logout}">LOG_OUT</a>
 
-    <a th:href="@{Member_business_Join/Choice_Member_Join}">회원가입</a>
 
     <!--시큐리티 : 모두 가능하게-->
-    <a th:href="@{businessMember/bm_Join/bm_Join}">사업자 회원가입</a>
+    <a th:href="@{businessMember/bmJoin/bm_Join}">사업자 회원가입</a>
     <a th:href="@{Member/mJoin/Join}">일반 회원가입</a>
 
     <!--시큐리티 : 회원가입을 한 이용자만 가능하게-->
     <a th:href="@{Member/Login}">로그인페이지로</a>
     <a th:href="@{businessMember/LoginBm}">사업자 로그인</a>
+
+    <!--사업자 페이지-->
+    <a th:href="@{businessMember/businessMemberPage}">사업자회원 페이지</a>
+
 
     <!--시큐리티 : 회원-->
     <a th:href="@{Member/mUpdate/Update}">회원 수정하기</a>

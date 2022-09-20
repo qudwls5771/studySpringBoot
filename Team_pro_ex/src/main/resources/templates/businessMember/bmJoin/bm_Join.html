@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>사업자 회원 가입</title>
+</head>
+<body>
+<div>회원 가입</div>
+<form th:action="@{/businessMember/bmJoin/bm_Join}" method="post">
+    <div>
+        <input type="text" name="id" th:value="${businessMember.id}" placeholder="ID를 입력해주세요.">
+        <span th:text="${businessMember_id}"></span>
+    </div>
+    <div>
+        <input type="password" name="password" th:value="${businessMember.password}" placeholder="비밀번호는 8~16자 영문 대 소문자, 숫자를 포함한 특수문자를 사용하세요.">
+        <span th:text="${businessMember_password}"></span>
+    </div>
+    <div>
+        <input type="text" name="name" th:value="${businessMember.businessNumber}" placeholder="사업자 번호를 입력해주세요.">
+        <span th:text="${businessMember_businessNumber}"></span>
+    </div>
+    <div>
+        <input type="text" name="phoneNumber" th:value="${businessMember.phoneNumber}" placeholder="핸드폰번호를 입력해주세요.">
+        <span th:text="${businessMember_phoneNumber}"></span>
+    </div>
+     <input type="submit" value="회원등록">
+</form>
+
+</body>
+</html>
