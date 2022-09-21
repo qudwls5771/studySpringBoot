@@ -99,6 +99,6 @@ public class businessMemberServiceImpl implements businessMemberService{
     //아이디 찾기
     @Override
     public businessMember getBusinessMemberWhereId(String id) {
-        return businessMemberRepo.findbusinessMemberById(id);
+        return businessMemberRepo.findMemberById(id);
     }
 }
