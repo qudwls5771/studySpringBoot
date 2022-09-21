@@ -99,6 +99,8 @@ public class memberController {
             }
             return "/Member/mJoin/Join";
         }
+
+
         memberService.insertMember(member);
         return "redirect:/Member/Login";
     }

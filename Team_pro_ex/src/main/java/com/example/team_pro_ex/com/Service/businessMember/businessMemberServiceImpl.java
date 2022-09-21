@@ -39,7 +39,16 @@ public class businessMemberServiceImpl implements businessMemberService{
     @Override
     public void insertBusinessMember(businessMember businessmember) {
         System.out.println("---------회원가입---------");
-        businessMemberRepo.save(businessmember);
+        businessMember findBusinessMember = businessMemberRepo.findMemberById(businessmember.getId());
+
+        if(findBusinessMember != null){
+            System.out.println("중복된 아이디 입니다.");
+        }else{
+            businessMemberRepo.save(businessmember);
+        }
+
+
+
     }
     //myPage => 회원정보를 가져온다.
     @Override

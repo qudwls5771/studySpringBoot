@@ -10,8 +10,8 @@ public interface businessMemberRepository extends JpaRepository<businessMember, 
 
 
     //아이디 찾기 => 아이디가 완전히 일치해야함 =like로 해경가능하다 => 우리는 핸드폰번호로 찾을거기 때문에
-    @Query(value = "select m from businessMember m where m.id = :id_1")
-    businessMember findMemberById(String id_1);
+    @Query(value = "select m from businessMember m where m.id = :id")
+    businessMember findMemberById(String id);
 
     //아이디 찾기
     List<businessMember> findByIdContains(String id);

@@ -44,6 +44,8 @@ public class memberServiceImpl implements memberService{
     }
 
 
+
+
     //회원정보 업데이트
     @Override
     public void updateMember(Member member) {
@@ -100,12 +102,18 @@ public class memberServiceImpl implements memberService{
     }
 
 
-    //회원가입
+    //회원가입 및 중복체크
     @Override
     public void insertMember(Member member) {
         System.out.println("--------회원가입---------");
-        memberRepo.save(member);
+        Member findMember = memberRepo.findMemberById(member.getId());
+        if(findMember != null){
+            System.out.println("중복된 아이디 입니다.");
+        }else{
+            memberRepo.save(member);
+        }
     }
+
 
 
     // 아이디 찾기
