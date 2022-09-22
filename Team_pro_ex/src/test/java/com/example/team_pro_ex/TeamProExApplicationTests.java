@@ -1,7 +1,6 @@
 package com.example.team_pro_ex;
 
-import com.example.team_pro_ex.com.Entity.business_Member.business_Member;
-import com.example.team_pro_ex.com.Entity.member.Member;
+import com.example.team_pro_ex.com.Entity.business_Member.businessMember;
 import com.example.team_pro_ex.com.persistence.business_Member.business_MemberRepository;
 import com.example.team_pro_ex.com.persistence.member.MemberRepository;
 import org.junit.jupiter.api.DisplayName;
@@ -38,7 +37,7 @@ class TeamProExApplicationTests {
     @Test
     @DisplayName("사업자, 잘들어감?")
     void business_MemberJoin(){//(사업자)회원 회원가입
-        business_Member business_member = new business_Member();
+        businessMember business_member = new businessMember();
         business_member.setId("김");
         business_member.setPassword("11");
         business_member.setBusiness_Number("11");

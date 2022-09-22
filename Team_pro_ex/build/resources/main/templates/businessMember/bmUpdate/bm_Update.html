@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>사업자 정보수정</title>
+</head>
+<form th:action="@{/businessMember/bmUpdate/bm_Update}" method="post">
+    <input name="business_Number_Seq" type="hidden" th:value="${businessMember.business_Number_Seq}">
+    <div>
+        <input type="text" name="id" th:value="${businessMember.id}" placeholder="ID를 입력해주세요.">
+        <span th:text="${businessMember_id}"></span>
+    </div>
+    <div>
+        <input type="password" name="password" th:value="${businessMember.password}" placeholder="비밀번호는 8~16자 영문 대 소문자, 숫자를 포함한 특수문자를 사용하세요.">
+        <span th:text="${businessMember_password}"></span>
+    </div>
+    <div>
+        <input type="text" name="businessNumber" th:value="${businessMember.businessNumber}" placeholder="이름을 입력해주세요.">
+        <span th:text="${businessMember_name}"></span>
+    </div>
+    <div>
+        <input type="text" name="phoneNumber" th:value="${businessMember.phoneNumber}" placeholder="핸드폰번호를 입력해주세요.">
+        <span th:text="${businessMember_phoneNumber}"></span>
+    </div>
+    <input type="submit" value="회원수정">
+</form>
+<a th:href="@{/businessMember/businessMemberPage}">메인 홈페이지</a>
+<form th:action="@{/businessMember/bmUpdate/upDelete}" method="post">
+    <input type="submit" value="탈퇴">
+</form>
