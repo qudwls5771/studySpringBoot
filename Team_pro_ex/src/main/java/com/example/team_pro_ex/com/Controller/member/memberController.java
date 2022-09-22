@@ -55,7 +55,6 @@ public class memberController {
                 member.getPhoneNumber(), // 핸드폰 번호
                 member.getAddress(), //주소
                 member.getPetT(), // 애견, 애묘 : 종류
-                member.getPetS(), // 애견, 애묘 : 성별
                 member.getPetD(), // 애견, 애묘 : 생년월일
                 member.getPetW(), // 애견, 애묘 : 몸무게
                 member.getRole(), // 권한 : 관리자, 사업자, 회원
@@ -74,7 +73,6 @@ public class memberController {
         System.out.println("폰번 : "+ member.getPhoneNumber());
         System.out.println("주소 : "+ member.getAddress());
         System.out.println("펫 종류 :"+ member.getPetT());
-        System.out.println("펫 성별 : "+ member.getPetS());
         System.out.println("펫 생년 : "+ member.getPetD());
         System.out.println("펫 몸무게 :" +member.getPetW());
         System.out.println("권한 : " + member.getRole());
@@ -119,7 +117,6 @@ public class memberController {
                 member.getPhoneNumber(), // 핸드폰 번호
                 member.getAddress(), //주소
                 member.getPetT(), // 애견, 애묘 : 종류
-                member.getPetS(), // 애견, 애묘 : 성별
                 member.getPetD(), // 애견, 애묘 : 생년월일
                 member.getPetW(), // 애견, 애묘 : 몸무게
                 member.getRole(), // 권한 : 관리자, 사업자, 회원
@@ -141,7 +138,6 @@ public class memberController {
         System.out.println("폰번 : "+ member.getPhoneNumber());
         System.out.println("주소 : "+ member.getAddress());
         System.out.println("펫 종류 :"+ member.getPetT());
-        System.out.println("펫 성별 : "+ member.getPetS());
         System.out.println("펫 생년 : "+ member.getPetD());
         System.out.println("펫 몸무게 :" +member.getPetW());
         System.out.println("권한 : " + member.getRole());

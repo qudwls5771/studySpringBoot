@@ -65,9 +65,6 @@ public class Member extends member_BaseEntity {
     @Column(name = "member_pet_T", length = 20)
     private String petT; //--펫 종류
 
-    @Column(name = "member_pet_S", length = 1) //
-    private String petS; //--펫 성별
-
     @Pattern(regexp = "(?=.*[0-9]).{8}", message = "애견,애묘의 출생일은 예)20220901")
     @Column(name = "member_pet_D")
     private String petD; //-- 펫 출생
