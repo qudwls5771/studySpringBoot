@@ -24,7 +24,7 @@ public class memberServiceImp implements MemberService{
 
 
 
-    @Override
+    @Override //회원가입
     public void insertMember(Member member) {
         System.out.println("-------회원가입------");
         Member findMember = memberRepo.findMemberById(member.getId());
@@ -35,7 +35,7 @@ public class memberServiceImp implements MemberService{
         }
     }
 
-    @Override
+    @Override //회원수정
     public void updateMember(Member member) {
         //이건 추후에 너희들이 하기를
     }
