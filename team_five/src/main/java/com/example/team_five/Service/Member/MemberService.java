@@ -16,5 +16,6 @@ public interface MemberService {
 
     void deleteMember(Member member);
 
+    public Member getMember(Member member);
 
 }

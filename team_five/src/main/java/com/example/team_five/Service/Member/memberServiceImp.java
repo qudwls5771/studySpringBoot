@@ -9,6 +9,7 @@ import org.springframework.validation.FieldError;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class memberServiceImp implements MemberService{
@@ -24,7 +25,7 @@ public class memberServiceImp implements MemberService{
 
 
 
-    @Override //회원가입
+    @Override
     public void insertMember(Member member) {
         System.out.println("-------회원가입------");
         Member findMember = memberRepo.findMemberById(member.getId());
@@ -35,10 +36,22 @@ public class memberServiceImp implements MemberService{
         }
     }
 
-    @Override //회원수정
+    @Override //   회원 수정
     public void updateMember(Member member) {
-        //이건 추후에 너희들이 하기를
+        Member updateMember = memberRepo.findById(member.getId()).get();
+        updateMember.setPassword(member.getPassword());
+        updateMember.setAddress(member.getAddress());
+        updateMember.setPhone(member.getPhone());
+        updateMember.setEmail(member.getEmail());
+
+        System.out.println(updateMember.getPassword());
+        System.out.println(updateMember.getAddress());
+        System.out.println(updateMember.getPhone());
+        System.out.println(updateMember.getEmail());
+
+        memberRepo.save(updateMember);
     }
+
 
     //아이디 유효성 검사
     @Override
@@ -62,5 +75,15 @@ public class memberServiceImp implements MemberService{
     @Override
     public void deleteMember(Member member) {
         memberRepo.deleteById(member.getId());
+    }
+
+    @Override
+    public Member getMember(Member member) {
+        // 특정회원을 검색하여 리턴하고, 만약 검색 결과에 없으면 null을 리턴한다.
+        // 로그인시에도 활용한다.
+        Optional<Member> findMember = memberRepo.findById(member.getId());
+        if(findMember.isPresent())
+            return memberRepo.findById(member.getId()).get();
+            else return null;
     }
 }
