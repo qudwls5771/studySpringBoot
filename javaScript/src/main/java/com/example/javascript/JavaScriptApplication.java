@@ -1,0 +1,13 @@
+package com.example.javascript;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class JavaScriptApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(JavaScriptApplication.class, args);
+    }
+
+}

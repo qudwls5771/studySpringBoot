@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script>
+      //변수 옛날 버전 = 함수 단위
+      //var a = 10;
+
+      //변수 선언 최근 = 블록 단위, 자바는 블럭단위이다.
+      let b = 20;
+      //const c = 10;
+
+      if(true){
+          //var a = 10;
+          //let b = 20;
+
+      }
+
+
+      //지역변수와 전역변수
+      //블럭안에 선언된 변수는 지역변수
+
+      //블럭밖에 선언된 예를 들어 <script>태그 바로 아래에서 선언된 변수는 전역변수
+      //선언 없이 생성된 변수는 전역변수
+      //ex
+      if(true){
+          c= 30; // 선언없이 생성되었으니까 전역변수
+      }
+      var d = 33; // 스크립트 바로 밑에 선언하였으므로 전역변수
+      e = 34; // 스크립트 바로 밑에 선언하였으므로 전역변수
+
+
+      //전역과 관련된 것들은 모두 window객체에서 관리한다.
+
+      //alert(window.a);
+      alert(window.b);
+      alert(window.c);
+      alert(window.d);
+      alert(window.e);
+
+      function test1(){
+          //함수를 실행하지 않고 찍으면 메모리에 올라가 있지 않다.
+          //함수안에 있는 변수는 모두 접근 불가
+          var f = 1; //지역변수
+          g =2 ; //전역변수
+          let h = 3; //지역변수 = 자바와 같다.
+      }
+      test1();
+      //alert(f); //안찍힘
+      alert(g); //찍힘
+      //alert(h); //안찍힘
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>
