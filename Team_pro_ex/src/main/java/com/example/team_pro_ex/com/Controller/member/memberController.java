@@ -77,6 +77,7 @@ public class memberController {
         System.out.println("펫 몸무게 :" +member.getPetW());
         System.out.println("권한 : " + member.getRole());
         System.out.println("가입상태 : " +member.getJoinM());
+
         //@Valid : 클라이언트 입력 데이터가 dto클래스로 캡슐화되어 넘어올 때, 유효성을 체크하라는 어노테이션
         //Member에서 작성한 어노테이션을 기준으로 유효성 체크
         //여기서 Errors객체는 Member의 필드 유효성 검사 오류에 대한 정보를 저장하고 노출한다.
