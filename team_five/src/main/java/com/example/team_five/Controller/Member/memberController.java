@@ -45,7 +45,7 @@ public class memberController {
     }
 
     //회원가입
-    @PostMapping("이또한 마찬가지") //유효성 검사를 사용하기 위해서 @Valid 필요, 꼭일까? @Valid 뒤에 Entity를 입력할 것.
+    @PostMapping("회원가입 페이지") //유효성 검사를 사용하기 위해서 @Valid 필요, 꼭일까? @Valid 뒤에 Entity를 입력할 것.
     public String insertMember(@Valid Member member, Errors errors, Model model){
         System.out.println("---------Check----------");
         System.out.println("Post방식으로 실질적으로 데이터가 저장되는 곳");
@@ -80,10 +80,25 @@ public class memberController {
             return "유효성 겸사를 통과를 못한 회원은 회원가입 페이지로 리턴;";
         }
         //유효성 검사를 통과하고 난 이후의 페이지로 이동
-        memberService.insertMember(member);
-        return "유효성 검사를 통과한 후 페이지를 입렵";
+
+        Member findMember = memberService.getMemberWhereId(member.getId());
+        if(findMember != null){
+            System.out.println("중복 된 아이디 입니다.");
+            return "회원가입 페이지는 그대로";
+        }else{
+            memberService.insertMember(member);
+            return "유효성 검사를 통과한 후 페이지를 입렵";
+        }
 
     }
+
+
+
+
+
+
+
+
     //회원 수정
     @GetMapping("회원수정 페이지")
     public String updateMember(Member member, Model model){

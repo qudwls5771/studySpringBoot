@@ -18,4 +18,6 @@ public interface MemberService {
 
     public Member getMember(Member member);
 
+    Member getMemberWhereId(String id);
+
 }

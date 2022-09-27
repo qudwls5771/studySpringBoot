@@ -10,4 +10,7 @@ public interface MemberRepository extends JpaRepository<Member, String> {
     @Query(value = "select m from Member m where m.id = :id")
     Member findMemberById(String id);
 
+
+
+
 }

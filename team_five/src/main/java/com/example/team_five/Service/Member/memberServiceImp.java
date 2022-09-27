@@ -25,15 +25,10 @@ public class memberServiceImp implements MemberService{
 
 
 
-    @Override
+    @Override //    회원가입
     public void insertMember(Member member) {
-        System.out.println("-------회원가입------");
-        Member findMember = memberRepo.findMemberById(member.getId());
-        if(findMember != null){ //멤버에 아이디가 있을 경우 앞에 중복된 아이디라고 출력문이 나온다.
-            System.out.println("중복된 아이디 입니다.");
-        }else{ // 중복이 안된 경우 회원가입
             memberRepo.save(member);
-        }
+
     }
 
     @Override //   회원 수정
@@ -85,5 +80,11 @@ public class memberServiceImp implements MemberService{
         if(findMember.isPresent())
             return memberRepo.findById(member.getId()).get();
             else return null;
+    }
+
+    //아이디 중복확인할 때 쓰는 것.
+    @Override
+    public Member getMemberWhereId(String id) {
+        return memberRepo.findMemberById(id);
     }
 }
