@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var count=1;
+        document.write("<table border=1>");
+        for(var j=0;j<5;j++){
+            document.write("<tr>");
+            for(var i=0;i<5;i++){
+                document.write("<td>");
+                document.write(count++);
+                document.write("</td>");                
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+
+
+
+        document.write("<table border=1>");
+            document.write("<tr>");
+            for(var i=1;i<=9;i++){
+                document.write("<td>");
+                document.write(i+"단");
+                document.write("</td>");                
+            }
+            document.write("</tr>");
+            document.write("<tr>");
+            for(var i=1;i<=9;i++){
+                document.write("<td>");
+                for(var j=1;j<=9;j++){
+                    document.write(i+"*"+j+"="+i*j+"<br>");
+                }       
+                document.write("</td>");
+            }                
+            document.write("</tr>");
+        document.write("</table>");
+
+         var i=10;//백틱 `
+         document.write(`${1+2}+${i}=${i+3}`);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

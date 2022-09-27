@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        boolean 연산자 
+        연산결과 true false 생성되는 연산자.
+
+         > , <  ,>= , <= ,!=,!==,== ,===
+         ==  데이터가 같냐      11=='11'    true
+         === 데이터랑 자료형이 같냐 11==='11'   false
+      
+        //관계연산자,비교연산자
+       document.write(50>60,"<br>");
+       document.write(11=='11',"<br>");
+       document.write(11==='11',"<br>");
+       document.write(11!='11',"<br>");
+       document.write(11!=='11',"<br>");
+       document.write(7>6>5,"<br>");//false
+       document.write(''==false,"<br>");//true
+       document.write(''==0,"<br>");//true
+       document.write(''===false,"<br>");//false
+       document.write(''===0,"<br>");//false
+       str="";
+       document.write(str!=0,"<br>");//false
+       document.write(str!==0,"<br>");//true
+       str="0";
+       document.write(str!=0,"<br>");//false
+       document.write(str!==0,"<br>");//true
+
+       //산술연산자 +,-,/,*,%
+        var a=10,b=20;
+        document.write(a+b,"<br>");//true 
+        document.write(b*3,"<br>");//true
+        document.write(10%3,"<br>");//true
+        //관계연산자  ||   &&
+        //|| 둘중 하나가 true이면 true
+        //&& 둘다 true이면 true
+        //진리표
+        document.write(1>2&& 3>4,"<br>");//true
+        document.write(1==2||1!=2,"<br>");//true
+
+        //조건연산자
+        //a?b:c; a조건이 참이면 b가 남고 거짓이면 c가 남는다.
+ 
+        var a=(10>20)?10:20;
+        document.write(a);
+
+        증감연산자.
+        ++ --
+ */
+         var a=0;
+         a++;
+         document.write(a);
+         a--;
+         document.write(a);
+
+         ++a;
+         document.write(a);
+         --a;
+         document.write(a);
+
+
+         document.write(a++);//0
+         document.write(a);//1
+         document.write(++a);//2
+         document.write(a);//2
+
+         //대입연산
+         a=10;
+         a+=10;//a=a+10;
+         a-=10;//a=a-10;
+
+         //연산자 우선순위
+         //생각과 다른 결과가 나오면 웹에서 연산자 우선순위를 확이해보자.
+
+         document.write(5>6==7>8,"==연산자보다 다른 비교 연산자가 우선순위가 높다<br>");//2
+         document.write(5==6&&7>8,"논리연산자가 비교연산자보다 우선순위가 낮다.<br>");//2
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

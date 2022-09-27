@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+        var myDate= new Date(2022,5,6,10,10,10);//특정시간
+        var myDate=new Date();//현재시간
+        document.write(myDate,"<br>");
+        document.write(myDate.getFullYear(),"<br>");
+        document.write(myDate.getMonth(),"<br>");
+        document.write(myDate.getDate(),"<br>");
+        document.write(myDate.getHours(),"<br>");
+        document.write(myDate.getMinutes(),"<br>");        
+        document.write(myDate.getSeconds(),"<br>");      
+        //0123456  일월화수목금토 switch문을이용해서 요일을 한글로 찍을수 있다.
+        document.write(myDate.getDay(),"<br>"); 
+        
+        //시간계산하기
+        // var myDate=new Date(1970,1,1,0,0,0);
+        // document.write(myDate.getTime(),"<br>"); 
+        document.write(myDate.getTime(),"<br>"); 
+
+        var firstTime=new Date(2000,5,6,5,0,0);
+        var secondTime=new Date(2000,5,7,5,0,0);
+
+        var diff=secondTime.getTime()-firstTime.getTime();
+        document.write(diff,"<br>"); 
+        document.write(24*60*60*1000,"<br>"); //86400000
+
+        //달 더하기
+        var myDate=new Date(0);
+        document.write(myDate,"<br>");
+
+        var myDate=new Date(86400000);
+        document.write(myDate,"<br>"); 
+
+        var myDate=new Date();
+        document.write(myDate,"<br>"); 
+
+        var myDate=new Date(myDate.setMonth(-5));
+        document.write(myDate,"<br>"); 
+
+        //1. 사용자에게 구매 시간을 입력받아서 반품가능하지 출력해보자. 1달이내에 구매해야 반품이 가능하다.
+        //2.두시간과 시간당요금을 입력받아 pc방요금을 계산해 보자 
+        //
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

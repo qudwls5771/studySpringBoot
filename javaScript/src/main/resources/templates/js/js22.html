@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1{
+            border: 1px solid blue;            
+        }
+    </style>
+    <script>
+        //javascript로 css 변경하기
+        //그 동안 변경한것들은 속성을 변경한 것이다. html태그 속성중에 style를 통해서 css를 변경할 수 있다.
+        window.onload=function(){
+            var myButton=document.getElementById("b1");
+            myButton.addEventListener("click",function(){
+                var myDiv=document.getElementById("div1");
+                myDiv.style.backgroundColor='yellow';
+                myDiv.style.width="400px";
+                //클릭할때마다 높이를 50px 증가시키기
+                //myDiv.style.height='100px';
+                console.log(myDiv.style.height);
+                console.log(parseInt(myDiv.style.height));
+                myDiv.style.height=parseInt(myDiv.style.height)+50+"px";
+                //hello1를 빨간색으로 바꿔보자.
+                var mySpan=document.querySelectorAll("#div1 span");
+                console.log(mySpan);
+                mySpan[0].style.color='red';
+
+                //document.getElementsByTagName("span");    2개 찾아짐
+                //myDiv.getElementsByTagName("span");       1개 찾아짐
+                //상위는  document에서 span를 찾음 하위는 myDiv에서 span를 찾음
+
+                // style="height:100px" 이부분을 삭제하면 에러가 발생한다. 이유는?
+            })
+
+        }
+
+    </script>
+</head>
+<body>
+    <div id="div1" style="height:100px">
+        <span>hello1</span> world
+    </div>    
+    <button id="b1"><span>change style</span></button>
+    
+</body>
+</html>

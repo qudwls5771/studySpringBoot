@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>Document</title>
+<script>
+    window.onload=function(){
+           // var xResult=tempX.includes(x);
+        // var yResult=tempY.includes(y);
+        // alert(xResult+":"+yResult)
+        //두 배열에 동일한값이 없으면
+        tempX=[1,2,3,4,5,2,7,8,9,2,11,13]
+        tempY=[1,2,3,4,5,2,7,8,9,2,11,13]
+        var shortX=[];
+        var shortY=[];  
+        while(tempX.length!=0){
+            var x=tempX.shift();
+            var y=tempY.shift();
+            if(!(tempX.includes(x)&&tempY.includes(y))){
+                shortX.push(x);
+                shortY.push(y);
+            }else{
+                while(!(x==tempX[0]&&y==tempY[0])){
+                    tempX.shift();
+                    tempY.shift();
+                }
+            }
+            console.log(shortX);
+            console.log(shortY);
+        }
+    
+
+        // if(두 배열에 동일한값이 없으면){
+        //             shortX.push(tempX.shift());
+        //             shortY.push(tempY.shift());
+        //         }else{
+        //             // 동일한 부분의 인덱스 구하기
+        //             //동일한 부분이 나올때까지 앞부분 삭제
+
+
+        //         }
+
+    }
+    
+</script>
+</head>
+<body>    <div><p>과일리스트</p><ul><li>사과</li><li>바나나</li><li>오렌지</li></ul></div>
+</body>
+</html>

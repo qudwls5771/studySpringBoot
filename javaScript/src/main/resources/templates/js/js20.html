@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var tableArray=[
+            [1,0,1,1,1,1,1,1,0,1],
+            [1,0,1,0,1,1,1,0,1,1],
+            [1,0,1,1,0,1,0,1,1,1],
+            [1,0,1,1,1,0,1,1,1,1],
+            [1,0,1,1,0,1,0,1,1,1],
+            [1,0,1,0,1,1,1,0,1,1],
+            [1,0,0,1,1,1,1,1,0,1],
+            [1,0,1,0,1,1,1,1,1,0],
+            [1,0,1,1,0,1,1,1,0,1],
+            [1,0,1,1,1,0,1,0,1,1],
+            [1,0,1,1,1,1,0,1,1,1]
+        ];
+
+        //y,x만큼 html table td를 만든다.
+        function madeTable(y,x){
+            var str="";
+            str+="<table border=1 width=300 height=300>";
+            for(var i=0;i<y;i++){
+                str+="<tr>";
+                for(var j=0;j<x;j++){
+                    str+=`<td id=y${i}x${j}>`;
+                    str+="</td>";
+                }
+                str+="</tr>";
+            }
+            str+="</table>";
+            return str;
+        }
+        function drawArray(arr){
+            var y=arr.length;
+            var x=arr[0].length;
+
+            for(var i=0;i<y;i++){
+                for(var j=0;j<x;j++){
+                    //str+=`<td id=y${i}x${j}>`;
+                    if(arr[i][j]==1){
+                        document.getElementById("y"+i+"x"+j).setAttribute("bgcolor","red");
+                    }
+                }
+            }
+        }
+        window.onload=function(){
+            document.body.innerHTML=madeTable(tableArray.length,tableArray[0].length)
+            drawArray(tableArray);
+            //document.getElementById("y3x3").setAttribute("bgcolor","red");
+        }
+
+        //document.body.innerHTML=madeTable(tableArray.length,tableArray[0].length)
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

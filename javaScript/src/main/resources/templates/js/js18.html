@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            var myA=document.getElementById('myA');
+            //var myA=document.getElementById('#myA');
+            
+            //읽어오기
+            console.log(myA.href);
+            console.log(myA.getAttribute("href"));//myA.href
+
+            //속성 변경하기
+            myA.setAttribute("href","http://www.naver.com");
+            console.log(myA.getAttribute("href"));//myA.href
+            //속성 추가
+            myA.title="naver";
+            //myA.setAttribute("title","naver");
+            console.log(myA.getAttribute("title"));
+            //속성 제거
+            myA.removeAttribute("title");
+            console.log(myA.getAttribute("title"));//myA.href
+
+            myA.innerHTML="naver";
+            
+            //다른페이지로 이동할때 사용
+            location.href="http://www.daum.net";
+        }
+    </script>
+</head>
+<body>
+    <a id="myA" href="http://www.daum.net"> daum</a>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        사용자 입력 자바스크립트로 받아오기
+        window.onload를 사용하는 이유는 body부분의 엘리먼트를 자바스크립트에서 찾으려면 화면이 모두 구현된다음에 찾야 하기 때문에 onload에 기술해야 한다.
+        */
+       window.onload=function(){
+            document.getElementById('button1').onclick=f1;
+            document.getElementById('button2').onclick=f2;
+            document.getElementById('button3').onclick=f3;
+            document.getElementById('button4').onclick=f4;
+            document.getElementById('button5').onclick=f5;
+            document.getElementById('button6').onclick=f6;
+       }
+       function f1(){
+           //document.getElementById('text1').value
+           //사용자입력값을 가져온다.
+           var text1=document.getElementById('text1');
+           console.log(text1);
+           console.log(text1.value);
+           alert(text1.value);
+       }
+
+       function f2(){//특정 엘리먼트 안에 있는 택스트 가져오기
+           alert(document.getElementById("div1").innerText);
+       }
+
+       function f3(){//특정 엘리먼트 안에 있는 html태그 가져오기
+           alert(document.getElementById("div2").innerHTML);
+       }
+       function f4(){
+           var input=document.getElementById("userInput").value;
+           document.getElementById("text1").value=input;
+       }
+       function f5(){
+           var input=document.getElementById("userInput").value;
+           document.getElementById("div1").innerText=input;
+       }
+       function f6(){
+           var input=document.getElementById("userInput").value;
+           document.getElementById("div2").innerHTML=input;
+       }
+    //자판기를 만들어 보자.
+    </script>
+</head>
+<body>
+    <input type="text" id="text1">
+    <div id="div1">
+        <span>hello</span>
+    </div>
+    <div id="div2">
+        <span>hello</span>
+    </div>
+    <input type="text" id="userInput">
+    <button id="button1">사용자 입력값 가져오기</button>
+    <button id="button2">div택스트 가져오기</button>
+    <button id="button3">div태그 가져오기</button><br>
+    <button id="button4">사용자 입력값 넣기</button>
+    <button id="button5">div택스트 넣기 </button>
+    <button id="button6">div태그 넣기</button><br>
+
+</body>
+</html>

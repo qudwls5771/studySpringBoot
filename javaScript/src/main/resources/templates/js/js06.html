@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <script> 
+    //         사용자에게 숫자를 입력받아 입력받은수가 100보다 큰지 작은지 출력
+    // 100보다 작으면 홀수 인지 짝수 인지 출력하시오.
+    // 100보다 크면 3의 배수인지 출력하시오. 
+
+     var a=5;
+    // if(a>100){
+    //     alert('크다');
+    // }else{
+    //     alert('100보다 작다');
+    // }
+
+    // if(a>100){
+    //     if(a%3==0){
+    //         alert('3의 배수');
+    //     }else{
+    //         alert('3의 배수가 아님');
+    //     }
+    // }else{
+    //     if(a%2==0){
+    //         alert('짝수');
+    //     }else{
+    //         alert('홀수');
+    //     }
+    // }
+
+    /*
+    현재시간이 새벽, 아침, 점심, 저녁 중 언재인지 확인 하시오.
+시간대는 24시간을 4로 나눠 표시
+다음을 if else if 문에서 switch 문으로 변경해 보자.
+사용자에게 숫자를 입력 받아 양수, 0, 음수를 구분하는 프로그램
+사용자에게 숫자를 입력 받아 홀수와 짝수를 구분하는 프로그램
+사용자에게 국어, 영어, 수학 점수를 입력 받아 평균을 구한 뒤 수우미양가를 구분하는 프로그램
+    */
+
+    var kor=Number(prompt("kor"));
+    var eng=Number(prompt("eng"));
+    var math=Number(prompt("math"));
+
+    var avg=(kor+eng+math)/3;
+    document.write(avg);
+    //.toFixed(2);
+    document.write('<br>',avg.toFixed(2));
+
+    if(avg>90){
+        alert("수");
+    }else if(avg>80){
+        alert("우");
+    }else if(avg>70){
+        alert("미");
+    }else if(avg>60){
+        alert("양");
+    }else{
+        alert("가");
+    }
+
+    </script>
+</head>
+<body>
+        
+</body>
+</html>

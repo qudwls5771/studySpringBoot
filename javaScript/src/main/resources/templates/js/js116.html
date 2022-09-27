@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            scope 변수의 생명주기
+            block scope, function scope, global scope
+
+            변수선언 방법
+            var, let, const, 변수명만으로 변수선언
+
+            var             함수스코프 형태의 변수 선언
+            let             블록스코프 형태의 변수 선언
+            const           블록스코프 형태의 상수 선언
+            변수명만으로선언  전역변수선언
+            script 테그안에서 바로 사용하면 모두 전역변수(global scope)
+            지역변수 특정지역에서만 접근 가능하고 전역변수는 모든지역에서 접근가능
+            
+        */
+
+        //script 테그안에서 바로 사용하면 모두 전역변수(global scope)
+        // var a=10;
+        // let b=20;
+        // const c=30;
+        // d=40;
+        // document.write(a,"<br>");
+        // document.write(b,"<br>");
+        // document.write(window.a,"<br>");
+        // document.write(window.b,"<br>");//전역이지만 window객체에서 관리하지는 않음
+        // document.write(window.c,"<br>");//전역이지만 window객체에서 관리하지는 않음
+        
+
+        //block scope
+        // if(true){
+        //     var a=10;   //함수스코프
+        //     let b=20;   //블록스코프
+        //     const c=30; //블록스코프
+        //     d=40;       //전역스코프
+        // }
+        //자바의 경우 블록스코프
+        //블록안에 선언한 변수를 블록 밖에서 사용하면
+        // document.write(a,"<br>");//10
+        //document.write(b,"<br>");//접근불가
+        //document.write(c,"<br>");//접근불가
+        // document.write(d,"<br>");//40
+
+        //function scope
+        function f1(){
+            var a=10;   //함수스코프
+            let b=20;   //블록스코프
+            const c=30; //블록스코프
+            d=40;       //전역스코프
+        }
+        //document.write(a,"<br>");//접근불가
+        //document.write(b,"<br>");//접근불가
+        //document.write(c,"<br>");//접근불가
+        //document.write(d,"<br>");//접근불가
+        f1();
+        //document.write(a,"<br>");//접근불가
+        //document.write(b,"<br>");//접근불가
+        //document.write(c,"<br>");//접근불가
+        document.write(d,"<br>");//전역변수여서 접근가능
+        document.write(window.d,"<br>");//전역변수여서 접근가능
+
+        function f2(){
+            //document.write(a,"<br>");//접근불가
+            //document.write(b,"<br>");//접근불가
+            //document.write(c,"<br>");//접근불가
+            document.write(d,"<br>");//전역변수여서 접근가능
+            document.write(window.d,"<br>");//전역변수여서 접근가능
+        }
+        f2();
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

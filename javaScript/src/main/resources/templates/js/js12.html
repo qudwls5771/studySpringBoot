@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        json이란? 자바스크립트 객체
+        {} 중괄호를 사용하여 내부에 key:value형태로 기술
+        */
+       var obj={};
+       document.write(typeof obj,"<br>")
+
+       var human={
+           name:'홍길동',
+           age:32,
+           friends:['고길동','고길남'],
+           address:{
+               id:234,
+               area:'천안',
+               comment:'주소임'
+           },
+           myFunction:function(){
+               alert(this.name);
+           }
+       }
+       document.write(human.name,"<br>")
+       human.name="홍길남"
+       document.write(human.name,"<br>")
+       document.write(human.address.area,"<br>")
+       human.myFunction();
+
+       //객체에 동적으로 새로운 필드를 추가하려면 기존 객체에 .를 찍어서 새로운 필드명으로 값을 넣을 수 있다.
+       human.email='hello@daum.net';
+       human.emial='hello@daum.net';//에러가 아니다.
+       console.log(human);
+       delete(human.emial);//속성제거
+       console.log(human);
+      
+    </script>
+</head>
+<body>
+
+    
+</body>
+</html>

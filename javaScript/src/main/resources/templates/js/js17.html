@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        document.getElementById("id");      //id이용해서 찾기
+        document.getElementsByTagName("div");//태그를 이용해서 찾기
+        document.getElementsByClassName("myClass");//class이용해서 찾기
+        document.querySelectorAll();        //css선택자를 이용해서 찾기
+        */
+       window.onload=function(){
+            var myP = document.getElementsByTagName("P");//배열로 생성됨
+            //alert(myP[0].innerHTML);//p1태그1
+            //alert(myP[1].innerHTML);
+            var myP = document.getElementsByClassName("myClass");
+            //alert(myP[0].innerHTML);//p1태그2
+            //alert(myP[1].innerHTML);
+            var myP = document.querySelectorAll("p.myClass");  
+            //alert(myP[0].innerHTML);//p1태그2
+            //alert(myP[1].innerHTML);
+            var myP = document.querySelectorAll(".myClass2"); 
+            alert(myP[0].innerHTML);//p1태그1
+        }
+    </script>
+</head>
+<body>
+    <p class="myClass2">p1태그1</p>
+    <p class="myClass">p1태그2</p>
+    <p class="myClass">p1태그3</p>
+</body>
+</html>

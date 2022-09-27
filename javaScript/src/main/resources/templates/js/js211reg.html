@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //정규표현식
+        //문자열 패턴을 검색해서 일치하는 문자를 찾는데 사용한다.
+        //예 사이트가입시 이메일, 주민번호, 전화번호 입력에대해서 정말 맞는데이터를
+        //입력하였는지 확인하는 작업이 필요할때 사용한다.
+
+        // 정규식 문자열은 사선안에 문자열 펜턴을 기술해서 표시한다.
+        // / 문자열패턴기술 / 추가정보
+
+        // i 문자열 패턴으로 찾을시 대소문자를 구분하지 않음
+        // g 전체에서 여러개 찾기
+        // m 줄당 시작하는 문자열이 같을 경우
+        // 추가정보는 조합되어 사용할 수 있다. / /igm
+
+        //search 같은 문자열을 찾아서 찾은 문자의 인덱스를 생성해 준다.
+        //replace 같은 문자열을 찾아서 변경한다.
+        //test 같은 문자열이 있으면 true,없으면 false를 리턴한다.
+        //match 찾은 문자열들을 배열로 리턴한다.
+
+        var str="visit Human";
+        var  index = str.search("Human");
+        console.log(index);// 문자열에서 Human이 시작되는 인덱스를 생성해준다.  6 생성
+        var str="visit Human";
+        var  index = str.search(/Human/);
+        console.log(index);
+
+        var str="visit Human";
+        var  index = str.search(/human/);//-1
+        console.log(index);
+
+        var str="visit Human";
+        var  index = str.search(/human/i);//6
+        console.log(index);
+
+        //replace
+        var str="visit Human ";
+        var  result = str.replace(/human/i,"Microsoft");//6
+        console.log(str);//visit Human
+        console.log(result);//visit Microsoft
+
+        //replace
+        var str="visit Human Human ";
+        var  result = str.replace(/human/ig,"Microsoft");//6
+        console.log(str);//visit Human
+        console.log(result);//visit Microsoft
+        //test
+        var str="visit Human Human ";
+        var pattern=/e/;
+        console.log(pattern.test(str));//e 가 없으므로 false가 생성
+        console.log(/i/.test(str));//i가 있으므로 true가 생성
+        //정규표현식 패턴 /i/ 에서 i부분에 올수 있는 패턴
+        //[abc] abc문자중 하나의 문자를 검색한다.
+        var str="visit Human Human ";
+        var result = str.match(/[i]/g);
+        console.log(result);//i,i
+        var result = str.match(/[im]/g);
+        console.log(result);//i,i,m,m
+        var result = str.match(/[ims]/g);
+        console.log(result);//i,s,i,m,m
+        //[0-9]  0부터 9 사이에 있는 문자를 선택한다.
+        //[0123456789]와 같은 의미
+        var str="v0123456789";
+        var result = str.match(/[3-6]/g);
+        console.log(result);//3,4,5,6
+        //(xx|yy)   xx이거나 yy일대 선택한다.
+        var str="visit Human Human ";
+        var result = str.match(/(visit|Human)/g);
+        console.log(result);//["visit","Human","Human"]
+
+        // /d 숫자만 찾는다.
+        var str="visit1 Human10 Human100 ";
+        var result = str.match(/\d/g);
+        console.log(result);//["1","1","0","1","0","0"]
+        
+        // /s 공백찾기
+        var str="visit1 Human10 Human100";
+        var result = str.match(/\s/g);
+        console.log(result);//[,]
+        // \bHu  Hu로 시작하는 문자열
+        var result = str.match(/\bHu/g);
+        console.log(result);
+        //0\b 0으로 끝나는 문자열
+        var result = str.match(/0\b/g);
+        console.log(result);
+
+        //\uxxxx 해당 유니코드
+
+        // n+  적어도 하나이상의 n으로 이루어진 n문자열을 찾는다.
+        var str="visit0001 Human10 Human100";
+        var result = str.match(/0+/g);
+        console.log(result);
+
+        //n* n이 없어도 되고 여러개여도 되는 문자열
+        var str="visit0001 Human10 Human100";
+        var result = str.match(/10+/g);
+        console.log(result);
+
+        //n? n이 없어도 되고 한개여도 되는 문자열
+        var str="visit0001 Human10 Human100";
+        var result = str.match(/10?/g);
+        console.log(result);
+
+        //사용자 입력을 받아서 다음 문자열이 맞는지 확인하는 정규식을 만들어 보자.
+
+        //2. 숫자와 문자 포함 형태의 6~12자리 이내의 암호 정규식
+        //3. 이메일 정규식
+        //4. 핸드폰번호 정규식
+
+var regExp = /^[A-Za-z0-9]{6,12}$/;
+var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+var regExp = /^\d{3}-\d{3,4}-\d{4}$/;
+
+        window.onload=function(){
+          
+            document.getElementById("b2").addEventListener("click",function(){
+                var regExp = /^[A-Za-z0-9]{6,12}$/;
+                if(regExp.test(document.getElementById("reg2").value)){
+                    alert("사용할 수 있는 아이디");
+                }else{
+                    alert("사용할 수 없는 아이디");
+                }
+            })            
+            document.getElementById("b3").addEventListener("click",function(){
+                var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+                if(regExp.test(document.getElementById("reg3").value)){
+                    alert("사용할 수 있는 이메일");
+                }else{
+                    alert("사용할 수 없는 이메일");
+                }
+            })
+            document.getElementById("b4").addEventListener("click",function(){
+                var regExp = /^\d{3}-\d{3,4}-\d{4}$/;
+                if(regExp.test(document.getElementById("reg4").value)){
+                    alert("사용할 수 있는 전화번호");
+                }else{
+                    alert("사용할 수 없는 전화번호");
+                }
+            })
+        }
+
+    </script>
+</head>
+<body>
+   
+    숫자와 문자 포함 형태의 6~12자리 이내의 암호 정규식
+    <input type="text" id="reg2"><button id="b2">버튼</button><br>
+    이메일 정규식
+    <input type="text" id="reg3"><button id="b3">버튼</button><br>
+    핸드폰번호 정규식
+    <input type="text" id="reg4"><button id="b4">버튼</button><br>
+    <br><br>
+    html5 정규식
+    <form>
+        <input type="text" placeholder="4~10자리 입력" pattern="[A-Za-z0-9]{4,10}" maxlength="10" required>
+        <button type="sumbit">check</button>
+    </form>
+<!-- 
+    placeholder 사용자 입력전 입력 가이드
+    maxlength   사용자 입력 최대 크기
+    required    사용자가 입력을 반드시 해야 한다.
+ -->
+</body>
+</html>

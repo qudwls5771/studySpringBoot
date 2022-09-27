@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //자료형
+        /*
+        자바스크립트 프로그램에서 데이터를 저장하려면 변수를 선언해서 사용해야 한다.
+        변수 선언 방법은 var 변수명; 과 같이 선언한다.
+        var a;
+       a=10;
+       var b=10;
+       var c,d,e=10;
+       document.write(a);
+       document(b);
+        변수는 원하는 데이터를 저장할때 사용한다.
+        변수에 원하는 데이터를 할당하면 변수를 할당된 데이터와 같은 취급을 한다.
+        a=10; a 도 10 10,10
+
+        상수는 값을 변경할 수 없지만 변수는 할당연산자를 이용해서 값을 변경할 수 있다.
+        10=11  a=11
+
+        자바스크립트에 다양한 자료형이 존재하는데 자바스크립트 문법에는 자료형 var 하나만 존재한다. 하지만, 개발자는 해당 변수가 어떤 자료형인지 알고 있어야 한다.
+
+        자바스크립트에있는 자료형을 살펴보자.
+        typeof는 다음에 오는 데이터의 자료형을 생성한다.
+        1.  숫자형 number 정수, 실수
+          document.write(10,typeof(10),"<br>");
+       document.write(10.1,typeof(10.1),"<br>");
+       
+       var myNum=10;
+       document.write(myNum,typeof(myNum),"<br>");
+       myNum=10.1;
+       document.write(myNum,typeof(myNum),"<br>");
+       2. 블리언 boolean 자료형  true,false
+       var myBoolean=true;
+       document.write(myBoolean,typeof(myBoolean),"<br>");
+       myBoolean=false;
+       document.write(myBoolean,typeof(myBoolean),"<br>");
+       3. 문자열 string '' "" 로 묶어서 표현한다.
+        var myString ="hello";
+        document.write(myString,typeof(myString),"<br>");
+       4. 배열자료형 Array
+       var myArray=["A","B","C"];
+       document.write(myArray[0],"<br>");
+       myArray[0]="D";
+       document.write(myArray[0],"<br>");
+       document.write(myArray,"<br>");
+       var myArray=["A",1,[1,2,3]]; //다양한 자료를 담을수 있다.
+       document.write(typeof(myArray));// array -> object
+        var myArray=["A",1,[1,2,3]]; //다양한 자료를 담을수 있다.
+        myArray[2][1]=10;
+        document.write(myArray);
+       5. 객체 자료형 object
+         //json
+       var myObject={};
+       var myPerson={
+           firstName:"jone",
+           age:40,
+           eyeColor:"blue"
+       }
+       document.write(myPerson.firstName,myPerson.age,myPerson.eyeColor,"<br>");
+       myPerson.age=50;
+       document.write(myPerson.firstName,myPerson.age,myPerson.eyeColor,"<br>");
+       document.write(typeof(myPerson),"<br>")
+
+       6.함수 function
+       var myFunction=function(){
+           alert('hello');
+       }
+       document.write(myFunction,typeof(myFunction));
+       myFunction();
+
+       기타사항
+       undefined 자료형이 결정되지 않고 값은 할당되지 않음
+       null  자료형은 object 이고   값은 할당되지 않음
+        var a;
+        document.write(a,typeof a,"<br>");
+        var b=null;
+        document.write(b,typeof b);
+        */
+        var a=1;
+        var a=2;
+        document.write(a);     
+        
+        document.write(10/6,"<br>");
+        document.write(10/2.);
+               
+        document.write("안\n 녕\n hello<br>");
+        // alert("안\n 녕\n hello<br>");
+
+        // alert("안녕 \" hello<br>");
+        // alert('안녕 " hello<br>');
+        // alert("안녕 ' hello<br>");
+
+        document.write("11+22+33","<br>");//11+22+33
+        document.write(11+22+"33","<br>");//3333
+        document.write("11"+22+33,"<br>");//112233
+        document.write("11"+"22"+"33","<br>");//112233
+        document.write("11"+"22"+"33","<br>");//112233
+        document.write(true+1,"<br>");//2   //false 0 true 1
+        document.write(false+1,"<br>");//1   //false 0 true 1
+        document.write(true+"1","<br>");//true1
+
+       //true false개념 0이면 false 0이 아니면 true
+       document.write(0,"<br>");//0
+       document.write(Boolean(0),"<br>");//false
+       document.write(!!0,"<br>");//false
+
+       document.write(10,"<br>");//10
+       document.write(Boolean(10),"<br>");//true
+       document.write(!!10,"<br>");//true
+       
+       //'hi'                           //true
+       //0, NaN, '', null , undefined   //false
+
+       
+
+
+    
+
+
+
+     
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
