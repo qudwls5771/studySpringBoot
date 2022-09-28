@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var a = 0;
+        var b = 0;
+        var c = 0;
+        var count = 1;
+        var end = '';
+
+
+        var speedHorse_1 = setInterval(function (){
+            a = a + parseInt(Math.random() * 10);
+            if(a>=100){
+                a= 100;
+                clearInterval(speedHorse_1);
+                end = end +`A는 ${count++}등<br>`;
+            }
+            document.write("a : " + a + '<br>' + end)
+        },100);
+
+        var speedHorse_2 = setInterval(function (){
+            b = b + parseInt(Math.random() * 10);
+            if(b>=100){
+                b= 100;
+                clearInterval(speedHorse_2);
+                end = end +`B는 ${count++}등<br>` + end;
+            }
+            document.write("b : " + b + '<br>')
+        },100);
+
+        var speedHorse_3 = setInterval(function (){
+            c = c + parseInt(Math.random() * 10);
+            if(c>=100){
+                c= 100;
+                clearInterval(speedHorse_3);
+                end = end + +`C는 ${count++}등<br>`;
+            }
+            document.write("c : " + c + '<br>' + end)
+        },100);
+
+
+
+
+
+
+    </script>
+
+
+
+
+</head>
+<body>
+
+</body>
+</html>

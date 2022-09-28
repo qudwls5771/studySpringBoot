@@ -12,6 +12,10 @@
             document.getElementById("console1").innerHTML = 'timerA' + new Date();
         }
 
+        var timerFunctions=function (){
+            document.getElementById("console2").innerHTML = 'timerA' + new Date();
+        }
+
 
 
         window.onload=function (){
@@ -19,13 +23,15 @@
                 timerA = setInterval(timerFunction, 2000);
             }
             document.getElementById("b2").onclick = function (){
-                timerB = setInterval(timerFunction, 2000);
+                timerB = setInterval(timerFunctions, 2000);
             }
             document.getElementById("b3").onclick = function (){
                 clearInterval(timerA);
+                document.getElementById("console1").style.display ="none";
             }
             document.getElementById("b4").onclick = function (){
                 clearInterval(timerB);
+                document.getElementById("console2").style.display ="none";
             }
         }
 
