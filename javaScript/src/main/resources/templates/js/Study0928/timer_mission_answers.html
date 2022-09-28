@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        var timerA;
+        var timerB;
+
+        var timerFunction=function (){
+            document.getElementById("console1").innerHTML = 'timerA' + new Date();
+        }
+
+
+
+        window.onload=function (){
+            document.getElementById("b1").onclick = function (){
+                timerA = setInterval(timerFunction, 2000);
+            }
+            document.getElementById("b2").onclick = function (){
+                timerB = setInterval(timerFunction, 2000);
+            }
+            document.getElementById("b3").onclick = function (){
+                clearInterval(timerA);
+            }
+            document.getElementById("b4").onclick = function (){
+                clearInterval(timerB);
+            }
+        }
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+<button id="b1">A</button>
+<button id="b2">B</button>
+<button id="b3">C</button>
+<button id="b4">D</button>
+
+<h1>A시계</h1>
+<div id = 'console1'></div>
+<h1>B시계</h1>
+<div id = 'console2'></div>
+</body>
+</html>
