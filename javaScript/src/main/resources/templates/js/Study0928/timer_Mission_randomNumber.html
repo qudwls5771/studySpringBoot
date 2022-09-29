@@ -18,7 +18,7 @@
                 clearInterval(speedHorse_1);
                 end = end +`A는 ${count++}등<br>`;
             }
-            document.write("a : " + a + '<br>' + end)
+            document.write("a : " + a + '<br>');
         },100);
 
         var speedHorse_2 = setInterval(function (){
@@ -26,9 +26,9 @@
             if(b>=100){
                 b= 100;
                 clearInterval(speedHorse_2);
-                end = end +`B는 ${count++}등<br>` + end;
+                end = end +`B는 ${count++}등<br>`;
             }
-            document.write("b : " + b + '<br>')
+            document.write("b : " + b + '<br>');
         },100);
 
         var speedHorse_3 = setInterval(function (){
@@ -38,9 +38,15 @@
                 clearInterval(speedHorse_3);
                 end = end + +`C는 ${count++}등<br>`;
             }
-            document.write("c : " + c + '<br>' + end)
+            document.write("c : " + c + '<br>');
         },100);
 
+        var endGame = setInterval(function (){
+            if(count == 4){
+                clearInterval(endGame);
+                document.write("<br>게임 종료:<br>"+ end);
+            }
+        },100)
 
 
 

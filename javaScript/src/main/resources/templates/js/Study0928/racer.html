@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #line{
+            width:800px;
+            border-right:solid 2px black;
+        }
+    </style>
+    <script>
+        var rank=[];
+        function start(){
+            document.getElementById("start").style.display='none';
+            // isEnd=[false,false,false,false];//false 안도착 true 도착
+            // rank=[0,0,0,0];         //도착순위
+            // rankCount=1;            //순위설정
+            rank=[];
+            document.getElementById("h1").style.marginLeft='0px';
+            document.getElementById("h2").style.marginLeft='0px';
+            document.getElementById("h3").style.marginLeft='0px';
+            document.getElementById("h4").style.marginLeft='0px';
+            timerId=setInterval(gaming,100);
+        }
+        function gaming(){
+            document.getElementById("h1").style.marginLeft=
+            parseInt(document.getElementById("h1").style.marginLeft)+parseInt(Math.random()*50)+'px';
+            document.getElementById("h2").style.marginLeft=
+            parseInt(document.getElementById("h2").style.marginLeft)+parseInt(Math.random()*50)+'px';
+            document.getElementById("h3").style.marginLeft=
+            parseInt(document.getElementById("h3").style.marginLeft)+parseInt(Math.random()*50)+'px';
+            document.getElementById("h4").style.marginLeft=
+            parseInt(document.getElementById("h4").style.marginLeft)+parseInt(Math.random()*50)+'px';            
+            if(parseInt(document.getElementById("h1").style.marginLeft)>100){
+                document.getElementById("h1").style.marginLeft='810px';
+                if(!rank.includes(1)){
+                    rank.push(1);
+                }
+                // if(!isEnd[0]){
+                //     isEnd[0]=true; rank[0]=rankCount; rankCount++;
+                // }
+            }
+            if(parseInt(document.getElementById("h2").style.marginLeft)>800){
+                document.getElementById("h2").style.marginLeft='810px';
+                if(!rank.includes(2)){
+                    rank.push(2);
+                }
+                // if(!isEnd[1]){
+                //     isEnd[1]=true; rank[1]=rankCount; rankCount++;
+                // }
+            }
+            if(parseInt(document.getElementById("h3").style.marginLeft)>800){
+                document.getElementById("h3").style.marginLeft='810px';
+                if(!rank.includes(3)){
+                    rank.push(3);
+                }
+                // if(!isEnd[2]){
+                //     isEnd[2]=true; rank[2]=rankCount; rankCount++;
+                // }
+            }
+            if(parseInt(document.getElementById("h4").style.marginLeft)>800){
+                document.getElementById("h4").style.marginLeft='810px';
+                if(!rank.includes(4)){
+                    rank.push(4);
+                }
+                // if(!isEnd[3]){
+                //     isEnd[3]=true; rank[3]=rankCount; rankCount++;
+                // }
+            }
+            if(parseInt(document.getElementById("h1").style.marginLeft)>800&&
+            parseInt(document.getElementById("h2").style.marginLeft)>800&&
+            parseInt(document.getElementById("h3").style.marginLeft)>800&&
+            parseInt(document.getElementById("h4").style.marginLeft)>800){
+                clearInterval(timerId);
+                alert(rank);
+                document.getElementById("start").style.display='inline';
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="start()" id=start>start</button><br>
+   <div id=line>
+        <img src="../img/h.gif" id="h1" width=60 height=50><br>
+        <img src="../img/h.gif" id="h2" width=60 height=50><br>
+        <img src="../img/h.gif" id="h3" width=60 height=50><br>
+        <img src="../img/h.gif" id="h4" width=60 height=50><br>
+    </div>
+</body>
+</html>
