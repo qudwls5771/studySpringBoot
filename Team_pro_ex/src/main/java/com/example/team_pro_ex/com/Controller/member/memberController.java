@@ -102,7 +102,6 @@ public class memberController {
         return "redirect:/Member/Login";
     }
 
-
     @GetMapping("/mUpdate/Update") //마이 페이지 수정폼
     public String myPage(Member member, Model model){
         System.out.println("get mapping account !!");
