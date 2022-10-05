@@ -169,10 +169,14 @@ public class memberController {
         return "redirect:/Member/loginPage";
     }
 
-    //로그인
+
     @GetMapping("/Login")
-    public void loginView(){
+    public String login(){
+
+        return "/Member/Login";
     }
+
+
     //로그인
     @PostMapping("/Login")
     public String login(Member member, Model model){
@@ -226,6 +230,8 @@ public class memberController {
       model.addAttribute("member", memberService.getMemberWhereId(member.getId()));
         return "/Member/selectMember/result";
     }
+
+
 
 
 

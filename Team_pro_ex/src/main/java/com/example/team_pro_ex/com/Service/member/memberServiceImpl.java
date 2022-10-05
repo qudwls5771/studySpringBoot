@@ -21,6 +21,7 @@ public class memberServiceImpl implements memberService{
         this.memberRepo = memberRepo;
     }
 
+
     //회원 전체조회
     @Override
     public List<Member> getMemberList() {
@@ -42,7 +43,6 @@ public class memberServiceImpl implements memberService{
             return memberRepo.findById(member.getMember_Number_Seq()).get();
             else return null;
     }
-
 
 
 
@@ -103,13 +103,9 @@ public class memberServiceImpl implements memberService{
     //회원가입 및 중복체크
     @Override
     public void insertMember(Member member) {
-        System.out.println("--------회원가입---------");
-        Member findMember = memberRepo.findMemberById(member.getId());
-        if(findMember != null){
-            System.out.println("중복된 아이디 입니다.");
-        }else{
+
             memberRepo.save(member);
-        }
+
     }
 
 
