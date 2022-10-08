@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="82337900-089e-42e1-a3de-e09e91698e27" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../pet/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../pet/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../pet/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../pet/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../pet/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../pet/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Team_pro_ex/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Team_pro_ex/.gradle/7.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Team_pro_ex/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Team_pro_ex/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Team_pro_ex/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Team_pro_ex/.gradle/7.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Team_pro_ex/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Team_pro_ex/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Team_pro_ex/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Team_pro_ex/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Team_pro_ex/build/classes/java/main/com/example/team_pro_ex/com/Service/member/memberService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Team_pro_ex/build/classes/java/main/com/example/team_pro_ex/com/Service/member/memberService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Team_pro_ex/build/resources/main/templates/Member/mUpdate/Update.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Team_pro_ex/build/resources/main/templates/Member/mUpdate/Update.html" afterDir="false" />
-    </list>
+    <list default="true" id="82337900-089e-42e1-a3de-e09e91698e27" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,14 +16,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/jeongseojin/studySpringBoot/20220822_lecture_spring_2_crudProject"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jeongseojin/studySpringBoot/20220822_lecture_spring_2_crudProject&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -48,10 +34,22 @@
       <updated>1661149145646</updated>
       <workItem from="1661149147730" duration="1443000" />
       <workItem from="1662624228192" duration="12000" />
+      <workItem from="1664446837877" duration="1000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
