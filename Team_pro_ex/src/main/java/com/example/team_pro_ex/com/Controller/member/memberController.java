@@ -15,7 +15,6 @@ import java.util.Map;
 @Controller
 // 세션에 상태 정보를 저장할 때 사용하는데, @SessionAttributes 뒤에 ("member") 라고 설정했기 때문에
 // "member" 라는 이름으로 저장된 데이터를 자동으로 세션으로 등록
-@SessionAttributes("member")
 @RequestMapping(path = "/Member")
 public class memberController {
 
