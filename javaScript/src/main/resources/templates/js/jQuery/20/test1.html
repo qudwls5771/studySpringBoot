@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/style.css" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="jquery.innerfade/js/jquery.innerfade.js"></script>
+<script src="jquery-ui-1.12.1/jquery-ui-1.12.1/jquery-ui.js"></script>
+
+<style>
+div.lion{
+float:left;
+display:hidden;
+}
+
+
+
+
+</style>
+
+<script>
+$(".div02").hover(
+function(){
+$(".div01").animate({width:"200"},300);
+$(this).parent().parent().animate({width:"400"},300);
+},
+function(){
+// $(this).parent().parent().animate({width:"200"},300);
+}
+) 
+$(function(){
+$(".lion").mouseenter(
+function(){
+$(".lion").animate({
+width: "200px"
+})
+
+$(this).animate({
+width: "400px"
+})
+
+
+})
+
+})
+
+
+
+
+</script>
+
+</head>
+<body>
+<div>
+<div class="lion" style="border:black 1px solid; width:400px;">
+<div style="width:400px;"> 
+<img src="2.jpg" width="200" height="200"><img src="1.gif" width="200" height="200">
+</div>
+</div>
+<div class="lion" style="border:black 1px solid; width:400px;">
+<div style="width:400px;"> 
+<img src="2.jpg" width="200" height="200"><img src="1.gif" width="200" height="200">
+</div>
+</div>
+<div class="lion" style="border:black 1px solid; width:400px;">
+<div style="width:400px;"> 
+<img src="2.jpg" width="200" height="200"><img src="1.gif" width="200" height="200">
+</div>
+</div>
+</div>
+
+
+
+
+
+
+</body>
+</html>

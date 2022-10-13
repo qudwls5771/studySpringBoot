@@ -1,0 +1,146 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>시원한 레이아웃 메뉴1</title>
+<style>
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "맑은 고딕";
+	font-size: 12px;
+	background: url(images/background.jpg) repeat-x;
+	color: #fff;
+}
+img {
+	border: 0;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#wrapper {
+	position: relative;
+	margin: 0 auto;
+	width: 999px;
+	height: 750px;
+	background: url(images/main.jpg) no-repeat;
+}
+#wrapper>ul {
+	position: absolute;
+	z-index: 2;
+	overflow: hidden;
+	top: 92px;
+	width: 1009px; /* 메뉴가 들썩이는 오류로 가로 수치 변경(999px > 1009px) */
+	height: 375px;
+}
+#wrapper>ul>li {
+	float: left;
+	width: 201px;
+	height: 375px;
+}
+li.banner0 {
+	background: url(images/open01.jpg) no-repeat;
+}
+li.banner1 {
+	background: url(images/open02.jpg) no-repeat;
+}
+li.banner2 {
+	background: url(images/open03.jpg) no-repeat;
+}
+#wrapper>ul>li>span {
+	display: block;
+	position: relative;/*absolute;*/
+	width: 201px;
+	height: 375px;
+}
+li.banner0>span {
+	background: url(images/close01.jpg) no-repeat;
+}
+li.banner1>span {
+	background: url(images/close02.jpg) no-repeat;
+}
+li.banner2>span {
+	background: url(images/close03.jpg) no-repeat;
+}
+#wrapper>ul>li>span>a {
+	display: block;
+	position: absolute;
+	top: 150px;
+}
+</style>
+<script src="js/jquery-1.4.2.min.js"></script>
+</head>
+
+<body>
+<div id="wrapper">
+	<ul>
+		<li class="banner0">
+			<span>
+				<a href="#none"><img src="images/clickbutton1.jpg" alt="click" /></a>
+			</span>
+		</li>
+		<li class="banner1">
+			<span>
+				<a href="#none"><img src="images/clickbutton1.jpg" alt="click" /></a>
+			</span>
+		</li>
+		<li class="banner2">
+			<span>
+				<a href="#none"><img src="images/clickbutton1.jpg" alt="click" /></a>
+			</span>
+		</li>
+	</ul>
+</div>
+
+<script>
+/*
+클릭 시에 활성화
+1) li 요소의 가로 크기 : 201px --> 597px;
+2) li 요소 하위의 span 요소가 가려지게 처리
+*/
+
+var className; // 클릭한 메뉴의 클래스를 기억하는 변수
+var prevWidth="201px"; // 펼쳐지기 전의 가로 크기 변수
+var nextWidth="597px"; // 펼쳐진 후의 가로 크기 변수
+
+className=$(".banner0").attr("class");
+// console.log("className : "+className);
+tabActiveFunction();
+
+$("#wrapper a").click(function(){
+	className=$(this).parent().parent().attr("class");
+	// console.log("className : "+className);
+	tabActiveFunction();
+});
+function tabActiveFunction(){
+	/*
+	for(var i=0; i<3; i++){
+		var menu=$(".banner"+i);
+		if(className != menu.attr("class")){
+			menu.find("span").animate({opacity:1}, 200);
+			menu.animate({width:prevWidth}, 300);
+		}else{
+			menu.find("span").animate({opacity:0}, 200);
+			menu.animate({width:nextWidth}, 300);
+		}
+	}
+	*/
+
+	var menu=$("#wrapper>ul>li");
+	menu.each(function(){
+		if(className != $(this).attr("class")){ // 정해진 메뉴가 아닌 경우의 조건입니다.
+			$(this).find("span").css({display:"block"}).animate({opacity:1}, 200);
+			$(this).animate({width:prevWidth}, 300);
+		}else{
+			$(this).find("span").animate({opacity:0}, 200, function(){
+				$(this).css({display:"none"});
+			});
+			$(this).animate({width:nextWidth}, 300);
+		}
+	});
+}
+</script>
+</body>
+</html>

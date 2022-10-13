@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    var nowX=5;
+    var nowY=2;
+    var blockType=3,blockRoate=3;
+
+  var  tetris=[
+[
+                 [/////////짝대기
+                 [0,0,0,0],
+                 [1,1,1,1],
+                 [0,0,0,0],
+                 [0,0,0,0]
+                 ],
+                 [
+                 [0,1,0,0],
+                 [0,1,0,0],
+                 [0,1,0,0],
+                 [0,1,0,0]
+                 ],
+                 [
+                 [0,0,0,0],
+                 [1,1,1,1],
+                 [0,0,0,0],
+                 [0,0,0,0]
+                 ],
+                 [
+                 [0,1,0,0],
+                 [0,1,0,0],
+                 [0,1,0,0],
+                 [0,1,0,0]
+                 ]
+            ],
+                 [
+                 [//개단1
+                 [0,1,0,0],
+                 [0,1,1,0],
+                 [0,0,1,0],
+                 [0,0,0,0]
+                 ],
+                 [
+                 [0,0,1,1],
+                 [0,1,1,0],
+                 [0,0,0,0],
+                 [0,0,0,0]
+                 ],
+                 [
+                 [0,1,0,0],
+                 [0,1,1,0],
+                 [0,0,1,0],
+                 [0,0,0,0]
+                 ],
+                 [[0,0,1,1],
+                 [0,1,1,0],
+                 [0,0,0,0],
+                 [0,0,0,0]
+                 ]
+                 ],
+                 [
+                 [//계단2
+                 [0,0,1,0],
+                 [0,1,1,0],
+                 [0,1,0,0],
+                 [0,0,0,0]
+                 ],
+                 [
+                 [0,1,1,0],
+                 [0,0,1,1],
+                 [0,0,0,0],
+                 [0,0,0,0]
+                 ],
+                 [
+                 [0,0,1,0],
+                 [0,1,1,0],
+                 [0,1,0,0],
+                 [0,0,0,0]
+                 ],
+                 [
+                 [0,1,1,0],
+                 [0,0,1,1],
+                 [0,0,0,0],
+                 [0,0,0,0]
+                 ]
+                 ],
+                 [
+                 [//기역
+                 [0,1,1,0],
+                 [0,0,1,0],
+                 [0,0,1,0],
+                 [0,0,0,0]
+                 ],
+                 [
+                 [0,0,0,1],
+                 [0,1,1,1],
+                 [0,0,0,0],
+                 [0,0,0,0]
+                 ],
+                 [
+                 [0,1,0,0],
+                 [0,1,0,0],
+                 [0,1,1,0],
+                 [0,0,0,0]
+                 ],
+                 [[0,1,1,1],
+                 [0,1,0,0],
+                 [0,0,0,0],
+                 [0,0,0,0]
+                 ]
+                 ],
+                 [
+                 [//ㄴ 
+                 [0,1,1,0],
+                 [0,1,0,0],
+                 [0,1,0,0],
+                 [0,0,0,0]
+                 ],
+                 [
+                 [0,1,0,0],
+                 [0,1,1,1],
+                 [0,0,0,0],
+                 [0,0,0,0]
+                 ],
+                 [
+                 [0,0,1,0],
+                 [0,0,1,0],
+                 [0,1,1,0],
+                 [0,0,0,0]
+                 ],
+                 [[0,1,1,1],
+                 [0,0,0,1],
+                 [0,0,0,0],
+                 [0,0,0,0]
+                 ]
+                 ],
+                 [
+                 [//ㅁ
+                 [0,1,1,0],
+                 [0,1,1,0],
+                 [0,0,0,0],
+                 [0,0,0,0]
+                 ],
+                 [
+                 [0,1,1,0],
+                 [0,1,1,0],
+                 [0,0,0,0],
+                 [0,0,0,0]
+                 ],
+                 [
+                 [0,1,1,0],
+                 [0,1,1,0],
+                 [0,0,0,0],
+                 [0,0,0,0]
+                 ],
+                 [[0,1,1,0],
+                 [0,1,1,0],
+                 [0,0,0,0],
+                 [0,0,0,0]
+                 ]
+                 ],
+                 [
+                 [//ㅗ
+                 [0,0,1,0],
+                 [0,1,1,1],
+                 [0,0,0,0],
+                 [0,0,0,0]
+                 ],
+                 [
+                 [0,0,1,0],
+                 [0,0,1,1],
+                 [0,0,1,0],
+                 [0,0,0,0]
+                 ],
+                 [
+                 [0,0,0,0],
+                 [0,1,1,1],
+                 [0,0,1,0],
+                 [0,0,0,0]
+                 ],
+                 [[0,0,1,0],
+                 [0,1,1,0],
+                 [0,0,1,0],
+                 [0,0,0,0]
+                 ]
+                 ]
+ 
+ 
+];
+ 
+var nowX=5;
+var nowY=2;
+var blockType=3,blockRotate=3;
+
+
+var board=[[4,4,4,4,4,4,4,4,4,4,4,4,4,4],       
+       [4,3,3,3,3,3,3,3,3,3,3,3,3,4],
+       [4,3,0,0,0,0,0,0,0,0,0,0,3,4],
+       [4,3,0,0,0,0,0,0,0,0,0,0,3,4],
+       [4,3,0,0,0,0,0,0,0,0,0,0,3,4],
+       [4,3,0,0,0,0,0,0,0,0,0,0,3,4],
+       [4,3,0,0,0,0,0,0,0,0,0,0,3,4],
+       [4,3,0,0,0,0,0,0,0,0,0,0,3,4],
+       [4,3,0,0,0,0,0,0,0,0,0,0,3,4],
+       [4,3,0,0,0,0,0,0,0,0,0,0,3,4],
+       [4,3,0,0,0,0,0,0,0,0,0,0,3,4],
+       [4,3,0,0,0,0,0,0,0,0,0,0,3,4],
+       [4,3,0,0,0,0,0,0,0,0,0,0,3,4],
+       [4,3,0,0,0,0,0,0,0,0,0,0,3,4],
+       [4,3,0,0,0,0,0,0,0,0,0,0,3,4],
+       [4,3,0,0,0,0,0,0,0,0,0,0,3,4],
+       [4,3,0,0,0,0,0,0,0,0,0,0,3,4],
+       [4,3,0,0,0,0,0,0,0,0,0,0,3,4],
+       [4,3,0,0,0,0,0,0,0,0,0,0,3,4],
+       [4,3,0,0,0,0,0,0,0,0,0,0,3,4],
+       [4,3,0,0,0,0,0,0,0,0,0,0,3,4],
+       [4,3,0,0,0,0,0,0,0,0,0,0,3,4],
+       [4,3,0,0,0,0,0,0,0,0,0,0,3,4],
+       [4,3,0,0,0,0,0,0,0,0,0,0,3,4],
+       [4,3,0,0,0,0,0,0,0,0,0,0,3,4],
+       [4,3,3,3,3,3,3,3,3,3,3,3,3,4],
+       [4,4,4,4,4,4,4,4,4,4,4,4,4,4]
+       ];
+ function madeBoard(){
+     var str="";
+     str+="<table bgcolor='white' border='1' width=300 height=600>";
+     for(var y=0;y<board.length;y++){
+        str+="<tr>";
+            for(var x=0;x<board[y].length;x++){
+                str+="<td id=y"+y+"x"+x+"></td>";
+            }
+
+        str+="</tr>";
+     }
+     str+="</table>";
+     return str;
+ }
+ document.write(madeBoard());
+ function changeColor(y,x,color){
+     document.getElementById("y"+y+"x"+x).bgColor=color;
+ }
+ //changeColor(4,4,'red');
+ function drowBoard(){
+    for(var y=0;y<board.length;y++){
+            for(var x=0;x<board[y].length;x++){
+                switch(board[y][x]){
+                    case 0:
+                        changeColor(y,x,'white');
+                        break;
+                    case 1:
+                        changeColor(y,x,'red');
+                        break;
+                    case 3:
+                        changeColor(y,x,'orange');
+                        break;                        
+                    case 4:
+                        changeColor(y,x,'black');
+                        break; 
+                }
+                
+            }
+     }
+ }
+drowBoard();
+
+// var nowX=5;
+// var nowY=2;
+// var blockType=3,blockRoate=3;
+//해당 블록을 그리는 메소드 만들기
+function drowBlock(){
+    for(var y=0;y<4;y++){
+        for(var x=0;x<4;x++){
+            if(tetris[blockType][blockRotate][y][x]==1){
+                changeColor(nowY+y,nowX+x,'red');
+            }
+        }
+    }
+}
+function eraseBlock(){
+    for(var y=0;y<4;y++){
+        for(var x=0;x<4;x++){
+            if(tetris[blockType][blockRotate][y][x]==1){
+                changeColor(nowY+y,nowX+x,'white');
+            }
+        }
+    }
+}
+drowBlock();
+//3:45 분 시작
+// setInterval(function(){
+//     eraseBlock();
+//    // nowY++;
+//     blockRoate=++blockRoate%4;
+//     drowBlock();
+// }, 500);
+
+function isMove(moveY,moveX){
+    for(var y=0;y<4;y++){
+        for(var x=0;x<4;x++){
+            if(tetris[blockType][blockRotate][y][x]==1){
+                if(board[moveY+y][moveX+x]!=0){
+                    return false;
+                }
+            }
+        }
+    }
+    return true;    
+}
+function isMoveRotate(rotate){
+    rotate=++rotate%4;
+    for(var y=0;y<4;y++){
+        for(var x=0;x<4;x++){
+            if(tetris[blockType][rotate][y][x]==1){
+                if(board[nowY+y][nowX+x]!=0){
+                    return false;
+                }
+            }
+        }
+    }
+    return true;  
+}
+
+// function isMoveRotate(rotate) {
+// 		for (var y=0; y < 4; y++) {
+// 			for (var x=0; x < 4; x++) {
+// 				if (tetris[blockType][rotate % 4][y][x] == 1) {
+// 					if (board[nowY+y][nowX+x] != 0) {
+// 						return false;
+// 					}
+// 				}
+// 			}
+// 		}
+// 		return true;
+// }
+
+
+function moveBlock(key){
+    eraseBlock();
+    switch(key){
+        case 52:
+            if(isMove(nowY,nowX-1)){
+                nowX--;
+            }
+            break;
+        case 53:
+            if (isMoveRotate(blockRotate)) {
+                blockRotate = ++blockRotate % 4;					
+            }
+            break;
+        // case 53:
+        //     if (isMoveRotate(nowY, nowX, blockRotate+1) == true) {
+        //         blockRotate = ++blockRotate % 4;					
+        //     }
+        //     break;
+
+        case 54:
+            if(isMove(nowY,nowX+1)){
+                nowX++;
+            }
+            break;
+        case 50:
+            if(isMove(nowY+1,nowX)){
+                nowY++;
+            }
+            break;
+    }
+    drowBlock();
+}
+function recordBoard(){
+    for(var y=0;y<4;y++){
+            for(var x=0;x<4;x++){
+                if(tetris[blockType][blockRotate][y][x]==1){
+                    board[nowY+y][nowX+x]=1;
+                }
+            }
+        }
+    
+}
+function newBlock(){
+        
+        nowX=5;
+        nowY=2;
+        blockType=parseInt(Math.random()*7);
+        blockRotate=0;
+        if(isMove(nowY,nowX)){
+            return true;
+        }else{
+            alert("게임 종료");
+            clearInterval(timer);
+            return false;
+        }
+}
+
+function lineBlockDel(){
+    for(var y=2;y<board.length-2;y++){
+        var isFlag=false;
+        for(var x=2;x<12;x++){
+
+            if(board[y][x]==0){
+                isFlag=true;
+                break;
+            }
+        }
+        if(isFlag!=true){
+            for(var cy=y;cy>2;cy--){
+                for(var cx=2;cx<12;cx++){
+                    board[cy][cx]=board[cy-1][cx];
+                }
+            }
+        }
+    }
+}//5:50
+var timer=setInterval(function(){
+    
+    if(isMove(nowY+1,nowX)){
+        eraseBlock();
+        nowY++;
+    }else{
+        recordBoard();
+        lineBlockDel();
+        drowBoard();
+        newBlock();
+    }
+    
+    drowBlock();
+}, 500);
+
+</script>
+<body onkeypress="moveBlock(event.keyCode);">
+    
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,71 @@
+﻿
+<html>
+    <head>
+        <script 
+        src="https://code.jquery.com/jquery-3.2.1.js"></script>
+        
+<style>
+    *{
+        margin: 0;
+        padding:0;
+    }
+
+    #background{
+       
+    }
+ .div01{
+     outline: 1px solid rgb(58, 4, 4);
+     float: left;
+     width:200px;
+     height:200px;
+     padding:0px;
+     background-color: rgb(255, 103, 103);
+     overflow: hidden;
+     
+ }
+ .div02{
+     outline: 1px solid rgb(58, 4, 4);
+     display: inline-block;
+     width:200px;
+     height:200px;
+     padding:0px;
+     background-color: rgb(216, 59, 59);
+     vertical-align: top;
+ }
+
+
+</style>
+<script>
+
+    $(document).ready(function(){
+
+        $(".div02").hover(
+            function(){
+                $(".div01").animate({width:"200"},300);
+                $(this).parent().parent().animate({width:"400"},300);
+            },
+            function(){
+              //  $(this).parent().parent().animate({width:"200"},300);
+            }
+        )
+    })    
+
+
+</script>
+    <body>
+        <div id="background">
+            <div class="div01" id="box1"><!--yellow div-->
+                <div style="width:400; background:black;" >
+<img src="2.jpg" width="200" height="200"><img src="1.gif" width="200" height="200">
+            </div>
+            <div class="div01" id="box1"><!--yellow div-->
+                <div style="width:400; background:black;" >
+<img src="2.jpg" width="200" height="200"><img src="1.gif" width="200" height="200">
+            </div>
+            <div class="div01" id="box1"><!--yellow div-->
+                <div style="width:400; background:black;" >
+<img src="2.jpg" width="200" height="200"><img src="1.gif" width="200" height="200">
+            </div>
+        </div>
+    </body>
+</html>

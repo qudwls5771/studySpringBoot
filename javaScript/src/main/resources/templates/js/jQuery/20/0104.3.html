@@ -1,0 +1,108 @@
+﻿
+<html>
+    <head>
+        <script 
+        src="https://code.jquery.com/jquery-3.2.1.js"></script>
+        
+<style>
+    *{
+        margin: 0;
+        padding:0;
+    }
+
+    #background{
+       
+    }
+ .div01{
+     outline: 1px solid rgb(58, 4, 4);
+     float: left;
+     width:200px;
+     height:200px;
+     padding:0px;
+     background-color: rgb(255, 103, 103);
+     overflow: hidden;
+     
+ }
+ .div02{
+     outline: 1px solid rgb(58, 4, 4);
+     display: inline-block;
+     width:200px;
+     height:200px;
+     padding:0px;
+     background-color: rgb(216, 59, 59);
+     vertical-align: top;
+ }
+
+
+</style>
+<script>
+
+    var startMenu="box1"
+    function intervalControl(){
+        $("background>div").each(function(){
+            if(startMenu==$(this).attr("id")){
+                //같으면 400
+                $(this).animate({width:"400"},300);
+            }else{
+                //다르면 200
+                $(this).animate({width:"200"},300);
+            }
+        })
+    }
+
+
+    $(document).ready(function(){
+        $("#background").mouseleave(function(){
+           // setTimeout(intervalControl,5000);
+        })
+       // intervalControl()
+       // $("#"+startMenu).animate({width:"300"},300);
+        // $(".div02").hover(function(){
+        //     $(this).attr("id")
+        //     startMenu=$(this).parent().parent().attr("id");
+        //     //$(".box").animate({width:"100"},300);
+        //     //$(this).parent().animate({width:"300"},300);
+        // })
+        $(".div02").hover(
+            function(){
+                $(".div01").animate({width:"200"},300);
+                $(this).parent().parent().animate({width:"400"},300);
+            },
+            function(){
+              //  $(this).parent().parent().animate({width:"200"},300);
+            }
+        )
+    })    
+
+
+</script>
+    <body>
+        <div id="background">
+            <div class="div01" id="box1"><!--yellow div-->
+                <div style="width:400; background:black;" >
+                <div class="div02"><!--blue div-->
+              
+                    <span><img src="2.jpg" width="200" height="200"></span><!--메뉴의 데이터-->
+                </div><img src="1.gif" width="200" height="200">
+                </div>
+            </div>
+            <div class="div01" id="box2">
+                    <div style="width:400; background:black;" >
+                <div class="div02"><!--blue div-->
+              
+                    <span><img src="2.jpg" width="200" height="200"></span><!--메뉴의 데이터-->
+                </div><img src="6.gif" width="200" height="200">
+                </div>
+            </div>
+            <div class="div01" id="box3">
+                <div style="width:400; background:black;" >
+ 
+                <div class="div02"><!--blue div-->
+                    <span><img src="2.jpg" width="200" height="200"></span><!--메뉴의 데이터-->
+                </div><img src="2.gif" width="200" height="200">
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

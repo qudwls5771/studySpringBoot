@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+    <script>
+        window.onload=function(){
+            var myDiv=document.getElementsByTagName('div')[0];
+            // console.log(myDiv);
+            // console.log(myDiv.firstChild);
+            // console.log(myDiv.lastChild);
+
+            console.log(myDiv.firstChild.innerHTML);
+            console.log(myDiv.firstChild.nextSibling);
+
+            var banana=document.getElementsByTagName("li")[1];
+            alert(banana.innerHTML);
+            alert(banana.firstChild.data);
+            var apple=banana.previousSibling;
+            var orange=banana.nextSibling;
+            alert(apple.innerHTML);
+            alert(apple.firstChild.data);
+        }
+
+
+    </script>
+</head>
+<body>
+    <div><p>과일리스트</p><ul><li>사과</li><li>바나나</li><li>오렌지</li></ul></div>
+    <!-- 
+    <div>
+        <p>과일리스트</p>
+        <ul>
+            <li>사과</li>
+            <li>바나나</li>
+            <li>오렌지</li>
+        </ul>
+    </div> -->
+</body>
+</html>
+
+
+
+
+
+
+
+
+

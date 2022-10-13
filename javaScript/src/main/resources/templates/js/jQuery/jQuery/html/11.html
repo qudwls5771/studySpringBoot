@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            var node1=document.createTextNode("새로 추가한 노드1");
+            document.getElementById("target").appendChild(node1);
+            var node2=document.createTextNode("새로 추가한 노드2");
+            document.getElementById("target").appendChild(node2);
+            document.getElementById("target").appendChild(node1);
+            var node3=document.createTextNode("새로 추가한 노드3");
+            document.getElementById("target").insertBefore(node3,
+            document.getElementById("target").firstChild
+            )
+
+            var parent=document.getElementById("target");
+            parent.removeChild(parent.firstChild);
+            parent.removeChild(parent.lastChild);
+
+
+        }
+    </script>
+</head>
+<body>
+    <div id='target' style="background-color: aqua;">
+        div target
+    </div>
+</body>
+</html>
