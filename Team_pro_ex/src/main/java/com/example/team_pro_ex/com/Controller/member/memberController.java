@@ -230,6 +230,8 @@ public class memberController {
        System.out.println(memberService.booleanSearchUserById(member));
       model.addAttribute("member", memberService.getMemberWhereId(member.getId()));
         return "/Member/selectMember/result";
+        
+        
     }
 
 
