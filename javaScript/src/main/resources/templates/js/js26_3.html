@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        시간을 표현하는 방법 2가지
+        1. 대표 숫자로 표현하는 방법
+        1. 년,월,일 ... 부분숫자로 표현하는 방법
+        //1970년 1월 1일 9시 0분 0초를 시간 객체로 만들어 보자.
+        */ 
+
+       //2022-05-06 5:20:15 와 2021-03-02 15:20:15 의 시간차를 구해보자.
+       var originalTime=new Date(2022,4,6,5,20,15);
+
+       var myDate1=new Date(2022,4,6,5,20,15);
+       document.write(myDate1,"<br>");
+       var myDate2=new Date(2021,1,2,15,20,15);
+       document.write(myDate2,"<br>");
+       
+       var seconds=diff/(1000);
+
+      
+       //최근시간이 큼
+       var diff=myDate1.getTime()-myDate2.getTime();
+       myDate1.setSeconds()
+    
+        // myDate1.setMonth(myDate1.getMonth()-myDate2.getMonth())
+        // var month=myDate1.getMonth();
+        // alert(month);
+        
+        // var year=myDate1.getFullYear()-myDate2.getFullYear()
+        // alert(year);
+       
+         
+       var date=diff/(1000*60*60*24);
+       var hours=diff/(1000*60*60);
+       var minutes=diff/(1000*60);
+       var seconds=diff/(1000);
+
+       document.write(parseInt(date),"<br>");
+       document.write(parseInt(hours),"<br>");
+       document.write(parseInt(minutes),"<br>");
+       document.write(parseInt(seconds),"<br>");
+       
+       
+       myDate1.setDate(myDate1.getDate()+Number(date));
+       document.write(myDate1,"<br>");
+   
+
+
+
+       //기준시는 new Date(1970,0,1,0,0,0)이다.
+
+
+
+    //    var myDate2=new Date(1970,0,1,0,0,1);
+    //    document.write(myDate2,"<br>")
+
+        //1. 사용자에게 구매 시간을 입력받아서 반품가능하지 출력해보자. 1달이내에 구매해야 반품이 가능하다.
+        //2.두시간과 시간당요금을 입력받아 pc방요금을 계산해 보자 
+        //
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

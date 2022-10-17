@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>경주</title>
+
+  <style>
+
+    #line{
+
+      width:800px;
+
+      border-right:solid 2px black;
+
+    }
+
+  </style>
+    <script>
+        var a=0,b=0,c=0,d=0;
+        count=1;
+        end= '';
+
+        function(){
+            document.getElementById("h1").style.marginLeft=
+                parseInt(document.getElementById("h1").style.marginLeft)+parseInt(Math.random()*50)+'px';
+            document.getElementById("h2").style.marginLeft=
+                parseInt(document.getElementById("h2").style.marginLeft)+parseInt(Math.random()*50)+'px';
+            document.getElementById("h3").style.marginLeft=
+                parseInt(document.getElementById("h3").style.marginLeft)+parseInt(Math.random()*50)+'px';
+            document.getElementById("h4").style.marginLeft=
+                parseInt(document.getElementById("h4").style.marginLeft)+parseInt(Math.random()*50)+'px';
+            if(parseInt(document.getElementById("h1").style.marginLeft)>800){
+
+            }
+
+
+
+        }
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+<button onclick="start()" id=start>start</button><br>
+
+<div id=line>
+
+  <img src="img/h.gif" id="h1" width=60 height=50><br>
+
+  <img src="img/h.gif" id="h2" width=60 height=50><br>
+
+  <img src="img/h.gif" id="h3" width=60 height=50><br>
+
+  <img src="img/h.gif" id="h4" width=60 height=50><br>
+
+</div>
+</body>
+</html>

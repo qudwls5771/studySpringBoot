@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        이벤트란?
+        상태변화가 일어 났을때 발생하는 신호를 이밴트라한다.
+        대표적인 신호로 마우스(클릭,드래그,더블클릭), 키보드(특정 키 누르기), 웹페이지에서 상태의 변화(특정 객체 선택, 화면이 다 불러와진 다음)
+
+        onload 화면이 모두 로딩된다음에 실행되는 이벤트
+        onfocus 해당 객체가 선택되었을때 발생하는 이벤트
+        onblur  해당 객체가 선택을 잃어버렸을때 발생하는 이벤트
+
+        onClick 클릭하였을때 발생
+        ondbclick 연속 두번 클릭하였을때 발생
+        mouseover 마우스가 해당 객체 위에 있을때 발생
+        mouseenter 마우스가 들어 왔을대
+        mouseleave 마우스가 떠났을대
+
+        이벤트에 따라서 연속키나 특수키 조작이 안되니 웹에서 찾아서 
+        상황에 맞춰서 적절한 이벤트를 선택해 보자.
+        keydown 키를 눌렀을때 
+        keyup   키를 놓았을때
+        keypress 키를 눌렀을 때
+
+        보통 이벤트를 코딩할때 다음에 배울 dom를 이용해서 해당 객체를 찾아서 <script>태그안에 기술한다.
+        
+        이벤트 헨들러란?
+        이벤트 발생시 실행되는 함수를 의미한다.
+        */
+        
+    </script>
+</head>
+<body onload="alert('onload')" onresize="alert('onresize')">
+    <input type="text" onfocus="alert('focus')">
+    <div onclick="alert('onclick')">
+        마우스 이벤트
+    </div>
+    <textarea onkeypress="alert(event.keyCode+'keyPress:'+String.fromCharCode(event.keyCode))"></textarea>
+    
+</body>
+</html>

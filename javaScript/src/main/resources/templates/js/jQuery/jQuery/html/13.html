@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            var btnChange=document.getElementById("btnChange");
+            btnChange.onclick=function(){
+                var myDiv=document.getElementById("myDiv");
+                myDiv.style.backgroundColor='yellow';
+                myDiv.style.width="400px";
+                myDiv.style.height=
+                    parseInt(myDiv.style.height.replace("px",""))+50+"px";
+                document.getElementById("strHi").style.color='red';
+                //myDiv.getElementById("strHi").style.color='red';
+
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id='myDiv' style="height: 100px;">
+        <span id="strHi">안녕</span>하세요.
+    </div>
+    <input type="button" id="btnChange" value="스타일 변경"/>
+    
+</body>
+</html>

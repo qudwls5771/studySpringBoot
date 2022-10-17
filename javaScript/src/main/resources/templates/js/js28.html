@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        자바스크립트에서 시간 표현하는 방법 
+        1. 현재시간 new Date()
+        2. 시간을 숫자로 표현하는 방법
+            new Date(0);
+        3. 매개변수로 년월일.. 넣는 방법
+        new Date(2022,4,6,0,0,0) 
+        월은 0부터 시작한다.
+        */
+        console.log(new Date());
+        console.log(new Date(0));//"1970-01-01T00:00:00.000Z"
+        console.log(new Date(2022,4,6,0,0,0));
+
+        //2. 시간을 숫자로 표현하는 방법
+        console.log(new Date(0));//"1970-01-01T00:00:00.000Z"
+        console.log(new Date(1000));//"1970-01-01T00:00:01.000Z"
+        //다음 "1970-01-01T00:00:05.000Z"의 고유 숫자를 이용해서
+        //시간객체를 만들어보자.
+        console.log(new Date(5000));
+        //약속된 숫자로 원하는 시간을 표현할 수 있다.
+        //"1970-01-01T00:00:00.000Z"를 기준으로 0으로 결정해서 1초 지날때마다 1000씩 증가한 숫자로 표시한다.
+        //다음날 다음시간은 숫자로 뭐가 되는가?
+        //"1970-01-02T00:00:00.000Z"
+        //86400000
+        //현재시간을 숫자로 바꾸는 메소드 .getTime()를 사용해서 시간을 숫자로 바꿀수 있다.
+        console.log(new Date().getTime());
+
+        // 단순 시간차를 구할때  1일 이하단위만 가능하고 시간을 숫자로 변경해서 큰 시간에서 작은시간을 빼면 두시간의 차이를 구할 수 있다. 차이를 1000으로 나누면 초가됨. 분은 60*1000 시 60*60*1000 일은 24*60*60*1000 월이랑 년은 불가
+
+        //기준을 정해서 년 월 일 시 분 초 시간차 구하기
+        var myDate1=new Date(2022,4,5,1,20,15);
+        var myDate2=new Date(2021,6,5,1,18,35);
+        //1.큰시간에서 작은시간을 뺀다.
+        //2. 초부터 계산해야 부족한시간을 빌려올수 있다.
+        //3. 긴준시간이 계산도중 변경되므로 원본 데이터를 따로 만들어 두자.
+        //var originalDate=myDate1;
+        var originalDate=new Date(2022,4,5,1,20,15);
+        //3. 초차를 구해오자.  15-35  -20를 구하자.
+        console.log(myDate1.getSeconds()-myDate2.getSeconds());
+        //4. setSeconds메소드는 기준시를 새로운 초로 변경해준다. 연산해 주는것이 아니다.
+        //음수를 넣으면 분에서 빌려와 연산한다. -20 -> 40    40-> 40
+        //5. 구한초 -20를 기준시로부터 변경해 준다.
+        myDate1.setSeconds(myDate1.getSeconds()-myDate2.getSeconds());
+        console.log(myDate1);
+        console.log(myDate1.getMinutes());
+        console.log(myDate1.getSeconds());
+        var seconds=myDate1.getSeconds();//초
+
+        //6.분,시,일,월,년 순으로 연산을 지속한다.
+        myDate1.setMinutes(myDate1.getMinutes()-myDate2.getMinutes());
+        var minutes=myDate1.getMinutes();//분
+        console.log(myDate1.getMinutes());
+
+        myDate1.setHours(myDate1.getHours()-myDate2.getHours());
+        var hours=myDate1.getHours();//시
+        console.log(myDate1.getHours());
+
+        myDate1.setDate(myDate1.getDate()-myDate2.getDate());
+        var date=myDate1.getDate();//일
+        console.log(myDate1.getDate());
+
+        myDate1.setMonth(myDate1.getMonth()-myDate2.getMonth());
+        var month=myDate1.getMonth();//월
+        console.log(myDate1.getMonth());
+
+        myDate1.setFullYear(myDate1.getFullYear()-myDate2.getFullYear());
+        var fullYear=myDate1.getFullYear();//년
+        console.log(myDate1.getFullYear());
+
+        console.log("end1");
+        console.log(`시간차 ${fullYear}년${month}월${date}일${hours}시${minutes}분${seconds}초`);
+        //1. 사용자에게 구매 시간을 입력받아서 반품가능하지 출력해보자. 1달이내에 구매해야 반품이 가능하다.
+        //2. 두시간과 시간당요금을 입력받아 pc방 요금을 계산해 보자 
+        //3. 
+
+
+
+       
+    </script>
+</head>
+<body>
+    <input type="date" id="pDate">
+    <input type="button" id="btn1" value="button">
+    
+</body>
+</html>
+
+
+
+

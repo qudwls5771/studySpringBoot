@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+      // 버튼 4개를 만들고
+      // 버튼 1을 누르면 A값 2초마다 시간출력
+      // 버튼 2을 누르면 B값 2초마다 시간출력
+      // 버튼 3을 누르면 C값 A값 출력종료
+      // 버튼 4을 누르면 D값 B값 출력종료
+
+      //div콘솔에서 만들기
+      var count = 0;
+      var a = setTimeout(function (){
+        document.getElementById("button1").onclick=function (){
+          count++;
+          document.write(count + " : " + new Date() + "<br>");
+        }
+      }, 2000);
+
+      var b = setTimeout(function (){
+        document.getElementById("button2").onclick=function (){
+          count++;
+          document.write(count + " : " + new Date() + "<br>");
+        }
+      }, 2000);
+
+      window.onload = function (){
+        document.getElementById("button3").onclick=function (){
+          clearInterval(a);
+        }
+      }
+
+      window.onload = function (){
+        document.getElementById("button4").onclick=function (){
+          clearInterval(b);
+        }
+      }
+    </script>
+
+
+</head>
+<body>
+<button id = "button1">버튼1</button>
+
+<button id = "button2">버튼2</button>
+
+<button id = "button3">버튼3</button>
+
+<button id = "button4">버튼4</button>
+</body>
+</html>

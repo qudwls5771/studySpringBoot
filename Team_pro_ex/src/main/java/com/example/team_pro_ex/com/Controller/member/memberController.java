@@ -15,7 +15,6 @@ import java.util.Map;
 @Controller
 // 세션에 상태 정보를 저장할 때 사용하는데, @SessionAttributes 뒤에 ("member") 라고 설정했기 때문에
 // "member" 라는 이름으로 저장된 데이터를 자동으로 세션으로 등록
-@SessionAttributes("member")
 @RequestMapping(path = "/Member")
 public class memberController {
 
@@ -28,8 +27,8 @@ public class memberController {
 
 
     @GetMapping("index")
-    public String index(){
-        return "index";
+    public void index(){
+
     }
 
     @GetMapping("/memberList/members")
@@ -55,7 +54,6 @@ public class memberController {
                 member.getPhoneNumber(), // 핸드폰 번호
                 member.getAddress(), //주소
                 member.getPetT(), // 애견, 애묘 : 종류
-                member.getPetS(), // 애견, 애묘 : 성별
                 member.getPetD(), // 애견, 애묘 : 생년월일
                 member.getPetW(), // 애견, 애묘 : 몸무게
                 member.getRole(), // 권한 : 관리자, 사업자, 회원
@@ -74,11 +72,11 @@ public class memberController {
         System.out.println("폰번 : "+ member.getPhoneNumber());
         System.out.println("주소 : "+ member.getAddress());
         System.out.println("펫 종류 :"+ member.getPetT());
-        System.out.println("펫 성별 : "+ member.getPetS());
         System.out.println("펫 생년 : "+ member.getPetD());
         System.out.println("펫 몸무게 :" +member.getPetW());
         System.out.println("권한 : " + member.getRole());
         System.out.println("가입상태 : " +member.getJoinM());
+
         //@Valid : 클라이언트 입력 데이터가 dto클래스로 캡슐화되어 넘어올 때, 유효성을 체크하라는 어노테이션
         //Member에서 작성한 어노테이션을 기준으로 유효성 체크
         //여기서 Errors객체는 Member의 필드 유효성 검사 오류에 대한 정보를 저장하고 노출한다.
@@ -103,6 +101,7 @@ public class memberController {
         return "redirect:/Member/Login";
     }
 
+
     @GetMapping("/mUpdate/Update") //마이 페이지 수정폼
     public String myPage(Member member, Model model){
         System.out.println("get mapping account !!");
@@ -119,7 +118,6 @@ public class memberController {
                 member.getPhoneNumber(), // 핸드폰 번호
                 member.getAddress(), //주소
                 member.getPetT(), // 애견, 애묘 : 종류
-                member.getPetS(), // 애견, 애묘 : 성별
                 member.getPetD(), // 애견, 애묘 : 생년월일
                 member.getPetW(), // 애견, 애묘 : 몸무게
                 member.getRole(), // 권한 : 관리자, 사업자, 회원
@@ -128,6 +126,8 @@ public class memberController {
         model.addAttribute("member", member_1);;
         return "/Member/mUpdate/Update";
     }
+
+
 
 
     @PostMapping("/mUpdate/Update") // 실제로 수정 되는 메소드
@@ -141,7 +141,6 @@ public class memberController {
         System.out.println("폰번 : "+ member.getPhoneNumber());
         System.out.println("주소 : "+ member.getAddress());
         System.out.println("펫 종류 :"+ member.getPetT());
-        System.out.println("펫 성별 : "+ member.getPetS());
         System.out.println("펫 생년 : "+ member.getPetD());
         System.out.println("펫 몸무게 :" +member.getPetW());
         System.out.println("권한 : " + member.getRole());
@@ -171,10 +170,14 @@ public class memberController {
         return "redirect:/Member/loginPage";
     }
 
-    //로그인
+
     @GetMapping("/Login")
-    public void loginView(){
+    public String login(){
+
+        return "/Member/Login";
     }
+
+
     //로그인
     @PostMapping("/Login")
     public String login(Member member, Model model){
@@ -227,7 +230,11 @@ public class memberController {
        System.out.println(memberService.booleanSearchUserById(member));
       model.addAttribute("member", memberService.getMemberWhereId(member.getId()));
         return "/Member/selectMember/result";
+        
+        
     }
+
+
 
 
 

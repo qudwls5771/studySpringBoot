@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            document.getElementById("btn1").addEventListener("click",function(){
+                var inputTime=document.getElementById("pDate").value
+                //alert(inputTime)
+                var inputTime=new Date(inputTime);
+                //alert(inputTime);
+                //반품 가능한지 여부?   1달 이내이면 반품가능
+                //구매한 시간에 1달을 추가한다.
+                inputTime.setMonth(inputTime.getMonth()+1);
+                //alert(inputTime);
+                //1달 추가한 시간이 현재시간보다 크면 반품가능
+                if(new Date().getTime()  <  inputTime.getTime()){
+                    alert('반품 가능');
+                }else{
+                    alert('반품 불가능');
+                }
+
+                //작으면 반품 불가능
+                
+
+            })
+            document.getElementById("btn2").addEventListener("click",function(){
+                var pDate1=new Date(document.getElementById("pDate1").value);
+                var pDate2=new Date(document.getElementById("pDate2").value);
+                var change =Number(document.getElementById("change").value);
+                var diff=pDate2.getTime()-pDate1.getTime();
+                var diff=diff/(1000*60*60);
+
+                change=diff*change;
+
+                alert(change);
+            })
+        }
+    </script>
+</head>
+<body>
+    반품가능여부 
+    구매한시간<input type="date" id="pDate">
+    <input type="button" id="btn1" value="button">
+    <br>
+     PC방요금계산 <br>
+     시간당요금<input type="text" id="change" value="1000"/>
+     시작시간 <input type="datetime-local" id="pDate1">
+     종료시간 <input type="datetime-local" id="pDate2">
+     <input type="button" id="btn2" value="button">
+    
+</body>
+</html>

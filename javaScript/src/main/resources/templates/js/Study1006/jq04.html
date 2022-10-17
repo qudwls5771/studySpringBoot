@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        li a {
+            display:block;
+            padding: 15px 0px;
+            width:120px;
+            text-align: center;
+            text-decoration: none; /*밑줄 없애기*/
+            background-color: lightcoral;
+            color:white;
+        }
+        li{
+            float:left;
+            width:120px;
+            list-style:none; /*list 앞에 점 없애는것*/
+        }
+        li > div > div{
+            display:none;
+        }
+        ul{
+            display:inline-block;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function(){
+            $("li a").hover(
+                function(){
+                    /*attr은 속성변경, css는 색상변경*/
+                    $(this).css("background-color","green");
+                    $(this).stop().animate({"font-size":30},500);
+                },
+                function(){
+                    $(this).css("background-color","lightcoral");
+                    $(this).stop().animate({"font-size":20},500);
+                }
+            )
+            $("li").hover(
+                function(){
+                    $(this).find("div>div").stop().slideDown();
+                },
+                function(){
+                    $(this).find("div>div").stop().slideUp();
+                }
+            )
+        })
+    </script>
+</head>
+<body>
+
+<div style="position:relative;width:1000px;height:80px;z-index:2"><!-- 메뉴-->
+
+    <ul>
+
+        <li>
+
+            <div>
+
+                <a href="#" data-mouseover="red">Click</a>
+
+                <div><a href="#" data-mouseover="red">Click</a><a href="#" data-mouseover="red">Click</a><a href="#" data-mouseover="red">Click</a></div>
+
+            </div>
+
+        </li>
+
+        <li>
+
+            <div>
+
+                <a href="#"  data-mouseover="blue">Click</a>
+
+            </div>
+
+        </li>
+
+        <li>
+
+            <div>
+
+                <a href="#"  data-mouseover="green">Click</a>
+
+                <div><a href="#" data-mouseover="red">Click</a><a href="#" data-mouseover="red">Click</a><a href="#" data-mouseover="red">Click</a></div>
+
+            </div>
+
+        </li>
+
+        <li>
+
+            <div>
+
+                <a href="#"  data-mouseover="red">Click</a>
+
+                <div><a href="#" data-mouseover="red">Click</a><a href="#" data-mouseover="red">Click</a><a href="#" data-mouseover="red">Click</a></div>
+
+            </div>
+
+        </li>
+
+        <li>
+
+            <div>
+
+                <a href="#"  data-mouseover="red">Click</a>
+
+            </div>
+
+        </li>
+
+        <li>
+
+            <div>
+
+                <a href="#"  data-mouseover="red">Click</a>
+
+            </div>
+
+        </li>
+
+    </ul>
+
+</div>
+
+<div style="position:relative;z-index:1;"><!-- 내용-->
+
+    <img src="../img/KakaoTalk_Photo_2022-10-06-18-17-13.jpeg">
+
+</div>
+
+</body>
+</html>

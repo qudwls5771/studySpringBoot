@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       window.onload=function(){
+           var img2=document.getElementById("img2");
+           img2.onmouseover=function(){
+            //document.images.img2.src='2.gif'
+            img2.src='2.gif';
+           }
+           img2.onmouseout=function(){
+            //document.images.img2.src='1.gif'
+            img2.src='1.gif';
+           }
+       }
+    </script>
+</head>
+<body>
+    <a href="http://www.daum.net">
+        <img src="1.gif" id="img1" border="5"
+        onmouseover="document.images.img1.src='2.gif'"
+        onmouseout="document.images.img1.src='1.gif'"/>
+    </a>
+    <a href="http://www.daum.net">
+        <img src="1.gif" id="img2" border="5"/>
+    </a>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .myStyle1{
+            width:100%;
+            background-color: red;
+            color:white;
+            font-size: 25px;
+            display: block;
+        }
+        .myStyle2{
+            width:100%;
+            background-color: blue;
+            color:white;
+            font-size: 25px;
+            display: block;
+        }
+        .myStyle3{
+            width:100%;
+            background-color: green;
+            color:white;
+            font-size: 25px;
+            display: block;
+        }
+        div{
+            display: none;
+        }
+     
+
+    </style>
+    <script>
+        window.onload=function(){
+            document.getElementById("b1")
+            .addEventListener("click",function(){
+                document.getElementById("d1").classList.toggle("myStyle1");   
+            })
+            document.getElementById("b2")
+            .addEventListener("click",function(){
+                document.getElementById("d1").classList.add("myStyle2");   
+                document.getElementById("d1").classList.add("myStyle3");   
+            })
+            document.getElementById("b3")
+            .addEventListener("click",function(){
+                document.getElementById("d1").classList.remove("myStyle3");   
+                  
+            })
+        }
+        // <div id="d1" style="display: none"> 
+        // inline style시트가 우선순위가 높아서 정상동작하지 않는다.
+    </script>
+</head>
+<body>
+    <button id="b1">toggle</button>
+    <button id="b2" class="active">add</button>
+    <button id="b3">delete</button>
+    <div id="d1">
+        DIV 태그
+    </div>
+    
+</body>
+</html>

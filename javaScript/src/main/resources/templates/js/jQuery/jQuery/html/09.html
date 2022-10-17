@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var myDate=new Date();//현재시간
+        //2018년4월6일10시10분10초
+        myDate=new Date(2018,4,6,10,10,10);
+        document.write(myDate.getFullYear());
+        switch(myDate.getDay()){
+            case 0:
+                document.write("일요일");
+                break;
+        }
+        document.write(myDate.getTime());
+        document.write(new Date(myDate.getTime()));
+        myDate.setDate(30);
+        document.write(myDate);
+        myDate.setDate(myDate.getDate()+30);
+        //달 연산을 하고 싶다면 getMonth()사용
+        document.write(myDate);
+        // console.log(
+        //         document.getElementById("text1").value,
+        //         "<br>"
+        //     );
+
+        function  checkDate(){
+            console.log(
+                document.getElementById("text1").value,
+                "<br>"
+            );
+            console.log(
+                document.getElementById("checkbox1").checked,
+                "<br>"
+            );
+            console.log(
+                document.getElementById("pDate1").value,
+                "<br>"
+            );
+            console.log(
+                document.getElementById("pDate2").value,
+                "<br>"
+            );
+
+            // document.getElementById("text1").value="test";
+            // document.getElementById("checkbox1").checked=true;
+            // document.getElementById("pDate2").value=new Date();
+            //alert(new Date(document.getElementById("pDate2").value));
+            var t1=new Date(document.getElementById("pDate1").value);
+            var t2=new Date(document.getElementById("pDate2").value);
+                
+            alert(t1.getTime()-t2.getTime());
+            //초 1000
+            //분 60*1000
+            //시 60*60*1000
+            //일 24*60*60*1000
+
+            //pc방 요금 구하는 프로그램 시간당 1000원
+            //자판기
+
+        }
+
+    </script>
+</head>
+<body>
+    <input type="text" id="text1">
+    <input type="checkbox" id="checkbox1">
+    <input type="date" id="pDate1">
+    <input type="datetime-local" id="pDate2">
+    <input type="button" onClick="checkDate()"
+     value="button1">
+
+    
+</body>
+</html>

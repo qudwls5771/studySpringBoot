@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+           $(function(){
+          $(".div01").hover(
+            function(){
+              $(this).animate({width:"400"},300);
+            },function(){
+              $(this).animate({width:"200"},300);
+            }
+          )
+        })
+    </script>
+    <style>
+    *{
+        margin:0px;
+        padding:0px;
+      }
+      .div01{
+          float:left;
+          width:200px;
+            height:200px;
+          overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div  style="width:1400px;">
+        <div class="div01">
+          <div style="width:400px;background: black;">
+          <img src="2.jpg" width="200" height="200"><img src="1.gif" width="200" height="200">
+         </div>
+        </div>
+        <div class="div01">
+           <div style="width:400px;background: black;">
+           <img src="2.jpg" width="200" height="200"><img src="2.gif" width="200" height="200">
+          </div>
+         </div>
+         <div class="div01">
+             <div style="width:400px;background: black;">
+             <img src="2.jpg" width="200" height="200"><img src="3.gif" width="200" height="200">
+            </div>
+           </div>
+ 
+      </div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>기본적인 세로 메뉴의 시작</title>
+<style>
+body {
+	margin: 20px auto;
+	padding: 0;
+	font-family: "맑은 고딕";
+	font-size: 0.9em;
+}
+ul#navi {
+	width: 200px;
+	text-indent: 10px;
+}
+ul#navi, ul#navi ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+li.group {
+	margin-bottom: 3px;
+}
+div.title {
+	height: 35px;
+	line-height: 35px;
+	background: #9ab92e;
+	cursor: pointer;
+}
+ul.sub li {
+	margin-bottom: 2px;
+	height: 35px;
+	line-height: 35px;
+	background: #f4f4f4;
+}
+ul.sub li a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+	color:#000;
+}
+ul.sub li:hover {
+	background: #cf0;
+}
+</style>
+<script src="js/jquery-1.7.2.min.js"></script>
+</head>
+
+<body>
+<ul id="navi">
+	<li class="group">
+		<div class="title">title 1</div>
+		<ul class="sub">
+			<li><a href="#">sub1</a></li>
+			<li><a href="#">sub1</a></li>
+			<li><a href="#">sub1</a></li>
+		</ul>
+	</li>
+	<li class="group">
+		<div class="title">title 2</div>
+		<ul class="sub">
+			<li><a href="#">sub2</a></li>
+		</ul>
+	</li>
+	<li class="group">
+		<div class="title">title 3</div>
+		<ul class="sub">
+			<li><a href="#">sub3</a></li>
+			<li><a href="#">sub3</a></li>
+		</ul>
+	</li>
+</ul>
+
+<script>
+//이전장의 딜레이 문제를 해결해 보자.
+var current; // 현재 활성화된 초기 메뉴를 기억합니다.
+
+$(".sub").hide();
+
+
+init(0);
+function init(n){
+	current=n;
+	// $("li.group").eq(current).find("ul").show();//보여주는 애니메이션
+	$("li.group").eq(current).find("ul").slideDown();//아래로 내려가는 애니메이션
+}
+$(".group").hover( // .title 상위 경로에서 mouseenter, mouseleave 처리시킵니다.
+	function(){
+		$(".sub").each(function(){
+			if($(this).css("display") == "block"){
+				// $(this).slideUp();
+				$(this).stop().animate({height:"0%"}, 300, function(){
+					$(this).hide();
+				});
+			}
+		});
+		// console.log("index : "+$(this).index());
+		var i=$(this).index();
+		// $(this).find("ul").slideDown();
+		$(this).find("ul").stop().show().css({height:"0%"}).animate({height:"100%"}, 300);
+	},
+	function(){
+		// $(this).find("ul").slideUp();
+		$(this).find("ul").stop().animate({height:"0%"}, 300, function(){
+			$(this).hide();
+		});
+	}
+);
+/*
+마우스를 올렸다 내렸다 하면 slideup down에 딜레이가 생겨 에러처럼 보인다.
+에니메이션 형태로 변경해보자.
+%계산이 애매하게 동작하는 형상이 발생한다.
+1) slideUp()
+$(this).stop().animate({height:"0%"}, 300, function(){
+	$(this).hide();
+});
+
+2) slideDown()
+$(this).stop().show().css({height:"0%"}).animate({height:"100%"}, 300);
+변경이후에도 0%에 대한 인식이 되지않아 동작오류가 난다.
+*/
+</script>
+</body>
+</html>

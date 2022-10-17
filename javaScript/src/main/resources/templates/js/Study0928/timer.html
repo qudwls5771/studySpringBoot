@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+      //타이머 : 특정 시간에 특정 함수를 실행 시킬때 사용한다.
+      //  setTimeout 특정시간이후에 1번 실행된다.
+      //  setInterval 특정시간마다 실행된다.
+      //  clearInterval 특정타이머를 종료시킨다.
+      /*
+      setTimeout(function (){
+        document.write('setTimeout'  + new Date() +'<br>')
+      }, 2000);
+
+
+
+      var myFuntion = function (){
+        document.write('setTimeout' + new Date() + '<br>')
+      }
+      setTimeout(myFuntion, 5000);
+
+
+      //전역 변수라 숫자가 증가함
+      var count = 0;
+      setInterval(function(){
+        count++;
+        document.write(count + '<br>')
+      }, 2000);
+
+
+      */
+      //지역 변수라서 숫자가 증가하지 않음
+      var count = 0;
+      var myFuntion = function (){
+        count++;
+        document.write(count + " : " + new Date() + '<br>');
+      }
+
+      var aTimer = setInterval(myFuntion, 2000);
+      var bTimer = setInterval(myFuntion, 2000);
+
+      clearInterval(aTimer);
+
+      // setInterval은 원할 때 제어할 수 있도록 생성할 때 식별자를 리턴한다.
+      // 이 식별자와 clearInterval 메소드를 이용해서 동작중인 타이머를 멈추게할 수 있다.
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>

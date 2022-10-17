@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script>
+        $(function(){
+            $("#box>ul>li").hover(
+                function(){
+                    $(this).find(".pagecurl").stop().animate({
+                        left:"-100px"
+                    },300);
+                },
+                function(){
+                    $(this).find(".pagecurl").stop().animate({
+                        left:"0px"
+                    },300);
+                }
+            )
+
+        })
+        
+    </script>
+     <style>
+ body {
+	font-family: "맑은 고딕";
+}
+ul, li {
+	margin: 0;
+	padding: 0;
+}
+li {
+	list-style: none;
+}
+
+#box ul li {
+	position: relative;
+	left: 100px;
+	top: 100px;
+	padding: 10px;
+	width: 80px;
+	height: 80px;
+	overflow: hidden;
+	background: #00ff00;
+	color: #fff;
+	cursor: pointer;
+}
+.pagecurl {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
+	padding: 10px;
+	width: 80px;
+	height: 80px;
+	background: #ccc;
+	color: #fff;
+}
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li id="menu1">
+                over
+                <div class="pagecurl">previous over</div>
+            </li>
+            <li id="menu2">
+                over
+                <div class="pagecurl">previous over</div>
+            </li>
+            <li id="menu3">
+                over
+                <div class="pagecurl">previous over</div>
+            </li>
+            <li id="menu4">
+                over
+                <div class="pagecurl">previous over</div>
+            </li>
+            <li id="menu5">
+                over
+                <div class="pagecurl">previous over</div>
+            </li>
+        </ul>
+    </div>
+    
+</body>
+</html>

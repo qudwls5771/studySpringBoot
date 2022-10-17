@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    /*
+    배열
+    배열이란?
+     여러개의 관련된 변수를 한번에 생성하여 사용할때 사용한다. 
+
+    */
+    //배열 생성 방법
+    var arr=[3,6,1,2,4];
+    document.write(arr,"<br>");
+    //벼열 읽는 방법
+    document.write(arr[0],"<br>");
+    //배열에 값을 넣는 방법
+    arr[0]=20;
+    document.write(arr,"<br>");
+    //범위에 벗어나면 알아서 생성한다.
+    arr[10]=50;
+    document.write(arr,"<br>");
+
+    var arr2;
+    arr[10]=10;     //정상
+    //arr2[10]=20;    //error  arr2는 배열이 아니여서 [] 연산자를 사용할 수 없다.
+    arr2=[];        //배열로 만들어야 문제없이 사용할수 있다.
+    arr2[10]=20;
+
+    var arr3=new Array();//변수를 배열 객체로 선언
+    //arr배열을 가지고 다음을 풀어보자.
+    //배열안에 모든 값을 더한 합을 구해보자.
+    var sum=0;
+    for(var i=0;i<arr.length;i++){
+        sum=sum+arr[i];
+    }
+    document.write(sum,"<br>");
+    //in  배열에 있는 내용을 하나씩 가저와서 실행한다.
+    var sum=0;
+    for(var i in arr){
+        sum=sum+i;
+    }
+    document.write(sum,"<br>");
+
+    //배열안에 기존의 값에 3을 곱한 값을 넣어보자.
+    for(var i=0;i<arr.length;i++){
+        arr[i]=arr[i]*3;
+    }
+    document.write(arr,"<br>");
+    //배열안에 모든 값을 더한 합을 구해보자.
+    //배열안에 기존의 값에 3을 곱한 값을 넣어보자.
+
+
+
+    //배열 관련 맴버들 
+    //.length 배열에 길이를 생성해 준다.
+    //.concat() 원소 또는 배열을 합친다.
+    var arr1=[1,2,3,4];
+    var arr2=arr1.concat(5);
+    document.write(arr1,"<br>");//1,2,3,4
+    document.write(arr2,"<br>");//1,2,3,4,5
+    var arr3=[2,3,4].concat([5,6,7]);
+    document.write(arr3,"<br>");//1,2,3,4,5
+    
+
+    //.every()  배열의 데이터가 모두 조건에 맞는지 확인
+    //콜백함수의 결과가 모두 true이면 true 하나라도 만족하지 않으면  false
+    var arr1=[1,2,3,4];
+    var result=arr1.every(function(x){
+        return x<5;
+    })
+    document.write(result,"<br>");//true
+    var result=arr1.every(function(x){
+        return x<2;
+    })
+    document.write(result,"<br>");//false
+
+    //filter 배열에서 조건에 맞는 값만 추출해서 새로운 배열을 만듬
+
+    var arr1=[1,2,3,4,5];
+    var result=arr1.filter(function(x){
+        return x%2===1;
+    });
+    document.write(arr1,"<br>");//false//1,2,3,4,5
+    document.write(result,"<br>");//1,3,5
+
+    var f1=function(x){
+        return x%2===1;
+    };
+    var result=arr1.filter(f1);
+    //람다식
+    var result=arr1.filter(x=>x%2===1);
+    //(x,y)=>x+y;
+    //(x,y)=>{x+y};
+
+
+
+    //.indexOf      앞에서 부터 원하는 데이터의 인덱스를 찾는다.
+    //.lastIndexOf  뒤에서 부터 찾기
+    var arr1=[1,2,3,4];
+    document.write(arr1.indexOf(2),"<br>");//1
+    document.write(arr1.lastIndexOf(3),"<br>");//2
+    //indexOf(찾을 데이터,시작 인덱스)
+    document.write(arr1.indexOf(2,2),"<br>");//-1
+
+
+    //.join 배열을 합쳐서 하나의 문자열을 만듬
+    var arr1=[1,2,3,4];
+    document.write(arr1.join("-"),"<br>");//1-2-3-4
+    
+
+    //자료구조 데이터를 사용하는 방법
+    //변수 ,배열 , list ,stack, que, 
+    //변수 하나의 데이터저장
+    //배열 여러개의 데이터저장
+    //list 연속된 데이터
+    //tree 그래프중 노드간 이동경로가 1개 존재하는 그래프
+    //그래프 노드와 간선으로 이루어진 구조
+    
+    // 스택 LIFO last in first out 마지막 들어간 것이 먼저 나옴
+    // 큐   FIFO first in first out 처음들어간 데이터가 먼저 나옴
+ 
+    // 두 메소드를 사용해서 배열을 stack처럼 사용할 수 있다.
+    //.push(), pop()
+    //push데이터 삽입 , pop 데이터를 읽어와 삭제
+    var arr1=[1,2,3,4];
+    arr1.push(5);
+    document.write(arr1,"<br>");//1,2,3,4,5
+    arr1.push(6);
+    document.write(arr1,"<br>");//1,2,3,4,5,6
+
+    document.write(arr1.pop(),"<br>");//6
+    document.write(arr1,"<br>");//1,2,3,4,5
+
+    document.write(arr1.pop(),"<br>");//5
+    document.write(arr1,"<br>");//1,2,3,4
+    
+
+    //큐 que 
+    // shift() 배열의 첫번째 값을 읽어와 제거한다.
+    // unshift() 배열의 마지막에 값을 추가한다.
+    var arr1=[1,2,3,4];
+    document.write(arr1.shift(),"<br>");//1
+    document.write(arr1,"<br>");//2,3,4
+    arr1.unshift(5);
+    document.write(arr1,"<br>");//2,3,4,5
+    
+
+    //.sort
+    var arr1=[5,1,3,2,4];
+    document.write(arr1.sort(),"<br>");
+    document.write(arr1,"<br>");//1,2,3,4,5
+
+    var arr1=['b','c','a'];
+    document.write(arr1.sort(),"<br>");
+    document.write(arr1,"<br>");//a,b,c
+
+    //sort는 기본적으로 문자열 정렬된다.
+    var arr1=[5,1,3,2,4,10];
+    document.write(arr1.sort(),"<br>");//1,10,2,3,4,5
+    document.write(arr1,"<br>");
+
+    //sort를 숫자로 정렬 하고 싶으면 콜백함수를 사용해야 한다.
+    //매개변수가 함수인경우 콜백함수.  
+    //콜백함수 시스템이 호출하는 함수. 
+    arr1.sort(function(a,b){
+        //오름차순정렬
+        if(a>b)return 1;
+        if(a<b)return -1;
+        if(a==b)return 0;
+        //내림차순정렬
+        //if(a>b)return -1;
+        //if(a<b)return 1;
+        //if(a==b)return 0;
+    })
+    document.write(arr1,"<br>");
+    //reverse 배열의 내용을 역정렬한다.
+    arr1.reverse();
+    document.write(arr1,"<br>");
+    
+    //.slice 배열에 특정 부분을 추출한다.
+    var arr1=[5,1,3,2,4,10];
+    //인덱스 3이후 모두 출력
+    document.write(arr1.slice(3),"<br>");//2410
+    //인덱스 2부터 인덱스 5 앞쪽의 데이터까지
+    document.write(arr1.slice(2,5),"<br>");//324
+    document.write(arr1,"<br>");//변경되지 않은
+
+    //.splice 추출 및 변경한다. 
+    //2번 인덱스부터 2개 추출
+    //리턴값은 삭제된 데이터가 리턴된다.
+    var arr1=[5,1,3,2,4,10];
+    var remove=arr1.splice(2,2);
+    document.write(arr1,"<br>");//5,1,4,10
+    document.write(remove,"<br>");//3,2
+
+    var arr1=[5,1,3,2,4,10];
+    var remove=arr1.splice(2,2,999,999);
+    document.write(arr1,"<br>");//5,1,999,999,4,10
+    document.write(remove,"<br>");//3,2
+    
+
+    var arr4=[
+        [1,2,3,4],
+        [5,6,7,8],
+        [9,10,11,12],
+        [13,14,15,16]
+    ]
+    //arr4의 배열은 데이터가 총 4개 존재 한다.
+    document.write(arr4.length,"<br>");//4
+    //arr4배열의 1번째 값을 읽어오기
+    document.write(arr4[0],"<br>");
+    //arr4배열의 2번째 값을 읽어오기
+    document.write(arr4[1],"<br>");
+    //3값을 읽어와서 찍어보자.
+    //arr4[0]이 배열이므로 이배열에 []를 사용해서 원하는 값을 찾는다.
+    document.write(arr4[0][2],"<br>");
+    //15값을 읽어와서 찍어보자.
+    document.write(arr4[3][2],"<br>");
+    //10값을 찾아서 100으로 변경해 보자.
+    arr4[2][1]=100;
+    document.write(arr4,"<br>");
+    
+    //2중 for문을 이용해서 배열의 내용을 출력해 보자.
+    //2차원 배열에 들어 있는 값을 html table로 만들어서 해당 td에 넣어보자.
+
+    for(var i=0;i<4;i++){
+        for(var j=0;j<4;j++){
+            document.write(arr4[i][j]," ")
+        }
+        document.write("<br> ")
+    }
+
+    document.write("<table border=1>")
+    for(var i=0;i<4;i++){
+        document.write("<tr>")
+        for(var j=0;j<4;j++){
+            document.write("<td>")
+            document.write(arr4[i][j])
+            document.write("<td>")
+        }
+        document.write("<tr>")
+    }
+    document.write("</table>")
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+

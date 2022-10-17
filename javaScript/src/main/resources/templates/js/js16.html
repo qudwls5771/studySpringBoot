@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function f1(){
+            alert("f1");
+        }
+        window.onload=function(){
+            //onClick 같은 경우 이벤트 등록이 1개만된다.
+            //addEventListener
+            var b1=document.getElementById("b1");
+            b1.addEventListener('click',f1);
+            b1.addEventListener('click',function(){
+                alert("f2");
+            });
+            b1.removeEventListener('click',f1);
+        }
+
+    </script>
+</head>
+<body>
+    <button id="b1">클릭</button>
+    
+</body>
+</html>

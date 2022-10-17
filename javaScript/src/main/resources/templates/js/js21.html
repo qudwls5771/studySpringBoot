@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function move(){
+            var temp=document.getElementById("x2").getAttribute("bgcolor");
+            console.log(temp);
+
+            for(var i=2;i>0;i--){
+                document.getElementById("x"+i).setAttribute("bgcolor",
+                document.getElementById("x"+(i-1)).getAttribute("bgcolor"));
+
+                // document.getElementById("x1").setAttribute("bgcolor",
+                // document.getElementById("x0").getAttribute("bgcolor"));
+            }
+            
+             
+             document.getElementById("x0").setAttribute("bgcolor",temp);
+        }
+
+        window.onload=function(){
+            // var temp=document.getElementById("x2").getAttribute("bgcolor");
+            // console.log(temp);
+            //  document.getElementById("x2").setAttribute("bgcolor",
+            //  document.getElementById("x1").getAttribute("bgcolor"));
+
+            //  document.getElementById("x1").setAttribute("bgcolor",
+            //  document.getElementById("x0").getAttribute("bgcolor"));
+             
+            //  document.getElementById("x0").setAttribute("bgcolor",temp);
+            var intervalId=setInterval(move,1000);
+
+        }
+        //전광판
+        
+    </script>
+</head>
+<body>
+    <table border="1" width="300" height="100">
+        <tr>
+            <td id="x0" bgcolor="red"></td><td  id="x1" bgcolor="blue"></td><td  bgcolor="green" id="x2"></td>
+        </tr>
+    </table>    
+</body>
+</html>

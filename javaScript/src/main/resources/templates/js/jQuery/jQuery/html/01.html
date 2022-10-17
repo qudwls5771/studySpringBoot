@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //alert(isNaN(10));//false
+        //alert(isNaN('fd10'));//true
+        function myFunction2(){
+            var x=document.getElementById("numb").value;
+            //1~10인 숫자만입력받기
+            //isNan(x)
+            var text;
+            if(isNaN(x)||x<1||x>10){
+                text="Input not valid";
+            }else{
+                text="valid date";
+            }
+            document.getElementById("demo").innerHTML
+                =text;
+        }
+        function changeImage(){
+            var image=document.getElementById('myImage');
+            if(image.src.match("on.jpg")){
+                image.src='off.jpg';
+            }else{
+                image.src='on.jpg';
+            }
+        }
+        function myFunction(){
+            var demo=document.getElementById('demo');
+            demo.style.fontSize="25px";
+            demo.style.color="red";
+        }
+
+    </script>
+</head>
+<body>
+    <p id="demo">JavaScript Can Change HTML content</p>
+    <button type="button" 
+    onclick="document.getElementById('demo').innerHTML
+    ='h<b>el</b>lo'">click me!</button>
+
+
+    <img id='myImage' onclick="changeImage()"
+     src='on.jpg' width="120" height="200">
+
+     <button bgcolor="#886654" type="button" 
+     onclick="myFunction()">click me!</button>
+
+     <input type="number" id="numb">
+
+    <button type="button" 
+     onclick="myFunction2()">click me!</button>
+
+
+ 
+
+</body>
+</html>
+
+
+
+
+
+

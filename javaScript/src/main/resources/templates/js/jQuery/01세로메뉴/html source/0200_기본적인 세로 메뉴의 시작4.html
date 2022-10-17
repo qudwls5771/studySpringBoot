@@ -1,0 +1,102 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>기본적인 세로 메뉴의 시작</title>
+<style>
+body {
+	margin: 20px auto;
+	padding: 0;
+	font-family: "맑은 고딕";
+	font-size: 0.9em;
+}
+ul#navi {
+	width: 200px;
+	text-indent: 10px;
+}
+ul#navi, ul#navi ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+li.group {
+	margin-bottom: 3px;
+}
+div.title {
+	height: 35px;
+	line-height: 35px;
+	background: #9ab92e;
+	cursor: pointer;
+}
+ul.sub li {
+	margin-bottom: 2px;
+	height: 35px;
+	line-height: 35px;
+	background: #f4f4f4;
+}
+ul.sub li a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+	color:#000;
+}
+ul.sub li:hover {
+	background: #cf0;
+}
+</style>
+<script src="js/jquery-1.7.2.min.js"></script>
+</head>
+
+<body>
+<ul id="navi">
+	<li class="group">
+		<div class="title">title 1</div>
+		<ul class="sub">
+			<li><a href="#">sub1</a></li>
+			<li><a href="#">sub1</a></li>
+			<li><a href="#">sub1</a></li>
+		</ul>
+	</li>
+	<li class="group">
+		<div class="title">title 2</div>
+		<ul class="sub">
+			<li><a href="#">sub2</a></li>
+		</ul>
+	</li>
+	<li class="group">
+		<div class="title">title 3</div>
+		<ul class="sub">
+			<li><a href="#">sub3</a></li>
+			<li><a href="#">sub3</a></li>
+		</ul>
+	</li>
+</ul>
+
+<script>
+//페이지가 열리면 특정 메뉴가 열려있게 만들고 title클릭시 닫혔다 열리는 작업을 못하게 한다.
+$(".sub").hide(); // 전체 서브 메뉴를 가려줍니다.
+
+
+init(1); // 첫 번째 메뉴를 초기화 시킵니다.
+function init(n){
+	//$("li.group").eq(n).find("ul").show();
+	$("li.group").eq(n).find("ul").slideDown();
+}
+
+
+$(".title").click(function(){
+	if($(this).next().css("display") == "none"){ // 전체 메뉴가 slideUp 됩니다.none이면 열림
+		$(".sub").each(function(){
+			if($(this).css("display") == "block"){
+				$(this).slideUp();
+			}
+		});
+		$(this).next().slideDown(); // 현재 클릭된 <div> 태그 다음의 <ul> 태그가 slideDown 됩니다.
+	}else{ //title클릭시 닫혔다 열리는 작업을 못하게 한다. display가 none 아닐때 실행 
+		return false;
+	}
+});
+</script>
+</body>
+</html>

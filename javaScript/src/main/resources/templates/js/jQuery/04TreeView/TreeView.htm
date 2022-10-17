@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>트리뷰 컨트롤</title>
+    <style type="text/css">
+        fieldset {
+            width: 250px;
+        }
+    </style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //[1] 리스트의 기본 모양 지정 : <ul>를 자식으로 가지지 않는 li의 불릿기호는 기본 모양
+            $('li:not(:has(ul))').css({ cursor: 'default', 'list-style-image': 'none' });
+            //[2] 자식 요소를 갖는 li에 대해서는 plus.gif를 지정
+            $('li:has(ul)') // 자식 요소를 갖는 요소에 대해서
+                .css({ cursor: 'pointer', 'list-style-image': 'url(plus.gif)' }) // +기호로 설정
+                .children().hide(); // 자식 요소 숨기기
+            //[3] +로 설정된 항목에 대해서 click 이벤트 적용
+            $('li:has(ul)').click(function (event) {
+                // this == event.target으로 현재 선택된 개체에 대해서 처리
+                if (this == event.target) {
+                    // 숨겨진 상태면 보이고 -기호로 설정 그렇지 않으면 숨기고 +기호로 설정
+                    if ($(this).children().is(':hidden')) {
+                        // 보이기
+                        $(this).css('list-style-image', 'url(minus.gif)').children().slideDown(); 
+                    }
+                    else {
+                        // 숨기기
+                        $(this).css('list-style-image', 'url(plus.gif)').children().slideUp(); 
+                    }
+                }
+                return false;
+            });
+        });
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>트리뷰 구현하기</legend>
+        <ul>
+            <li>닷넷코리아</li>
+            <li>자바캠퍼스</li>
+            <li>비주얼아카데미
+                <ul>
+                    <li>라이센스마스터</li>
+                    <li>닷넷마스터
+                        <ul>
+                            <li>C#</li>
+                            <li>ASP.NET</li>
+                            <li>Silverlight</li>
+                        </ul>
+                    </li>
+                    <li>자바마스터</li>
+                </ul>
+            </li>
+        </ul>
+    </fieldset>
+</body>
+</html>

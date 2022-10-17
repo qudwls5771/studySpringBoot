@@ -1,0 +1,68 @@
+﻿
+<html>
+    <head>
+        <script 
+        src="https://code.jquery.com/jquery-3.2.1.js"></script>
+        
+<style>
+    *{
+        margin: 0;
+        padding:0;
+    }
+
+    
+ .div01{
+     outline: 1px solid rgb(58, 4, 4);
+     float: left;
+     width:200px;
+     height:200px;
+     padding:0px;
+     background-color: rgb(255, 103, 103);
+     overflow: hidden;
+     
+ }
+ 
+
+
+</style>
+<script>
+
+   
+
+    $(document).ready(function(){
+        
+        $(".div01").hover(
+            function(){
+                
+              
+                $(this).stop().animate({width:"400"},300);
+            },
+            function(){
+                $(this).stop().animate({width:"200"},300);
+            }
+        )
+    })    
+
+
+</script>
+    <body>
+       <div>
+            <div class="div01" id="box1"><!--yellow div-->
+                <div style="width:400; background:black;" >
+                <img src="2.jpg" width="200" height="200"><img src="1.gif" width="200" height="200">
+                </div>
+            </div>
+            <div class="div01" id="box2"><!--yellow div-->
+                <div style="width:400; background:black;" >
+                <img src="2.jpg" width="200" height="200"><img src="1.gif" width="200" height="200">
+                </div>
+            </div>
+            <div class="div01" id="box3"><!--yellow div-->
+                <div style="width:400; background:black;" >
+                <img src="2.jpg" width="200" height="200"><img src="1.gif" width="200" height="200">
+                </div>
+            </div>
+    
+        </div>
+    </body>
+</html>

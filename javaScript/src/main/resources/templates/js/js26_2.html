@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        시간을 표현하는 방법 2가지
+        1. 대표 숫자로 표현하는 방법
+        1. 년,월,일 ... 부분숫자로 표현하는 방법
+        //1970년 1월 1일 9시 0분 0초를 시간 객체로 만들어 보자.
+        */
+       var myDate1=new Date(0);
+       document.write(myDate1.getFullYear(),"<br>")//1970
+       document.write(myDate1.getMonth(),"<br>")//0~11 
+       document.write(myDate1.getDate(),"<br>")//1~
+       document.write(myDate1.getHours(),"<br>")//0~23
+       document.write(myDate1.getMinutes(),"<br>")//0~59
+       document.write(myDate1.getSeconds(),"<br>")//0~59
+
+       var myDate2=new Date(1970,0,1,9,0,0);//한국시간이여서 +9시간
+       document.write(myDate1,"<br>")
+       document.write(myDate2,"<br>")
+       
+       //시간 객체에 .getTime()메소드를 사용하면 시간객체에서 해당 시간 숫자를 얻을 수 있다.
+       document.write(myDate2.getTime(),"<br>")
+
+       //기준시로 부터 1초에 1000씩 증가한다.
+       var myDate3=new Date(1970,0,1,9,0,1);
+       document.write(myDate3.getTime(),"<br>")
+
+       //기준시로 2초지난시간은 다음과 같다.
+       var myDate4=new Date(1970,0,1,9,0,2);
+       document.write(myDate4.getTime(),"<br>")
+       document.write(new Date(2000),"<br>")
+
+       //myDate4와 myDate3시간의 차이는 1초 1000이다.
+       document.write(myDate4.getTime()-myDate3.getTime());
+
+       //결론 시간 객체 2개의 차이 시간을 구하고 싶다면
+       //두시간을 getTime메소드를 이용해서 숫자로 변경한후
+       //가까운시간에서 먼시간을 빼면 두 시간의 차이를 구할 수 있다.
+       //구한 수는 1000이 1초이다.
+
+       //두달의 차이구하기
+       var myDate5=new Date();
+       myDate5.setMonth(-7);
+       document.write(myDate5);
+
+       //2022-05-06 5:20:15 와 2021-03-02 15:20:15 의 시간차를 구해보자.
+       var myDate1=new Date(2022,4,6,5,20,15);
+       document.write(myDate1,"<br>");
+       var myDate2=new Date(2021,1,2,15,20,15);
+       document.write(myDate2,"<br>");
+
+      
+       //최근시간이 큼
+       var diff=myDate1.getTime()-myDate2.getTime();
+       myDate1.setSeconds()
+    
+        // myDate1.setMonth(myDate1.getMonth()-myDate2.getMonth())
+        // var month=myDate1.getMonth();
+        // alert(month);
+        
+        // var year=myDate1.getFullYear()-myDate2.getFullYear()
+        // alert(year);
+       
+         
+       var date=diff/(1000*60*60*24);
+       var hours=diff/(1000*60*60);
+       var minutes=diff/(1000*60);
+       var seconds=diff/(1000);
+
+       document.write(parseInt(date),"<br>");
+       document.write(parseInt(hours),"<br>");
+       document.write(parseInt(minutes),"<br>");
+       document.write(parseInt(seconds),"<br>");
+       
+       
+       myDate1.setDate(myDate1.getDate()+Number(date));
+       document.write(myDate1,"<br>");
+   
+
+
+
+       //기준시는 new Date(1970,0,1,0,0,0)이다.
+
+
+
+    //    var myDate2=new Date(1970,0,1,0,0,1);
+    //    document.write(myDate2,"<br>")
+
+        //1. 사용자에게 구매 시간을 입력받아서 반품가능하지 출력해보자. 1달이내에 구매해야 반품이 가능하다.
+        //2.두시간과 시간당요금을 입력받아 pc방요금을 계산해 보자 
+        //
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

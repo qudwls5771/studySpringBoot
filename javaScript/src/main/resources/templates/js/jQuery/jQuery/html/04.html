@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //비교 연산자
+        document.write(52>273,"<br>");
+        document.write(52>273,"<br>");
+        document.write(true>false,"<br>");
+        //연산자를 확인해 보자.
+        // == : 같은지? 같으면 참, 그렇지 않으면 거짓
+        // != : 다른지? 다르면 참, 같으면 거짓
+        // >=, >, <, <=
+        var a = 3;
+        var b = 5;
+
+        document.write((a == b) + "<br />"); // false
+        document.write((a != b) + "<br />"); // true
+
+        document.write(a >= b); //false
+        document.write("---");
+        document.write(true || false);
+        document.write(true && false);
+        document.write("---<br>");
+        document.write(30>20>10 ,"<br>");//false
+        document.write(30>20<10 , "<br>");//true
+
+        document.write(30>20==1 ,"<br>");//true
+        document.write(30<20==0 ,"<br>");//true
+
+        document.write(30 > 20 && 20 > 10);//true
+        //비교연산자가 논리연산자보다 연산자가 높다.
+
+         // && 연산자 : 둘 다 참일때에만 참
+		 // || 연산자 : 하나라도 참이면 참
+
+		 // true && true -> true
+		 document.write((10 > 5) && (5 != 3) + "<br />");
+
+		 // true || false -> true
+		 document.write(((10 >= 5) || (5 == 3)) + "<br />");
+
+		 // !false -> true
+		 document.write(!(10 <= 5)); // true
+
+		 var a = 1; var b = 2; var c = 3;
+
+		 document.write("안녕" + 2 + 2 + "<br />"); // 안녕22
+		 document.write("" + 2 + 2 + "<br />"); //22 
+		 document.write("" + (2 + 2) + "<br />"); // 괄호 우선 : 4
+		 document.write(2 + 2 + "" + "<br />"); // 정수 덧셈 : 4
+		 document.write((a = b) == 2, "<br />"); //a(2) : true 
+
+		 document.write(a = b == 1, "<br />"); //a(false)
+		 document.write(b < 35 && b > 1, "<br />");  //true
+		 document.write(-2 * 2 + 4 - 2, "<br />");-2
+		 document.write(a < b < c);       // 1 < 2 < 3 true(1)/false(0) : true
+
+		 document.write("----------------<br />"); //a(false)
+         document.write(''==false,"<br />"); //a(true)
+         document.write(''==0,"<br />"); //a(true)
+         document.write(0==false,"<br />"); //a(true)
+         document.write('273'==273,"<br />"); //a(true)
+         document.write('273'==274,"<br />"); //a(false)
+
+         var str='';
+         document.write(str==0,"<br />"); //true
+         document.write(str===0,"<br />"); //false
+         // == 값 자동형변환하여 비고 === 자료형도 비교
+
+         document.write("<hr />");
+        document.write(str != 0); // false
+        document.write(str !== 0); // true
+
+        document.write("<hr />");
+
+        document.write(null == undefined); // true
+        document.write(null === undefined); // false
+
+        var a=10; 
+        a++;
+
+
+    </script>
+</head>
+<body>
+
+    
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    var map=[
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+    [1,0,0,0,0,0,0,0,0,0,0,1,1,0,2],
+    [1,0,1,1,1,1,1,1,1,1,0,0,1,0,1],
+    [1,0,1,0,0,0,0,0,0,1,1,0,1,0,1],
+    [1,0,1,0,1,1,1,1,0,1,0,0,1,0,1],
+    [1,0,1,0,1,1,0,0,0,1,0,1,1,0,1],
+    [1,0,1,0,1,0,0,1,0,1,0,0,1,0,1],
+    [1,0,1,0,1,0,1,0,1,0,1,0,1,0,1],
+    [1,0,0,0,1,0,0,0,1,0,0,0,1,0,1],
+    [1,1,1,1,1,0,1,0,1,1,0,1,1,0,1],
+    [1,0,0,0,1,0,1,0,1,1,0,0,1,0,1],
+    [1,0,1,0,1,0,1,0,0,1,1,0,1,0,1],
+    [1,0,1,0,1,1,1,1,0,1,1,0,1,0,1],
+    [1,3,1,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+    ];
+
+    var strTable="<table border=1>";
+    for(y=0;y<map.length;y++){
+        strTable+="<tr>";
+        for(x=0;x<map[y].length;x++){
+            strTable+="<td id='y"+y+"x"+x+"' width=30 height=30 >";
+            strTable+="</td>";
+        }
+        strTable+="</tr>";
+    }
+    strTable+="</table>";
+    document.write(strTable);
+
+    function changeColor(y,x,color){
+        document.getElementById("y"+y+"x"+x).bgColor=color;
+    }
+
+    for(y=0;y<map.length;y++){
+        for(x=0;x<map[y].length;x++){
+            if(map[y][x]==1){
+                changeColor(y,x,'black');
+            }else if(map[y][x]==0){
+                changeColor(y,x,'white');
+            }else if(map[y][x]==2){
+                changeColor(y,x,"#55EEFF");
+            }else if(map[y][x]==3){
+                document.getElementById("y"+y+"x"+x).innerHTML=
+                    "<img src='kkobuk.jpg'width='25' height='25'>";
+            }
+        }
+    }
+    //꼬부기 좌표
+    var nowY=13;    var nowX=1;
+    function inputFunction(e) {
+                //56 54 50 52 위 오른쪽 아래 왼쪽 //alert(e);
+                switch(e){
+                    case 56://up
+                    if(map[nowY-1][nowX]==0){
+                        document.getElementById("y"+nowY+"x"+nowX).innerHTML="";//지우고
+                        nowY--;
+                        document.getElementById("y"+nowY+"x"+nowX).innerHTML=
+                        "<img src='kkobuk.jpg' width='25' height='25'>";
+                    }else if(map[nowY-1][nowX]==2){
+                        alert('게임 종료');
+                        return;
+                    }
+                    break;
+                    case 54://right
+                    if(map[nowY][nowX+1]==0){
+                        document.getElementById("y"+nowY+"x"+nowX).innerHTML="";//지우고
+                        nowX++;
+                        document.getElementById("y"+nowY+"x"+nowX).innerHTML=
+                        "<img src='kkobuk.jpg' width='25' height='25'>";
+                    }else if(map[nowY][nowX+1]==2){
+                        alert('게임 종료');
+                        return;
+                    }
+                    break;
+                    case 50://down
+                    if(map[nowY+1][nowX]==0){
+                        document.getElementById("y"+nowY+"x"+nowX).innerHTML="";//지우고
+                        nowY++;
+                        document.getElementById("y"+nowY+"x"+nowX).innerHTML=
+                        "<img src='kkobuk.jpg' width='25' height='25'>";
+                    }else if(map[nowY+1][nowX]==2){
+                        alert('게임 종료');
+                        return;
+                    }
+                    break;
+                    case 52://left
+                    if(map[nowY][nowX-1]==0){
+                        document.getElementById("y"+nowY+"x"+nowX).innerHTML="";
+                        nowX--;
+                        document.getElementById("y"+nowY+"x"+nowX).innerHTML=
+                        "<img src='kkobuk.jpg' width='25' height='25'>";
+                    }else if(map[nowY][nowX-1]==2){
+                        alert('게임 종료');
+                        return;
+                    }
+                    break;
+                }
+            }
+
+
+    </script>
+
+
+</head>
+<body onkeypress="inputFunction(event.keyCode)" >
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
